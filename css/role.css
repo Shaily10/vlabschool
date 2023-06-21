@@ -1,0 +1,101 @@
+/* Style for the modal background */
+.modal {
+    display: none; /* Hide the modal by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  }
+  
+  /* Style for the modal content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    height: 50%;
+    border: 1px solid #888;
+    width: 40%; /* Could be more or less, depending on screen size */
+    text-align: center;
+  }
+  
+  /* Style for the form inputs */
+  form input[type="radio"] {
+    margin: 10px;
+  }
+  
+  /* Style for the form button */
+  .sub  {
+    margin-top: 40%;
+    margin-right: 30%;
+    margin-left: 70%;
+    padding: 10px 20px;
+    background-color: #0b0b0b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Style for the form button when hovering */
+  form button:hover {
+    background-color: #222f23;
+  }
+
+  form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  input[type="radio"] {
+    display: none;
+  }
+  
+  label {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-left: 40%;
+    margin-right: -25%;
+    margin-bottom:100px ;
+    cursor: pointer;
+  }
+  
+  label img {
+    width: 100px;
+    height: 150px;
+    /* margin-bottom: 100px; */
+    /* margin-left: 15rem; */
+    /* padding-left: 40px; */
+  }
+  
+  input[type="radio"]:checked + label {
+    background-color: #ddd;
+  }
+  
+  #teacher + label img {
+    filter: grayscale(100%);
+  }
+  
+  #teacher:checked + label img {
+    filter: none;
+  }
+  
+  #student + label img {
+    filter:  grayscale(100%);
+  }
+  
+  #student:checked + label img {
+    filter: none;
+  }
+  
+
+  

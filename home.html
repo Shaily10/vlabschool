@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Virtual Lab Home</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Welcome to the Virtual Lab Home</h1>
+		<p>Explore our virtual lab!</p>
+		<button type="button" onclick="showPopup()">Explore</button>
+	</div>
+
+	<div id="popup" class="popup">
+		<div class="popup-content">
+			<h2>Select Your Role</h2>
+			<form>
+				<!-- <label>
+					<input type="radio" name="role" value="teacher"> Teacher
+				</label> --> 
+				<label>
+					<input type="radio" name="role" value="teacher">
+					<img src="https://thumbs.dreamstime.com/b/professor-lecturer-illustration-cartoon-isolated-personage-34508406.jpg" class="role-image">
+					<div>Teacher</div>
+				  </label>				  
+				<!-- <label>
+					<input type="radio" name="role" value="student"> Student
+				</label> -->
+				<label>
+					<input type="radio" name="role" value="student">
+					<img src="https://img.favpng.com/1/19/14/student-cartoon-png-favpng-TjJpS0PQM5V0uKy9AUBWYAwTW_t.jpg" class="role-image">
+					<div>Student</div>
+				  </label>				  
+				<button type="button" onclick="selectRole()">Select</button>
+			</form>
+		</div>
+	</div>
+
+	<script>
+		function showPopup() {
+			document.getElementById("popup").style.display = "block";
+		}
+
+		function selectRole() {
+			var role = document.querySelector('input[name="role"]:checked').value;
+			localStorage.setItem("role", role);
+			window.location.href = "index.html";
+		}
+	</script>
+</body>
+</html>

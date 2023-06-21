@@ -1,0 +1,25 @@
+$.i18n.en = {};
+ jQuery.i18n.en.strings ={ 
+	"SAVE": "SAVE",
+	"FULLSCREEN": "FULLSCREEN",
+	"EXIT": "EXIT",
+	"Select an object:": "Select an object:",
+	"Sphere": "Sphere",
+	"Iron block": "Iron block",
+	"Beaker": "Beaker",
+	"Cylinder": "Cylinder",
+	"Select what to measure:": "Select what to measure:",
+	"Diameter": "Diameter",
+	"Enter reading (cm): ": "Enter reading (cm): ",
+	"Result": "Result",
+	"Reset": "Reset",
+	"Check": "Check",
+	"L.C = 0.01cm": "L.C = 0.01cm",
+	"Length": "Length",
+	"Breadth": "Breadth",
+	"Thickness": "Thickness",
+	"Inner diameter": "Inner diameter",
+	"Depth": "Depth",
+	"Developed by CDAC Mumbai & Amrita University <br/>Under research grant from department of IT": "Developed by Cheems <br/>Under research grant from department of IT",
+	"Vernier Calipers": "Vernier Calipers"
+}

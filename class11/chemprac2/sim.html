@@ -1,0 +1,333 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<!-- Enable IE9 Standards mode -->
+<meta http-equiv="X-UA-Compatible" content="IE=9" >
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title></title>
+<link rel="stylesheet" type="text/css" media="all" href="../chemprac2/font.css" />
+<link rel="stylesheet" type="text/css" media="all" href="../chemprac2/reset.css" />
+<link rel="stylesheet" type="text/css" media="all" href="../chemprac2/grid.css" />
+<link href="../chemprac2/mainstyle.css" rel="stylesheet" type="text/css" />
+<link href="../chemprac2/nanoscroller.css" rel="stylesheet" type="text/css" />
+<script src="../chemprac2/overthrow.js"></script>
+<script src="../chemprac2/jquery1.7.1.js"></script>
+<script src="../chemprac2/nanoscroller.js"></script>
+<script type="text/javascript" src="../chemprac2/touchready.js"></script>
+<script type="text/javascript" src="../chemprac2/main.js"></script>
+<!--[if IE]><script src="js/excanvas.js"></script><![endif]-->
+<script type="text/javascript" language="javascript">var simPath="../CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/";</script>
+<link  href="../chemprac2/simstyle.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="../chemprac2/jqueryi18.js"></script>
+<link  href="../chemprac2/trip.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="../chemprac2/help.js"></script>
+<script language="javascript" type="text/javascript" src="../chemprac2/tripmin.js"></script>
+<script type="text/javascript" src="../chemprac2/simcontrol.js"></script>
+<script src="../chemprac2/jquerymin.js" language="javascript"></script>
+<script type="text/javascript" src="../chemprac2/touchconvert.js"></script>
+<script language="javascript"  >
+var language_script= 'en-IN';
+var language=language_script.toString();
+	language=language.slice(0, 2);
+	gt.gettext.setLocale(language);
+</script>
+<script type='text/javascript'  src='../chemprac2/lang.json'></script><!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+<script src="../chemprac2/modernizer-custom.js"></script>
+<script> 
+if( !Modernizr.inputtypes.range ){  
+		document.write("<script type=\"text/javascript\" src=\"js/js-webshim/1.9.7/minified/polyfiller.js\"></"+"script>");
+        $(document).ready(function(){
+			$.webshims.setOptions("waitReady", false);
+     		$.webshims.polyfill('forms-ext');
+		});  
+    };  
+
+
+</script>
+
+</head>
+<body>
+<div class="main">
+<header id="silumatorTemp">
+  <div class="g99 logo">
+  </div>
+  <!-- end .g99 -->
+    <div class="g495 mainTitle">
+    <p id="expName"></p>
+  </div>
+  <!-- end .g495 -->
+    <div class="g198 menuSet">
+          
+  </div>
+  <!-- end .g198 -->
+<div class="g792 bannerFoot">
+<ul id="olabmenuBar">
+  	<li><a href="#">SAVE</a></li>
+    <li><a id="olabFullscrBtn" onClick="parent.simFullScreenOlab()" style="cursor:pointer;" >FULLSCREEN</a></li>
+    <li><a href="#">EXIT</a></li>
+  </ul>
+</div>
+    <!-- end .grid_8 -->
+</header><!-- /header -->
+<div class="g594 canvasHolder"> 
+    <div id="canvasBox">
+<div id="mainDiv">
+	<img id="inference" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/inference.png" />
+    <!--Loading Background-->
+    <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/BG1.gif" id="bgCanvas1" />
+    <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/BG2.gif" id="bgCanvas2" />
+     <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/BG3.gif" id="bgCanvas3" />
+     <!--First Stage-->
+	<div id="sampleDiv">
+        <canvas id="glassrod" ></canvas>
+         <div id="mixture">
+           <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/mixture1.png" class="mix1" />
+           <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/mixture2.png" class="mix2" />
+           <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/mixture3.png" class="mix3" />
+           <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/mixture4.png" class="mix4" />
+           <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/mixture5.png" class="mix5" />
+        </div>
+        <div id="bkrDiv">
+           <div id="bkrWaterDivBg"><img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/beakerwhitebg1.png" id="beakerwhitebg1" /></div>
+           <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bluePowderInBeaker.png" id="powderInBeaker"/> 
+           <div id="bkrWaterDiv2"><img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/blueWater.png" id="waterInbeaker2" /></div>
+           <div id="bkrWaterDiv"><img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/waterinbeaker.png" id="waterInbeaker" /></div>
+           
+           <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/beaker.png" id="beaker" /> 
+        </div> 
+        <canvas id="watchglass" class="unselectable"></canvas>
+       <div id="SpatulaDiv"><img id="ImgInSpatula" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/blueSpatula.png"/>
+<img id="spatulaImg" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/spatula.png"/></div>
+        <img id="splash1" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/splash1.png"/>
+<img id="splash2" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/splash2.png"/>
+        <img id="drops1" class="Drops" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/drops.png"/> <img id="drops2" class="Drops" src="../CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/drops.png"/>
+        <img id="drops3" class="Drops" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/drops.png"/>
+        <img id="drops4" class="Drops" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/drops.png"/>
+        <img id="drops5" class="Drops" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/drops.png"/>
+        <img id="drops6" class="Drops" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/drops.png"/>
+        <img id="drops7" class="Drops" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/drops.png"/>
+        <img id="drops8" class="Drops" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/drops.png"/>
+        <img id="drops9" class="Drops" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/drops.png"/>
+        <img id="drops10" class="Drops" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/drops.png"/>
+        <canvas id="crudeCopper" class="unselectable"></canvas>
+        <div id="solnPourStart"></div>
+        <img id="pourline1" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/pourline1.png"/>
+        <img id="pourline2" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/pourline2.png"/>
+        <div id="cylinder"><div id="cylinderwaterDivAll"><div id="cylinderwaterDiv" ><div id="cylinderwaterImg"></div></div></div><img id="cylinderimg" src="../CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/cylinder.png"/></div>
+        <img id="standBg" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/standBg.png"/>
+        <canvas id="sampleLabel" class="unselectable"></canvas>
+        <canvas id="waterLabel" class="unselectable"></canvas>
+        <canvas id="acidLabel" class="unselectable"></canvas>
+        <p id="sampleString" class="labelClass unselectable"></p>
+        <p id="acidString" class="labelClass unselectable"></p>
+        <p id="waterString" class="labelClass unselectable"></p>       
+    </div>
+      <!--Second stage filtration-->
+    <div id="filterDiv">    
+        <canvas id="filter"></canvas>
+        <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/blueInfunnel1.png" id="funnelsoln" />  
+        <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/dishunder.png" id="dishunder" />  
+        <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/potcontent.png" id="potcontent" />
+        <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/beaker5Shadow.png" id="beaker5Shadow" />
+        
+         <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/dishtop.png" id="dishtop" /> 
+         <div id="beaker3ContentDivBg">
+        	<img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/beaker3ContentBg.png" id="beaker3ContentBg" />
+         </div> 
+         <div id="beaker3ContentDiv">
+         	<img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/beaker3Content.png" id="beaker3Content" /> 
+         </div> 
+        <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/beaker3Shadow.png" id="beaker3Shadow" />      
+        <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/beaker3.png" id="beaker3" /> 
+         <div id="beaker2"> <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/paticle2.png" id="paticle2" /><div id="beaker2waterDivAll"><div id="beaker2waterDiv" ><div id="beaker2waterImg"></div></div></div><img id="beaker2img" src="../CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/beaker5.png"/></div> 
+    </div>
+     <!--Show Clock-->
+    <div id="clockDiv">
+        <img id="clock" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/clock.png"/>
+        <p id="timeString" class="labelClass unselectable"></p>
+        <img id="needle" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/needle.png"/>
+         
+    </div> 
+     <!--Third stage -->       
+    <div id="thirdPart1">
+    	<img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/glassbowlShadow3.png" id="glassbowlShadow3" /> 
+    	<div id="glassbowlContents">          
+          <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/glassbowlunder3.png" id="glassbowlunder3" /> 
+          <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/glassbowl3.png" id="glassbowl3" />
+      	</div> 
+        <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bowlToDragWaterBlue.png" id="bowlToDrag" /> 
+        <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/sandunder.png" id="sandunder" />
+        <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/glassbasinshadow3.png" id="glassbasinshadow3" /> 
+   		<img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/glassbasin.png" id="glassbasin" /> 
+       <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/dishTodrag.png" id="dishTodrag" />
+       <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/dishpourblueline1.png" id="dishpourline1" />
+       <div id="dishDiv"></div>
+       <div id="dishContents">
+            <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/dishUnder3.png" id="dishUnder3" />      
+            <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/dishbluewater3.png" id="dishbluewater3" />
+            <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/stirrer3.png" id="stirrer3" />
+            <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/dishtop3.png" id="dishtop3" />
+       </div>
+    	<div id="burnerParts">
+            <canvas id="burner" class="unselectable"></canvas>
+            <img id="burner_btn" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/burner_off.png" class="unselectable" />
+            <div id="burnerOnOff"></div>
+            <!--Loading flame and burner -->
+            <div id="flame">
+                <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/flame1.png" class="flame1" />
+                <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/flame2.png" class="flame2" />
+                <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/flame3.png" class="flame3" />
+                <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/flame4.png" class="flame4" />
+                <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/flame5.png" class="flame5" />
+            </div>
+   		</div>
+    </div>
+    <div id="thirdPart2"> 
+     	<img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/steelbasinunder.png" id="steelbasinunder" /> 
+        <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/steelbasinwater.png" id="steelbasinwater" />              	
+        <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/steelbasin.png" id="steelbasin" /> 
+        <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/beakerhotwatershadow.png" id="benoicAcidbeakershadow" />   	
+       	<img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/beakerhotwater.png" id="benoicAcidbeaker" />   
+    </div> 
+     <!--Fourth stage-->
+    <div id="fourthPart">    	
+    	<img id="solventpour1" class="solventpour" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bluesolventpour.png"/>
+         <img id="solventpour2" class="solventpour" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bluesolventpour.png"/>
+        <img id="solventpour3" class="solventpour" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bluesolventpour.png"/>
+        <img id="solventpour4" class="solventpour" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bluesolventpour.png"/>
+        <img id="solventpour5" class="solventpour" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bluesolventpour.png"/>
+        <img id="solventpour6" class="solventpour" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bluesolventpour.png"/>
+        <img id="solventpour7" class="solventpour" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bluesolventpour.png"/>
+        <img id="solventpour8" class="solventpour" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bluesolventpour.png"/>
+        <img id="solventpour9" class="solventpour" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bluesolventpour.png"/>
+        <img id="solventpour10" class="solventpour" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bluesolventpour.png"/>        
+        <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bluesolventinTube.png" id="testtubesolvent" />        
+        <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/testtube5.png" id="testtube5" />  
+        <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/testtubestand5.png" id="testtubestand5" />
+        <div id="testtube5Div" ></div>  
+        <canvas id="glassPlate"></canvas>
+   		<img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/corkshadow.png" id="corkshadow" /> 
+        <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/cork.png" id="cork" /> 
+        <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/filterpaper.png" id="filterpaper" />   
+    </div>
+    <div id="crystalCleaningPart">
+    	 <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/steelbasinsmall.png" id="steelbasinsmall" />
+         <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bowlshadow7.png" id="bowlshadow7" />
+         <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/waterbottle7.png" id="waterBottle" />
+         <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/label2.png" id="waterLabel7" /> 
+          <p id="acidwithWaterStr" class="labelClass unselectable"></p>
+         <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/basinpourline1.png" id="basinpourline" /> 
+         <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bottlepourwater1.png" id="bottlepourwater" /> 
+         <div id="bowl">
+             <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bowlParticleBlue.png" id="bowlParticle" />
+             <div id="bowlWaterDiv">
+                <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bowlWater.png" id="bowlWater" /> 
+             </div>        
+             <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/glassbowl7.png" id="glassbowl7" />   
+         </div> 
+            
+    </div>
+    <!--Last stage-->
+    <canvas id="testubeZoom"></canvas>
+     <!--Next Button-->
+    <div id="nextClick"> 
+        <canvas id="nextBtn" class="unselectable"></canvas>
+        <p id="nextBtnString" class="labelbtnClass unselectable"></p>
+    </div>
+</div>
+
+
+</div>
+</div>
+<div class="g198 controlHolder">
+<div class="nano has-scrollbar">
+<ul style="right: -17px;" tabindex="0" class="overthrow content description">
+    <li>
+        <div class="varBox"> 
+        	<!--Loading drop box -->      
+        	<p class="varTitle"><span id="sampleCombo"></span>:</p>
+            <!--Loading icons and their clicks-->  
+			<div style="position:relative;">           
+                <img id="copperIcon" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/copperIcon.png" />
+                <p class="fontcntrl" id="coppercntrl" ></p>
+                <img id="alumIcon" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/icon2.png" />
+                <p class="fontcntrl" id="alumcntrl" ></p>
+                <img id="benzoicIcon" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/icon2.png"/>
+                <p class="fontcntrl" id="bencntrl" ></p>
+                <div id="copperClick"></div>
+                <div id="alumClick"></div>
+                <div id="benClick"></div>
+             </div>  
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br />
+            
+            <!--Loading reset button--> 
+            <p align="center"><input type="button" class="subButton" id="reset"/></p>
+        </div>
+	</li>
+</ul>
+
+
+</div></div>
+<script type="text/javascript">
+ var expTitle="Purification of Impure Samples by Crystallization";
+ document.getElementById("expName").style.size="11px";
+ document.getElementById("expName").innerHTML=expTitle;
+ 
+</script>   <footer id="tempFooter">
+ <div class="g396 footer">
+<p class="labName">Vlab
+<br></p>  
+</div>
+  <!-- end .g396 -->
+  <div class="g396 footer">
+    <p class="copyName"></p>
+  </div>
+    <div class="clear"></div>
+    </footer> <!-- /footer -->
+</div>
+</body>
+</html>
+<script>
+function simFullScreenOlab(){
+		var $ = function(selector,context){return(context||document).querySelector(selector)};
+        var iframe = $("iframe"),
+            domPrefixes = 'Webkit Moz O ms Khtml'.split(' ');
+
+            var fullscreen = function(elem){
+            var prefix;
+			
+            // Mozilla and webkit intialise fullscreen slightly differently
+            for ( var i = -1, len = domPrefixes.length; ++i < len; ) 
+			{
+              prefix = domPrefixes[i].toLowerCase();
+              if ( elem[prefix + 'EnterFullScreen'] ) {
+                // Webkit uses EnterFullScreen for video
+                return prefix + 'EnterFullScreen';
+                break;
+              } else if( elem[prefix + 'RequestFullScreen'] ) {
+                // Mozilla uses RequestFullScreen for all elements and webkit uses it for non video elements
+                return prefix + 'RequestFullScreen';
+                break;
+              }
+            }
+            return false;
+        }; 
+        // Webkit uses "requestFullScreen" for non video elements
+        var fullscreenother = fullscreen(document.createElement("iframe"));
+        if(!fullscreen) {
+            alert("Fullscreen won't work, please make sure you're using a browser that supports it and you have enabled the feature");
+            return;
+        }
+		iframe[fullscreenother]();
+		(this,this.document);
+	    }
+
+</script>

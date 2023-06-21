@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Virtual Lab</title>
+	<style>
+		form {
+			width: 400px;
+			margin: 50px auto;
+			padding: 20px;
+			border: 1px solid #ccc;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.2);
+			background-color: #fff;
+		}
+
+		h1 {
+			text-align: center;
+			font-size: 2em;
+			color: #333;
+			margin-bottom: 30px;
+		}
+
+		label {
+			display: block;
+			font-size: 1.2em;
+			color: #555;
+			margin-bottom: 5px;
+		}
+
+		select {
+			display: block;
+			width: 100%;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			margin-bottom: 20px;
+			font-size: 1.2em;
+			color: #333;
+		}
+
+		input[type="submit"] {
+			display: inline-block;
+			background-color: #0066cc;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			padding: 10px 20px;
+			font-size: 1.2em;
+			cursor: pointer;
+		}
+
+		input[type="submit"]:hover {
+			background-color: #004080;
+		}
+	</style>
+</head>
+<body>
+	<h1>Virtual Lab</h1>
+	<form action="#" method="POST">
+		<label for="board">Select board:</label>
+		<select id="board" name="board" required>
+			<option value="" disabled selected>Select board</option>
+			<option value="cbse">CBSE</option>
+			<option value="icse">ICSE</option>
+			<option value="state">UP</option>
+            <option value="up">Others </option>
+		</select>
+        <label for="medium">Select medium:</label>
+		<select id="medium" name="medium" required>
+			<option value="" disabled selected>Select medium</option>
+			<option value="english">English</option>
+			<option value="hindi">Hindi</option>
+		</select>
+        <label for="grade">Select grade:</label>
+		<select id="grade" name="grade" required>
+			<option value="" disabled selected>Select grade</option>
+			<option value="class 7">Class 7</option>
+			<option value="class 8">Class 8</option>
+			<option value="class 9">Class 9</option>
+            <option value="class 10">Class 10 </option>
+            <option value="class 11">Class 11 </option>
+            <option value="class 12">Class 12 </option>
+		</select>
+		<label for="state">Select state:</label>
+		<select id="state" name="state" required>
+			<option value="" disabled selected>Select state</option>
+			<option value="andhra_pradesh">Andhra Pradesh</option>
+			<option value="assam">Assam</option>
+			<option value="bihar">Bihar</option>
+			<option value="chhattisgarh">Chhattisgarh</option>
+			<option value="delhi">Delhi</option>
+			<option value="goa">Goa</option>
+			<option value="gujarat">Gujarat</option>
+			<option value="haryana">Haryana</option>
+			<option value="himachal_pradesh">Himachal Pradesh</option>
+			<option value="jammu_kashmir">Jammu and Kashmir</option>
+			<option value="jharkhand">Jharkhand</option>
+			<option value="karnataka">Karnataka</option>
+			<option value="kerala">Kerala</option>
+			<option value="madhya_pradesh">Madhya Pradesh</option>
+			<option value="maharashtra">Maharashtra</option>
+			<option value="manipur">Manipur</option>
+			<option value="meghalaya">Meghalaya</option>
+			<option value="nagaland">Nagaland</option>
+            <option value="odisha">Odisha</option>
+            <option value="punjab">Punjab</option>
+            <option value="rajasthan">Rajasthan</option>
+            <option value="sikkim">Sikkim</option>
+            <option value="tamil nadu">Tamil Nadu</option>
+            <option value="telgana">Telgana</option>
+            <option value="tripura">Tripura</option>
+            <option value="uttar pradesh">Uttar Pradesh</option>
+            <option value="uttarakhand">Uttarakhand</option>
+            <option value="west bengal">West Bengal</option>
+            </select>
+            <label for="city">Select city:</label>
+            <select id="city" name="city" required>
+            <option value="" disabled selected>Select city</option>
+            <option value="adoni">Adoni</option>
+			<option value="amaravati">Amaravati</option>
+			<option value="anantapur">Anantapur</option>
+			<option value="chandragiri">Chandragiri</option>
+			<option value="chittoor">Chittoor</option>
+			<option value="dowlaiswaram">Dowlaiswaram</option>
+			<option value="eluru">Eluru</option>
+			<option value="guntur">Guntur</option>
+			<option value="kadapa">Kadapa</option>
+			<option value="kakinada">Kakinada</option>
+			<option value="kurnool">Kurnool</option>
+			<option value="machilipatnam">Machilipatnam</option>
+			<option value="nagarjunkonda">Nagarjunkonda</option>
+			<option value="rajahmundry">Rajahmundry</option>
+			<option value="srikakulam">Srikakulam</option>
+			<option value="tirupati">Tirupati</option>
+			<option value="vijayawada">Vijayawada</option>
+			<option value="visakhapatnam">Visakhapatnam</option>
+            <option value="vizianagaram">Vizianagaram</option>
+            <option value="yemmiganur">Yemmiganur</option>
+            <option value="rajasthan">Rajasthan</option>
+            <option value="sikkim">Sikkim</option>
+            <option value="tamil nadu">Tamil Nadu</option>
+            <option value="telgana">Telgana</option>
+            <option value="tripura">Tripura</option>
+            <option value="uttar pradesh">Uttar Pradesh</option>
+            <option value="uttarakhand">Uttarakhand</option>
+            <option value="west bengal">West Bengal</option>
+            </select>
+            <button id="submit">Submit</button>
+  

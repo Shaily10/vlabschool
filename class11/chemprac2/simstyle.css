@@ -1,0 +1,834 @@
+@font-face {
+	font-family:MRKGPEN;
+	src:url(MRKGPEN.TTF);
+}
+.unselectable {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+   user-select: none;
+}
+.dropBox {
+	width: 132px !important;
+}
+#mainDiv {
+	overflow:hidden;
+	position:absolute;
+	height:336px;
+	width:568px;
+	background:#FFF;
+	opacity:0.99;
+}
+#bgCanvas1{
+	display:block;	
+}
+#bgCanvas2{
+	display:none;	
+}
+#bgCanvas3{
+	display:none;	
+}
+#bkrDiv{
+	position:absolute;
+	top:160px;
+	left:50px;
+	width:114px;
+	height:133px;
+}
+#powderInBeaker{
+	position:absolute;
+	top:122px;
+	left:48px;
+	display:none;
+	width:1px;
+}
+#waterInbeaker{
+	position:absolute;
+	top:-76px;
+}
+#bkrWaterDiv{
+	position:absolute;
+	width:105px;
+	height:40px;
+	top:90px;
+	left:2px;
+	background:#357f94;
+	opacity:0;
+	overflow:hidden;
+	
+}
+#beakerwhitebg1{
+	position:absolute;
+	top:-76px;
+}
+#bkrWaterDivBg{
+	position:absolute;
+	width:107px;
+	height:1px;
+	top:90px;
+	left:2px;
+	overflow:hidden;	
+}
+#waterInbeaker2{
+	position:absolute;
+	top:-75px;
+}
+#bkrWaterDiv2{
+	position:absolute;
+	width:105px;
+	height:40px;
+	top:90px;
+	left:2px;
+	overflow:hidden;
+	display:none;
+
+}
+#watchglass{
+	position:absolute;
+	top:260px;
+	left:210px;
+}
+
+#crudeCopper{
+	position:absolute;
+	top:253px;
+	left:230px;
+}
+#glassrod{
+	position:absolute;
+	top:92px;
+	left:111px;
+}
+#standBg{
+	position:absolute;
+	top:15px;
+	left:440px;
+	display:none;
+}
+#cylinder{
+	position:absolute;
+	top:115px;
+	left:455px;
+}
+#cylinderwaterImg{
+	position:absolute;
+	left: -100px;
+	top:-102px;
+	width:200px;
+	height:200px;
+	background-color:#FFF;
+	opacity:0.3;
+	
+}
+#cylinderwaterDiv{
+	position:absolute;
+	top: 125px;
+	left: 2px;
+	width:30px;
+	height:32px;
+	overflow:hidden;
+}
+#cylinderwaterDivAll{
+	position:absolute;	
+	width:30px;
+	height:142px;
+	left:7px;
+	top:6px;
+}
+#solnPourStart{	
+	position: absolute;
+	display: none;
+	width: 164px;
+	height: 7px;
+	top: 108px;
+	left: 105px;
+	opacity:0.7;
+   background-color:#CCC;
+   -webkit-border-radius:63px 63px 63px 63px / 108px 108px 72px 72px;
+   border-radius:50%  50%  50%  50%  / 60%   60%   40%  40%;
+
+}
+#pourline1{
+	position:absolute;	
+	top: 111px;
+	left: 106px;
+	display:none;
+}
+#pourline2{
+	position:absolute;	
+	top: 111px;
+	left: 106px;
+	display:none;
+}
+#sandunder{
+	position:absolute;
+	top:118px;
+	left:392px;
+}
+#dishTodrag{
+	position:absolute;
+	top:96px;
+	left:410px;
+	display:none;
+	cursor:pointer;
+}
+#dishpourline1{
+	position:absolute;
+	top:228px;
+	left:300px;
+	display:none;
+}
+#dishUnder3{
+	position:absolute;
+	top:96px;
+	left:410px;
+}
+#dishbluewater3{
+	position:absolute;
+	top:99px;
+	left:415px;
+}
+#dishtop3{
+	position:absolute;
+	top:100px;
+	left:410px;
+}
+#stirrer3{
+	position:absolute;
+	top:30px;
+	left:450px;	
+}
+#glassbowlShadow3{
+	position:absolute;
+	top:285px;
+	left:252px;
+}
+#glassbowlunder3{
+	position:absolute;
+	top:248px;
+	left:250px;
+}
+#glassbowl3{
+	position:absolute;
+	top:250px;
+	left:250px;
+}
+#bowlToDrag{
+	position:absolute;
+	top:248px;
+	left:250px;
+	cursor:pointer;
+	display:none;
+}
+
+#glassbasinshadow3{
+	position:absolute;
+	top:285px;
+	left:50px;
+}
+#glassbasin{
+	position:absolute;
+	top:230px;
+	left:50px;
+}
+#burner{
+	position:absolute;
+	top:120px;
+	left:380px;
+}
+#acidLabel{
+	position:absolute;
+	top:285px;
+	left:420px;
+}
+#waterLabel{
+	position:absolute;
+	top:290px;
+	left:50px;
+}
+#sampleLabel{
+	position:absolute;
+	top:283px;
+	left:230px;
+}
+#nextClick{
+	display:none;
+	cursor:pointer;
+}
+#nextBtn{
+	position:absolute;
+	top:300px;
+	left:450px;
+}
+#waterString{
+	top:298px;
+	left:54px;
+}
+#acidString{
+	top:295px;
+	left:424px
+}
+#sampleString{
+ 	top:285px;
+	left:234px;
+}
+#nextBtnString{
+    top: 310px;
+    left: 443px;
+    padding: 1px;
+}
+.subButton {
+    width: 125px;
+	}
+.labelClass{
+	position: absolute;
+	width: 110px;
+	height: 42px;
+	font-family: MRKGPEN;
+	font-size: 14px;
+	text-align: center;
+	font-weight: 500;
+	color: #333;
+}
+.labelbtnClass{
+	 position:absolute;
+	 width:70px; height:25px;
+	 z-index:999;	
+	 font-family:Arial, Helvetica, sans-serif;
+	 font-size: 10px;
+	 font-weight:800;
+	 text-align:center;
+	 color:#000;
+}
+#burner_btn{
+	position:absolute;
+	left:475px;
+	top:260px;
+}
+#burnerOnOff{
+	position:absolute;
+	left:445px;
+	top:250px;
+	width:50px;
+	height:37px;
+	z-index:999;
+	display:block;
+	cursor:pointer;	
+}
+#flame{
+	position:absolute;
+	left:449px;
+	top:181px;
+	display:none;
+}
+.flame1 {position: absolute;}
+.flame2{position: absolute;display: none;}
+.flame3 {position: absolute;display: none;}
+.flame4{position: absolute;display: none;}
+.flame5{position: absolute;display: none;}
+#mixture{
+	position:absolute;
+	top:255px;
+	left:55px;
+	display:none;
+}
+.mix1 {position: absolute;}
+.mix2{position: absolute;display:none;}
+.mix3 {position: absolute;display:none;}
+.mix4{position: absolute;display:none;}
+.mix5{position: absolute;display:none;}
+#copperIcon{
+	position:absolute;
+	top:25px;
+	left:20px;
+	opacity:0.3;
+	cursor:pointer;
+	z-index:9;
+}
+#alumIcon{
+	position:absolute;
+	top:25px;
+	left:107px;
+	cursor:pointer;
+	z-index:9;
+}
+#benzoicIcon{
+	position:absolute;
+	top:100px;
+	left:65px;
+	cursor:pointer;
+	z-index:9;
+}
+.fontcntrl{
+	position:absolute;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	font-weight:400;
+	color:#000;
+	text-align:center;	
+}
+#coppercntrl{
+	left:20px;
+	top:58px;
+	width:65px;
+	height:25px;
+	z-index:9;
+}
+#alumcntrl{
+	left:105px;
+	top:62px;
+	width:65px;
+	height:25px;
+	z-index:9;
+}
+#bencntrl{
+	left: 52px;
+	top: 135px;
+	width: 99px;
+	height: 25px;
+	z-index: 9;
+}
+#copperClick{
+	width:66px;
+	height:59px;
+	top:20px;
+	position:absolute;
+	left:15px;
+	cursor:pointer;
+	z-index:9;
+	display:block;
+}
+#alumClick{
+	width:66px;
+	height:59px;
+	top:20px;
+	position:absolute;
+	left:105px;
+	cursor:pointer;
+	z-index:9;
+}
+#benClick{
+	width:66px;
+	height:59px;
+	top:90px;
+	position:absolute;
+	left:60px;
+	cursor:pointer;
+	z-index:9;
+}
+#filter{
+	position:absolute;
+	top:20px;
+	left:50px;
+	display:none;
+
+}
+#funnelsoln{
+	position:absolute;
+	top: 76px;
+	left: 217px;
+	display:none;
+}
+
+#beaker2{
+	position:absolute;
+	top:190px;
+	left:350px;
+	cursor:pointer;
+	display:none;
+}
+#beaker2waterImg{
+	position:absolute;
+	width:200px;
+	height:200px;
+	left: -100px;
+	top:-102px;
+	background-color:#61aada;
+	opacity:0.5;
+}
+#beaker2waterDiv{
+	position:absolute;
+	width:93px;
+	height:35px;	
+	border-bottom-left-radius:0.7em;
+	border-bottom-right-radius:0.7em;
+	overflow:hidden;
+}
+#beaker2waterDivAll{
+	position:absolute;	
+	width:91px;
+	height:115px;
+	top:75px;
+	left:7px;
+}
+#beaker3{
+	position:absolute;
+	top:185px;
+	left:180px;
+	display:none;
+}
+#beaker5Shadow{
+	position:absolute;
+	top:296px;
+	left:353px;
+	display:none;
+}
+#paticle2{
+	position:absolute;
+	top: 103px;
+	left: 19px;
+	display:none;
+}
+#beaker3Shadow{
+	position:absolute;
+	left:184px;
+	top:283px;
+	display:none;
+}
+
+#dishtop{
+	position:absolute;
+	top:252px;
+	left:190px;
+	display:none;
+}
+#dishunder{
+	position:absolute;
+	top:247px;
+	left:190px;
+	display:none;
+}
+#thirdPart1{
+	display:none;
+}
+#clockDiv{
+	display:none;
+}
+#clock{
+	position:absolute;
+	top:20px;
+	left:150px;
+}
+#needle{
+	position:absolute;
+	margin:0px;
+	padding:2px;
+	top:43px;
+	left:202px;
+	line-height:0px;
+}
+#timeString{
+	top:85px;
+	left:150px;
+	padding:5px 0px 0px 0px;
+}
+#glasspot{
+	position:absolute;
+	top:220px;
+	left:250px;
+}
+#waterpot{
+	position:absolute;
+	top:200px;
+	left:15px;
+}
+#testubeZoom{
+	position:absolute;
+	top:20px;
+	left:245px; 
+	display:none;
+}
+#glassPlate{
+	position:absolute;
+	top:280px;
+	left:390px;
+}
+#filterpaper{
+	position:absolute;
+	top:272px;
+	left:405px;
+	cursor:pointer;
+}
+#cork{
+	position:absolute;
+	top:273px;
+	left:30px;
+}
+#testtube5Div{
+	position:absolute;
+	top: 108px;
+	left: 197px;
+	width: 31px;
+	height: 172px;
+}
+#corkshadow{
+	position:absolute;
+	top:300px;
+	left:30px;
+}
+#testtubestand5{
+	position:absolute;
+	top:170px;
+	left:100px;
+}
+#testtube5{
+	position:absolute;
+	top:122px;
+	left:197px;
+}
+#testtubesolvent{
+	position:absolute;
+	top:260px;
+	left:200px;	
+	display:none;
+}
+#fourthPart{
+	display:none;
+}
+
+#potcontent{
+	position: absolute;
+	top:250px;
+	left:200px;
+	display:none;
+}
+#beaker3Content{
+	position: absolute;	
+	top:-90px;
+}
+
+#beaker3ContentDiv{
+	position: absolute;
+	left:185px;
+	width:79px;
+	top:290px;	
+	height:5px;	
+	display:none;
+	overflow:hidden;
+}
+#beaker3ContentDivBg{
+	position: absolute;
+	left:185px;
+	width:79px;
+	top:290px;	
+	height:1px;	
+	display:none;
+	overflow:hidden;
+}
+#beaker3ContentBg{
+	position: absolute;	
+	top:-90px;
+}
+
+#thirdPart2{
+	display:none;
+}
+
+#steelbasin{
+	position:absolute;
+	top: 222px;
+	left: 23px;
+}
+#steelbasinunder{
+	position: absolute;
+	top: 211px;
+	left: 23px;
+}
+#steelbasinwater{
+	position:absolute;
+	top: 225px;
+	left: 41px;
+}
+#benoicAcidbeaker{
+	position:absolute;
+	top:148px;
+	left:387px;
+	cursor:pointer;
+}
+#benoicAcidbeakershadow{
+	position:absolute;
+	top:280px;
+	left:390px;
+}
+
+#inference{
+	position:absolute;
+	display:block;
+	display:none;
+	z-index:2;
+	cursor:pointer;
+}
+#dishDiv{
+	position: absolute;
+	width:5px;
+	height:5px;
+	top: 217px;
+	left: 249px;
+}
+.Drops {
+	position:absolute;
+	display:none;
+	left:105px;
+}
+#drops1 {
+	top:90px;
+}
+#drops2 {
+	top:100px;
+}
+#drops3 {
+	top:120px;
+}
+#drops4 {
+	top:140px;
+}
+#drops5 {
+	top:160px;
+}
+#drops6 {
+	top:180px;
+}
+#drops7 {
+	top:200px;
+}
+#drops8 {
+	top:210px;
+}
+#drops9 {
+	top:220px;
+}
+#drops10 {
+	top:230px;
+}
+.solventpour {
+	position:absolute;
+	display:none;
+	left:203px;
+}
+
+#solventpour1 {
+	top:120px;
+}
+#solventpour2 {
+	top:120px;
+}
+#solventpour3 {
+	top:128px;
+}
+#solventpour4 {
+	top:136px;
+}
+#solventpour5 {
+	top:144px;
+}
+#solventpour6 {
+	top:192px;
+}
+#solventpour7 {
+	top:200px;
+}
+#solventpour8 {
+	top:208px;
+}
+#solventpour9 {
+	top:216px;
+}
+#solventpour10 {
+	top:224px;
+}
+#ImgInSpatula {
+	position:absolute;
+	left:0px;
+	top:44px;
+	opacity:1;
+}
+#SpatulaDiv {
+	position:absolute;
+	width:102px;
+	height:57px;
+	top:220px;
+	left:280px;
+	cursor:pointer;
+	display:block;
+}
+#splash1{
+	position:absolute;
+	top:240px;
+	left:90px;
+	display:none;
+}
+#splash2{
+	position:absolute;
+	top:240px;
+	left:90px;
+	display:none;
+}
+#steelbasinsmall{
+	position:absolute;
+	top: 233px;
+	left: 364px;
+}
+#crystalCleaningPart{
+	display:none;
+}
+#waterBottle{
+	position:absolute;
+	top: 108px;
+	left: 54px;
+}
+
+#waterLabel7{
+    position: absolute;
+    top: 284px;
+    left: 25px;
+    width: 115px;
+    height: 50px;
+}
+#bowlshadow7{
+	position:absolute;
+	top: 286px;
+	left: 205px;
+}
+#bowlParticle{
+	position:absolute;
+	top: 44px;
+	left: 27px;
+}
+#bowlWater{
+	position:absolute;
+	top: -39px;
+}
+#bowlWaterDiv{
+	position:absolute;
+	top: 61px;
+	left: 8px;
+	width:123px;
+	height:1px;
+	overflow:hidden;
+}
+#bowl{
+	position:absolute;
+	top: 230px;
+	left: 185px;
+}
+#glassbowl7{
+	position:absolute;
+	
+}
+#basinpourline{
+	position:absolute;
+	top: 189px;
+	left: 413px;
+	display:none;
+}
+#bottlepourwater{
+	position:absolute;
+	top: 155px;
+	left: 211px;
+	display:none;
+}
+#acidwithWaterStr{
+	top: 285px;
+	left: 25px;
+}

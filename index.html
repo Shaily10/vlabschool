@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Virtual Lab Home Page</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<style>
+
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+		h1 {
+			text-align: center;
+			margin-top: 50px;
+		}
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			margin-top: 50px;
+		}
+		.card {
+			background-color: white;
+			padding: 20px;
+			margin: 20px;
+			border-radius: 5px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			min-width: 250px;
+			max-width: 350px;
+			text-align: center;
+			transition: transform 0.2s;
+		}
+		.card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+		}
+		.card h2 {
+			font-size: 24px;
+			margin-top: 0;
+			margin-bottom: 10px;
+		}
+		.card p {
+			font-size: 16px;
+			margin-top: 0;
+			margin-bottom: 20px;
+			line-height: 1.5;
+		}
+		.card a {
+			display: block;
+			background-color: #383734;
+			color: white;
+			padding: 10px 20px;
+			border-radius: 5px;
+			text-decoration: none;
+			font-size: 18px;
+			transition: background-color 0.2s;
+		}
+		
+			/* background-color: #5d595c; */
+			.card a:hover  {
+				background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+
+}
+
+		.read-more {
+            display: inline-block;
+            padding: 8px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 3px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .read-more:hover {
+            background-color: #333;
+            color: #fff;
+        }
+        
+        .hidden {
+            display: none;
+        }
+		.dropdown {
+		  position: relative;
+		  display: inline-block;
+		}
+		
+		.dropdown-content {
+		  display: none;
+		  position: absolute;
+		  z-index: 1;
+		}
+		
+		.dropdown:hover .dropdown-content {
+		  display: block;
+		}
+		
+		.dropdown-content a {
+		  color: black;
+		  padding: 12px 16px;
+		  text-decoration: none;
+		  display: block;
+		}
+		
+		.dropdown-content a:hover {
+		  background-color: #f1f1f1;
+		}
+		.row p{
+			text-align: center;
+			/* padding: 40%; */
+			
+		}
+	</style>
+</head>
+<body>
+	<h3 class="p1">You are logged in as <span id="role"></span></h3>
+    <h2 class="p1">Explore our virtual lab!</h2>
+    <div class="row"></div>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A virtual lab is an online platform that enables school students to conduct scientific experiments, simulations, and other learning activities in a digital environment.</p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; It is an innovative way to engage students in science education and provides a safe and cost-effective alternative to traditional laboratory experiments.</p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./img/indexpage.png">
+    
+    <p >In a virtual lab, students can explore and learn about scientific concepts and theories through interactive multimedia tools, such as simulations, animations, videos, and quizzes. They can manipulate variables, analyze data, and draw conclusions, just as they would in a physical lab setting. Virtual labs provide students with opportunities to experiment with complex phenomena and theories that may be difficult or dangerous to study in a traditional lab environment. Virtual labs are particularly useful for remote or online learning situations, where students may not have access to a physical lab or may be unable to attend in-person classes. They can also help schools to save costs on equipment, materials, and maintenance, while providing students with the latest technology and resources.</p>
+    
+    <!-- <a href="#" class="read-more" onclick="document.querySelector('.hidden').classList.toggle('visible'); return false;">Read More</a> -->
+    
+     <h2>Virtual Labs eContent</h2>	
+        <div class="container">
+		<div class="card">
+			<h2>Grade 9</h2>
+			<a href="#" id="explore-btn">explore</a>
+			<ul id="subject-list" style="display:none;">
+			  <a href="./class 9th/maths.html">Maths</a>
+			  <a href="./class 9th/science.html">Science</a>
+			  <!-- <a href="./class 9th/english.html">English</a> -->
+			</ul>
+		</div>
+		<div class="card">
+			<h2>Grade 10</h2>
+			<a href="#" id="explore-btn2">explore</a>
+			<ul id="subject-list2" style="display:none;">
+			  <a href="./class10/maths10.html">Maths</a>
+			  <a href="./class10/science10.html">Science</a>
+			</ul>
+		</div>
+        <div class="card">
+			<h2>Grade 11</h2>
+			<a href="#" id="explore-btn3">explore</a>
+			<ul id="subject-list3" style="display:none;">
+				<!-- <a href="ho">Maths</a> -->
+				<a href="./class11/chemistry.html">Chemistry</a>
+				<a href="./class11/physicshome.html">Physics</a>
+				<a href="./class12/computer.html">Computer Science</a>
+			  </ul>
+			
+		</div>
+        <div class="card">
+			<h2>Grade 12</h2>
+            <a href="#" id="explore-btn4">explore</a>
+			<ul id="subject-list4" style="display:none;">
+			  <a href="./class12/physics.html">Physics</a>
+			  <a href="./class12/chemistry.html">Chemistry</a>
+			  <a href="./class12/computer.html">Computer Science</a>
+			</ul>
+			</div>
+
+			<script>
+				function getRole() {
+		var role = localStorage.getItem("role");
+		if (role) {
+			document.getElementById("role").textContent = role;
+		} else {
+			window.location.href = "role.html";
+		}
+	}
+	
+	window.onload = function() {
+		getRole();
+	};
+
+				var exploreBtn = document.getElementById("explore-btn");
+				var exploreBtn2 = document.getElementById("explore-btn2");
+				var exploreBtn3 = document.getElementById("explore-btn3");
+				var exploreBtn4 = document.getElementById("explore-btn4");
+				var subjectList = document.getElementById("subject-list");
+				var subjectList2 = document.getElementById("subject-list2");
+				var subjectList3 = document.getElementById("subject-list3");
+				var subjectList4 = document.getElementById("subject-list4");
+			  
+				exploreBtn.addEventListener("click", function() {
+				  if (subjectList.style.display === "none") {
+					subjectList.style.display = "block";
+				  } else {
+					subjectList.style.display = "none";
+				  }
+				});
+				exploreBtn2.addEventListener("click", function() {
+					if (subjectList2.style.display === "none") {
+						subjectList2.style.display = "block";
+					} else {
+						subjectList2.style.display = "none";
+					}});
+						exploreBtn3.addEventListener("click", function() {
+						if (subjectList3.style.display === "none") {
+							subjectList3.style.display = "block";
+						} else {
+							subjectList3.style.display = "none";
+						}});
+						exploreBtn4.addEventListener("click", function() {
+						if (subjectList4.style.display === "none") {
+							subjectList4.style.display = "block";
+						} else {
+						subjectList4.style.display = "none";
+						}});
+
+</script>
+</body>
+</html>

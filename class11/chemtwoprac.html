@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Experiment</title>
+    <style>
+        .navbar{
+            background-color: #6a6d6a;
+            margin-left: 35%;
+        }
+      /* Style the buttons */
+      .nav-button {
+        font-size: 16px;
+        padding: 10px 15px;
+        margin: 5px;
+        border: none;
+        border-radius: 4px;
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      /* Style the active button */
+      .active {
+        font-size: 20px;
+        padding: 10px;
+      }
+
+      .content{
+        background-color: rgb(234, 234, 243);
+        padding-bottom: 100%;
+      }
+      #container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+h1 {
+  text-align: center;
+}
+
+#main-scale,
+#vernier-scale {
+  position: relative;
+  height: 50px;
+}
+
+.scale-line,
+.vernier-marking {
+  position: absolute;
+  height: 100%;
+  border-left: 1px solid #ccc;
+}
+
+.scale-marking,
+.vernier-marking {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+}
+
+.scale-marking {
+  height: 10px;
+  border-top: 1px solid #ccc;
+}
+
+#vernier-scale {
+  margin-top: -20px;
+}
+
+#measurement {
+  position: relative;
+  height: 70px;
+  margin-top: 20px;
+}
+
+#measurement-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  border-top: 2px solid #000;
+}
+
+#measurement-value {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: bold;
+}
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  margin: 20px auto;
+  width: 50%;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+form p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+form input[type="radio"] {
+  margin-right: 10px;
+}
+
+form input[type="submit"] {
+  display: block;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.result-msg {
+  margin: 20px auto;
+  width: 50%;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.result-msg p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.result-msg span {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.result-msg .correct {
+  color: green;
+}
+
+.result-msg .incorrect {
+  color: red;
+}
+
+    </style>
+
+
+<!-- <!DOCTYPE html><html lang="en">
+  <head> -->
+    <!--Google Tag Manager-->
+    <script class="gtm">
+      var dataLayer = [{
+      'labName': 'Colloid and Surface Chemistry Virtual Lab',
+      'discipline': 'Chemical Sciences',
+      'college': 'IIITH',
+      'phase': '2',
+      'expName': 'Preparation of Sols',
+      'expShortName': 'preparation-of-sols'
+      }];
+  
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-W59SWTR');
+    </script>
+    <!--End Google Tag Manager-->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="" name="description">
+  <meta content="" name="author">
+  
+      <meta name="experiment-short-name" content="preparation-of-sols">
+      <meta name="developer-institute" content="IIITH">
+      <meta name="learning-unit" content="PREPARATION OF SOLS">
+      <meta name="task-name" content="Simulation">
+  
+  <!-- For iPhone -->
+  <meta name="msapplication-TileColor" content="#4076e0">
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#4076e0">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#4076e0">
+  <title>Virtual Labs</title>
+  <link rel="shortcut icon" href="./assets/images/favicon.ico">
+  <link rel="stylesheet" href="bootstrapmin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" integrity="sha512-Oy18vBnbSJkXTndr2n6lDMO5NN31UljR8e/ICzVPrGpSud4Gkckb8yUpqhKuUNoE+o9gAb4O/rAxxw1ojyUVzg==" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&amp;family=Raleway&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./chemprac/fontawe.css">
+  <link rel="stylesheet" href="./chemprac/github.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.6-b/css/style.min.css">
+  <link rel="stylesheet" href="./chemprac/style.css">
+  
+  <script src="./chemprac/slimin.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+  <style>
+    h1 {
+    font-size: 1.8rem;
+    }
+    h2 {
+    font-size: 1.4rem;
+    }
+    h3 {
+    font-size: 1.2rem;
+    }
+
+    h2, h3 {
+    font-weight: 800;
+    }
+  </style>
+<!-- </head> -->
+<head>
+    <!-- Enable IE9 Standards mode -->
+    <meta http-equiv="X-UA-Compatible" content="IE=9" >
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" media="all" href="../class11/chemprac2/font.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="../class11/chemprac2/reset.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="../class11/chemprac2/grid.css" />
+    <link href="../class11/chemprac2/mainstyle.css" rel="stylesheet" type="text/css" />
+    <link href="../class11/chemprac2/nanoscroller.css" rel="stylesheet" type="text/css" />
+    <script src="../class11/chemprac2/overthrow.js"></script>
+    <script src="../class11/chemprac2/jquery1.7.1.js"></script>
+    <script src="../class11/chemprac2/nanoscroller.js"></script>
+    <script type="text/javascript" src="../class11/chemprac2/touchready.js"></script>
+    <script type="text/javascript" src="../class11/chemprac2/main.js"></script>
+    <!--[if IE]><script src="js/excanvas.js"></script><![endif]-->
+    <script type="text/javascript" language="javascript">var simPath="../CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/";</script>
+    <link  href="../class11/chemprac2/simstyle.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" type="text/javascript" src="../class11/chemprac2/jqueryi18.js"></script>
+    <link  href="../class11/chemprac2/trip.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" type="text/javascript" src="../class11/chemprac2/help.js"></script>
+    <script language="javascript" type="text/javascript" src="../class11/chemprac2/tripmin.js"></script>
+    <script type="text/javascript" src="../class11/chemprac2/simcontrol.js"></script>
+    <script src="../class11/chemprac2/jquerymin.js" language="javascript"></script>
+    <script type="text/javascript" src="../class11/chemprac2/touchconvert.js"></script>
+    <script language="javascript"  >
+    var language_script= 'en-IN';
+    var language=language_script.toString();
+        language=language.slice(0, 2);
+        gt.gettext.setLocale(language);
+    </script>
+    <script type='text/javascript'  src='../class11/chemprac2/lang.json'></script><!--[if gte IE 9]>
+      <style type="text/css">
+        .gradient {
+           filter: none;
+        }
+      </style>
+    <![endif]-->
+    <script src="../class11/chemprac2/modernizer-custom.js"></script>
+    <script> 
+    if( !Modernizr.inputtypes.range ){  
+            document.write("<script type=\"text/javascript\" src=\"js/js-webshim/1.9.7/minified/polyfiller.js\"></"+"script>");
+            $(document).ready(function(){
+                $.webshims.setOptions("waitReady", false);
+                 $.webshims.polyfill('forms-ext');
+            });  
+        };  
+    </script>
+    
+    </head>
+  </head>
+  <body>
+    <div >
+    <h1><u>Purification of a compound by crystallisation</u></h1>
+    <nav class="navbar">
+      <button class="nav-button active" onclick="showTheory()">
+        <img src="../img/theory.png" alt="Theory" width="20" height="20">
+        Theory
+      </button>
+      <button class="nav-button" onclick="showProcedure()">
+        <img src="../img/procedure.png" alt="Procedure" width="20" height="20">
+        Procedure
+      </button>
+      <button class="nav-button" onclick="showAnimation()">
+        <img src="../img/simulation.png" alt="Animation" width="20" height="20">
+        Animation
+      </button>
+      <!-- <button class="nav-button" onclick="showSimulation()">
+        <img src="../img/simulation.png" alt="Simulation" width="20" height="20">
+        Simulation
+      </button> -->
+      <button class="nav-button" onclick="showVideo()">
+        <img src="../img/video.png" alt="Video" width="20" height="20">
+        Video
+      </button>
+      <button class="nav-button" onclick="showVivavoce()">
+        <img src="../img/vivavoce.png" alt="Vivavoce" width="20" height="20">
+        Vivavoce
+      </button>
+      <button class="nav-button" onclick="showResources()">
+        <img src="../img/resources.png" alt="Resources" width="20" height="20">
+        Resource
+    </nav></div>
+    <div class="content" id="theory" >
+        <div class="divContent"><h1>Our Objective</h1>
+
+            <p>Our Objective is to prepare the crystals of the following substances form their impure samples through crystallisation;</p>
+            
+            <ol>
+                <li>Copper sulphate</li>
+                <li>Potash alum</li>
+                <li>Benzoic acid&nbsp;</li>
+            </ol>
+            
+            <h1>The Theory</h1>
+            
+            <h2>What happens during crystallisation?</h2>
+            
+            <p>The chemicals used for various purposes should be pure, completely free from any type of impurities. Method of purification of a substance depends upon the nature of impurities present in it. There are various methods for the purification of substances, e.g., filtration, evaporation, decantation, distillation, and crystallization. Crystallisation is one of the very important purification techniques, purifying substances by removing unwanted by-products. Crystalline compounds are generally purified via this crystallisation process.</p>
+            
+            <p>The principle behind the crystallisation is that the amount of solute that can be dissolved by a solvent increases with temperature.</p>
+            
+            <p>In crystallisation, the impure substance is dissolved in a suitable solvent to reach its nearly saturated solution at a temperature higher than the room temperature. At this high temperature, the solute has very high solubility in that solvent, so a much smaller quantity of hot solvent is needed for dissolving the solute than the solvent at room temperature.&nbsp; When the solution is cooled, the pure substance is crystallised. The solution left behind is called mother liquor. All the impurities are left behind in the mother liquor. The purification method depends on the differences in solubility between the compound and the impurity.&nbsp;</p>
+            
+            <h2>Let us discuss the basic steps involved in the crystallisation process</h2>
+            
+            <h3>Solvent and solute selection</h3>
+            
+            <p>Choosing an appropriate solvent is the important process of crystallisation, as crystallisation works only when a proper solvent is used. It is important to choose a solvent that will not dissolve the substance at room temperature. But as the temperature of the solvent increases, the solubility of the solute also increases. At the same time, the impurities that are present must either be soluble in the solvent at room temperature or must be insoluble in the solvent at a high temperature. If the solvent is not hot when the dissolution is carried out, too much solvent will be used, leading to diminished yield.</p>
+            
+            <h3>Dissolving the solute in the solvent</h3>
+            
+            <p>Add a small portion of the solvent to the beaker containing impure sample and boiling chips while the sample is heating.&nbsp; Stir the contents gently. Add enough solvent to dissolve the solute to get a saturated solution at the boiling point of the solvent. If too much solvent is used, the recovery of the substance will be decreased.</p>
+            
+            <h3>Filtration of the hot solution</h3>
+            
+            <p>If the hot solution contains insoluble impurities, it can be removed by the process of filtration. For this process, Place a filter paper cone in a funnel and wet the filter paper with a spray of water to fix it inside the funnel properly. Place the funnel on a funnel stand and put a china dish below the funnel.</p>
+            
+            <p>Note: The stem of the funnel should touch the wall of the china dish to avoid the solution splashing out.</p>
+            
+            <h3>Crystallisation of the filtrate</h3>
+            
+            <p>To concentrate the filtrate, heat the china dish containing filtrate gently with constant stirring. This is done to ensure uniform evaporation and to prevent formation of a solid crust. When the volume of the solution is reduced to one half, dip one end of a glass rod in the concentrated solution and cool the drop by blowing on it. The formation of a thin crust indicates that the crystallisation point has been obtained.&nbsp;</p>
+            
+            <h3>Cooling the concentrated solution</h3>
+            
+            <p>Once it is determined that the solution is saturated with the compound, it is allowed to cool slowly at room temperature.</p>
+            
+            <p>In order to cool the concentrated solution, pour the solution into a crystallising dish and keep it undisturbed. As the solution cools, crystals separate. Once the sample is cooled to room temperature, place it in an ice bath or in cold water to complete the crystallisation.</p>
+            
+            <p>If the crystallisation does not start immediately, add a seed crystal or scratch inside the vessel containing the concentrated solution with a glass rod.</p>
+            
+            <h3>Separation and drying of crystals</h3>
+            
+            <p>The crystals formed are separated by either decanting the mother liquor or by the process of filtration.&nbsp; Wash the crystals with cold water or alcohol. The crystals can be dried by pressing them gently between sheets of filter paper.&nbsp; They can also be dried by spreading them on a porous plate or by placing the crystals in a vacuum desiccator. The crystals have a definite geometry, and therefore a definite shape.</p>
+            
+            <h2>Let us discuss the crystallisation of some samples</h2>
+            
+            <h3>Crystallisation of copper sulphate (CuSO<sub>4</sub>.5H<sub>2</sub>O)</h3>
+            
+            <p>To crystallise copper sulphate, dissolve it in water and add a small quantity of dilute sulphuric acid to prevent the hydrolysis of copper sulphte. The impurities left behind in the solution are removed by filtration. The filtrate is concentrated to the crystallisation point and then cooled. On cooling, transparent blue crystals of copper sulphate separate. The copper sulphate crystal formed has triclinic shape</p>
+            
+            <p><img alt="" src="/userfiles/1/image/cryst-1.png"></p>
+            
+            <h3>Crystallisation of Potash Alum</h3>
+            
+            <p>Potash alum is highly water soluble. To prepare pure crystals of potash alum, dissolve the sample in distilled water and remove the insoluble impurities by filtration. This solution is concentrated to the crystallisation point and cooled.&nbsp; Colourless transparant crystals of potash alum separate. The soluble impurities are left behind in the mother liquor. Potash alum has an octahedral geometry.</p>
+            
+            <p><img alt="" src="/userfiles/1/image/cryst-2.png"></p>
+            
+            <h3>Crystallisation of Benzoic Acid</h3>
+            
+            <p>Benzoic acid is a colourless crystalline solid. It is highly soluble in hot water, but poorly soluble in cold water. It can be recrystallised by dissolving it in hot water. The hot solution obtained is filtered and cooled. Upon cooling, opaque white crystals of benzoic acid crystallise.</p>
+            
+            <p><img alt="" src="/userfiles/1/image/cryt-3.png"></p>
+            
+            <h1>Learning Outcomes</h1>
+            
+            <ol>
+                <li>Students understand the term ‘crystallisation’ from the experiment.</li>
+                <li>Students understand different steps of a crystallisation process.</li>
+                <li>Students acquire skill to perform the crystallisation using the following;
+                <ul>
+                    <li>Copper sulphate</li>
+                    <li>Potash alum</li>
+                    <li>Benzoic acid</li>
+                </ul>
+                </li>
+                <li>Students may be able to do the experiment using other samples once they visualise the steps.&nbsp;</li>
+            </ol>
+            </div></div>
+    <div class="content" id="procedure" style="display: none;">
+      <h2>Procedure</h2>
+      <div class="divContent"><h1>Crystallisation of Copper sulphate</h1>
+
+        <h2>Materials Required</h2>
+        
+        <p><img alt="" src="/userfiles/1/1435998833_copper-sulphate.jpg"></p>
+        
+        <h2>The Procedure</h2>
+        
+        <h3>Real lab procedure</h3>
+        
+        <p><strong>Preparation of the solution</strong></p>
+        
+        <ul>
+            <li>Take about 25-30 ml of distilled water in a beaker and add powdered crude copper sulphate while stirring the solution so that the powder dissolves.</li>
+            <li>Keep adding the powdered sample till a little of it remains undissolved, even if it is stirred thoroughly.</li>
+            <li>Now add 2-3 ml of dil. H<sub>2</sub>SO<sub>4</sub> to make the solution clear. This prevents the hydrolysis of copper sulphate.</li>
+        </ul>
+        
+        <p><strong>Filtration of the solution</strong></p>
+        
+        <ul>
+            <li>Take a funnel and fix a filter paper in it and clamp it to a stand.</li>
+            <li>Place a china dish under the funnel. The stem of the funnel should touch the wall of the china dish to avoid the solution splashing out.</li>
+            <li>Pour the solution into the funnel over a glass rod and collect the filtrate in a china dish. The insoluble impurities are left in the filter paper as residue.</li>
+        </ul>
+        
+        <p><strong>Concentration of the filtrate to crystallisation point</strong></p>
+        
+        <ul>
+            <li>Heat the china dish on a sand bath till the solution is reduced to about one-third of its original volume.</li>
+            <li>To avoid crust formation on the sides of the dish, stir the solution continuously with a glass rod. If crust is formed, it can be dissolved in the solution by removing it with the glass rod. Don’t allow the solution in the dish to boil.</li>
+            <li>To know if the solution has reached its crystallisation point, use the end of the glass rod to remove a drop of the solution and cool it by blowing on it. The appearance of a crust or tiny crystals on the glass rod shows that the crystallisation point has been reached.</li>
+            <li>Turn off the burner and stop heating.</li>
+            <li>Transfer the hot saturated solution into a crystallising dish.</li>
+        </ul>
+        
+        <p><strong>Cooling the hot saturated solution</strong></p>
+        
+        <ul>
+            <li>&nbsp;Place the crystallisation dish containing the hot saturated solution in a trough containing water filled to the brim and allow it to cool slowly for sometime.</li>
+            <li>&nbsp;Deep blue crystals of copper sulphate will be formed. The crystallisation will complete after half an hour.</li>
+        </ul>
+        
+        <p><strong>Separation of crystals and drying</strong></p>
+        
+        <ul>
+            <li>Decant the mother liquor carefully into a beaker.</li>
+            <li>Wash the crystals with a little ethyl alcohol containing a small amount of cold water.</li>
+            <li>Place the crystals on a filter paper which will soak up the solution.</li>
+            <li>Transfer the crystals to another filter paper and dry them by pressing gently between the folds of the filter paper or by spreading on a porous plate.</li>
+            <li>Transfer the crystals into a dry test tube and cork it.&nbsp;&nbsp;</li>
+        </ul>
+        
+        <h1>Crystallisation of Potash Alum</h1>
+        
+        <h2>Materials required</h2>
+        
+        <p><img alt="" src="/userfiles/1/1435998847_potash-alum.jpg"></p>
+        
+        <h2>The Procedure</h2>
+        
+        <h3>Real lab procedure</h3>
+        
+        <p><strong>Preparation of solution</strong></p>
+        
+        <ul>
+            <li>Take about 25-30 ml of distilled water in a beaker. Add about 5-6 g of crude sample of potash alum to it and stir the contents of the beaker with a glass rod until the solution is clear.</li>
+            <li>Warm to dissolve all of the alum present in the sample.&nbsp;&nbsp;</li>
+        </ul>
+        
+        <p><strong>Filtration of the solution</strong></p>
+        
+        <ul>
+            <li>Take a funnel and fix a filter paper in it and clamp it to a stand.</li>
+            <li>Place a china dish under the funnel. The stem of the funnel should touch the wall of the china dish to avoid the solution splashing out.</li>
+            <li>Pour the solution into the funnel over a glass rod and collect the filtrate in a china dish. The insoluble impurities are left in the filter paper as residue.&nbsp;</li>
+        </ul>
+        
+        <p><strong>Concentration of the filtrate to crystallisation</strong></p>
+        
+        <ul>
+            <li>Heat the china dish on a sand bath till the solution is reduced to about one-third of its original volume.</li>
+            <li>To avoid crust formation on the sides of the dish, stir the solution continuously with a glass rod. If a crust is formed, dissolve it back into the solution by removing it with the glass rod. Don’t allow the solution in the dish to boil.</li>
+            <li>To know if the solution has reached its crystallisation point, use the end of the glass rod to remove a drop of the solution and cool it by blowing on it. The appearance of a crust or tiny crystals on the glass rod shows that the crystallisation point has been reached.</li>
+            <li>Turn off the burner and stop heating.</li>
+            <li>Transfer the hot saturated solution into a crystallising dish.&nbsp;</li>
+        </ul>
+        
+        <p><strong>Cooling the hot saturated solution</strong></p>
+        
+        <ul>
+            <li>Place the crystallisation dish containing the hot saturated solution in a beaker containing water filled to the brim and allow it to cool slowly for some time.</li>
+            <li>Colourless transparent crystals of potash alum begin to separate.</li>
+            <li>After about half an hour, the crystallisation is complete.&nbsp;</li>
+        </ul>
+        
+        <h4>5. Separation of crystals and drying&nbsp;</h4>
+        
+        <ul>
+            <li>Decant off the mother liquor carefully into a beaker.</li>
+            <li>Wash the crystals with cold solution of alcohol and water.</li>
+            <li>Place the crystals on a filter paper which will soak up the solution.</li>
+            <li>Transfer the crystals to another filter paper and dry them by pressing gently between the folds of the filter paper.</li>
+            <li>Transfer the crystals into a dry test tube and cork it.&nbsp;</li>
+        </ul>
+        
+        <h1>Crystallisation of Benzoic Acid</h1>
+        
+        <h2>Materials required</h2>
+        
+        <p><img alt="" src="/userfiles/1/1435999509_Crystallisation-of-Benzoic-Acid.jpg"></p>
+        
+        <h2>The Procedure</h2>
+        
+        <h3>Real lab procedure</h3>
+        
+        <p><strong>Preparation of solution&nbsp;</strong></p>
+        
+        <ul>
+            <li>Take about 150 ml of distilled water in the beaker and boil the water over a Bunsen burner by placing the beaker over a piece of wire gauze placed over a tripod stand.</li>
+            <li>In another beaker, take 2-3 g of crude sample of benzoic acid.&nbsp; While constantly stirring, gradually add a minimum quantity of boiling water just sufficient to dissolve the benzoic acid. If required, heating can be used to dissolve the benzoic acid.&nbsp;</li>
+        </ul>
+        
+        <p><strong>Filtration of the solution&nbsp;</strong></p>
+        
+        <ul>
+            <li>Take a funnel and fix a filter paper in it and clamp it to a stand.</li>
+            <li>Fix a fluted filter paper into the funnel and filter the hot solution into a beaker.</li>
+            <li>Insoluble impurities will be left in the filter paper.&nbsp;</li>
+        </ul>
+        
+        <p><strong>Cooling the hot saturated solution&nbsp;</strong></p>
+        
+        <ul>
+            <li>Let the filtered solution come to room temperature by itself.</li>
+            <li>Now cool it by placing it in a cold water trough.</li>
+            <li>Opaque white crystals of benzoic acid begin to separate.&nbsp;</li>
+        </ul>
+        
+        <p><strong>Separation of crystals and drying&nbsp;</strong></p>
+        
+        <ul>
+            <li>Fix a filter paper in a funnel that is clamped to a stand and separate the crystals by filtration.</li>
+            <li>Wash the crystals with cold water.</li>
+            <li>Transfer the crystals to another filter paper and dry them by pressing gently between the folds of the filter paper.</li>
+            <li>Transfer the crystals into a dry test tube and cork it.&nbsp;</li>
+        </ul>
+        
+        <h1>Simulator Procedure (as performed through the&nbsp;<a href="http://www.olabs.co.in/" target="_blank">Online Labs</a>)</h1>
+        
+        <p>You can select any one of the sample to perform the experiment by clicking on the corresponding sample icon.&nbsp;</p>
+        
+        <h2>Copper Sulphate</h2>
+        
+        <ul>
+            <li>Drag the spatula containing copper sulphate towards the beaker containing distilled water and drop it in.</li>
+            <li>Click on the glass rod to stir the solution.</li>
+            <li>Drag the measuring cylinder containing conc. H<sub>2</sub>SO<sub>4</sub> towards the beaker to pour it into the solution.</li>
+            <li>Click on the ‘Next’ button.</li>
+            <li>Drag the beaker towards the funnel to filter the copper sulphate solution.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>We can now click on the ‘Next’ button to go to the next process.</li>
+            <li>Click on the knob of the burner to turn it on.</li>
+            <li>To stir the solution in the china dish, click on the glass rod.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>Drag the china dish towards the crystallisation dish to transfer the hot saturated solution of copper sulphate into it.</li>
+            <li>To cool the hot solution, drag the crystallisation dish and place it in the trough containing water.</li>
+            <li>Wait for some time for the copper sulphate to recrystallise from the solution.</li>
+            <li>Drag the crystallisation dish out of the water trough to place it back.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>We can click on the ‘Next’ button to go to the next process.</li>
+            <li>Drag the bottle containing ethyl alcohol and water mixture towards the crystallisation dish to wash the crystals.</li>
+            <li>Drag the crystallisation dish towards the trough to decant the upper solution.</li>
+            <li>Click on the ‘Next’ button to go to the next process.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>To transfer the crystals into the test tube, drag the filter paper containing the crystals toward it.</li>
+            <li>Drag the cork towards the test tube and close it.</li>
+            <li>To redo the experiment, click on the ‘Reset’ button.</li>
+        </ul>
+        
+        <h2>Potash alum</h2>
+        
+        <ul>
+            <li>Drag the spatula containing potash alum towards the beaker containing distilled water and drop it in.</li>
+            <li>Click on the glass rod to stir the solution.</li>
+            <li>To go to the next process, click on the ‘Next’ button.</li>
+            <li>Drag the beaker towards the funnel to filter the potash alum solution.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>To go to the next process, click on the ‘Next’ button.</li>
+            <li>Click on the knob of the burner to turn it on.</li>
+            <li>To stir the solution in the china dish, click on the glass rod.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>Drag the china dish towards the crystallisation dish to transfer the hot saturated solution of potash alum into it.</li>
+            <li>To cool the hot solution, drag the crystallisation dish and place it in the trough containing water.</li>
+            <li>Wait for some time for potash alum to recrystallise from the solution.</li>
+            <li>Drag the crystallisation dish out of the water trough to place it back.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>We can click on the ‘Next’ button to go to the next process.</li>
+            <li>Drag the bottle containing alcohol and water mixture towards the crystallisation dish to wash the crystals.</li>
+            <li>Drag the crystallisation dish towards the trough to decant the upper solution.</li>
+            <li>Click on the ‘Next’ button to go to the next process.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>To transfer the crystals into the test tube, drag the filter paper containing the crystals toward it.</li>
+            <li>Drag the cork towards the test tube and close it.</li>
+            <li>To redo the experiment, click on the ‘Reset’ button.</li>
+        </ul>
+        
+        <h2>Benzoic acid</h2>
+        
+        <ul>
+            <li>Drag the spatula containing benzoic acid towards the beaker containing hot water and drop it in.</li>
+            <li>Click on the glass rod to stir the solution.</li>
+            <li>To go to the next process, click on the ‘Next’ button.</li>
+            <li>Drag the beaker towards the funnel to filter the benzoic acid solution.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>To go to the next process, click on the ‘Next’ button.</li>
+            <li>To cool the hot solution, drag the beaker and place it in the trough containing water.</li>
+            <li>Wait for some time for benzoic acid to recrystallise from the solution.</li>
+            <li>Drag the beaker out of the water trough to place it back.</li>
+            <li>Click on the ‘Next’ button to go to the next process.</li>
+            <li>Drag the beaker towards the funnel to filter its contents.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>Click on the ‘Next’ button to go to the next process.</li>
+            <li>Drag the bottle containing cold water towards the crystallisation dish to wash the crystals.</li>
+            <li>Drag the crystallisation dish towards the trough to decant the upper solution.</li>
+            <li>To go to the next process, click on the ‘Next’ button.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>To transfer the crystals into the test tube, drag the filter paper containing the crystals toward it.</li>
+            <li>Drag the cork towards the test tube and close it.</li>
+        </ul>
+        
+        <h1>Precautions</h1>
+        
+        <ul>
+            <li>&nbsp;The filtrate should be evaporated slowly by gently heating during concentration.</li>
+            <li>&nbsp;The filtrate is to be evaporated only up to the crystallisation point. It should never be heated to dryness. Avoid overheating the &nbsp;solution.</li>
+            <li>&nbsp;The solution should be cooled slowly without disturbing it. It should never be cooled rapidly.</li>
+            <li>&nbsp;Wash the crystals with the washing liquid 3-4 times, using very small amount of the liquid each time.</li>
+            <li>&nbsp;If the crystals obtained are very small, it means that the solution has been concentrated more than that required for the &nbsp;crystallisation stage.&nbsp;</li>
+        </ul>
+        
+        <p>&nbsp;</p>
+        </div>
+    </div>
+    <div class="content" id="animation" style="display: none;">
+        <h2>Simulation</h2>
+        <body>
+            <div class="main">
+            <header id="silumatorTemp">
+              <div class="g99 logo">
+              </div>
+              <!-- end .g99 -->
+                <div class="g495 mainTitle">
+                <p id="expName"></p>
+              </div>
+              <!-- end .g495 -->
+                <div class="g198 menuSet">
+                      
+              </div>
+              <!-- end .g198 -->
+            <div class="g792 bannerFoot">
+            <ul id="olabmenuBar">
+                  <li><a href="#">SAVE</a></li>
+                <li><a id="olabFullscrBtn" onClick="parent.simFullScreenOlab()" style="cursor:pointer;" >FULLSCREEN</a></li>
+                <li><a href="#">EXIT</a></li>
+              </ul>
+            </div>
+                <!-- end .grid_8 -->
+            </header><!-- /header -->
+            <div class="g594 canvasHolder"> 
+                <div id="canvasBox">
+            <div id="mainDiv">
+                <img id="inference" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/inference.png" />
+                <!--Loading Background-->
+                <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/BG1.gif" id="bgCanvas1" />
+                <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/BG2.gif" id="bgCanvas2" />
+                 <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/BG3.gif" id="bgCanvas3" />
+                 <!--First Stage-->
+                <div id="sampleDiv">
+                    <canvas id="glassrod" ></canvas>
+                     <div id="mixture">
+                       <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/mixture1.png" class="mix1" />
+                       <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/mixture2.png" class="mix2" />
+                       <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/mixture3.png" class="mix3" />
+                       <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/mixture4.png" class="mix4" />
+                       <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/mixture5.png" class="mix5" />
+                    </div>
+                    <div id="bkrDiv">
+                       <div id="bkrWaterDivBg"><img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/beakerwhitebg1.png" id="beakerwhitebg1" /></div>
+                       <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bluePowderInBeaker.png" id="powderInBeaker"/> 
+                       <div id="bkrWaterDiv2"><img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/blueWater.png" id="waterInbeaker2" /></div>
+                       <div id="bkrWaterDiv"><img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/waterinbeaker.png" id="waterInbeaker" /></div>
+                       
+                       <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/beaker.png" id="beaker" /> 
+                    </div> 
+                    <canvas id="watchglass" class="unselectable"></canvas>
+                   <div id="SpatulaDiv"><img id="ImgInSpatula" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/blueSpatula.png"/>
+            <img id="spatulaImg" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/spatula.png"/></div>
+                    <img id="splash1" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/splash1.png"/>
+            <img id="splash2" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/splash2.png"/>
+                    <img id="drops1" class="Drops" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/drops.png"/> <img id="drops2" class="Drops" src="../CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/drops.png"/>
+                    <img id="drops3" class="Drops" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/drops.png"/>
+                    <img id="drops4" class="Drops" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/drops.png"/>
+                    <img id="drops5" class="Drops" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/drops.png"/>
+                    <img id="drops6" class="Drops" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/drops.png"/>
+                    <img id="drops7" class="Drops" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/drops.png"/>
+                    <img id="drops8" class="Drops" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/drops.png"/>
+                    <img id="drops9" class="Drops" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/drops.png"/>
+                    <img id="drops10" class="Drops" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/drops.png"/>
+                    <canvas id="crudeCopper" class="unselectable"></canvas>
+                    <div id="solnPourStart"></div>
+                    <img id="pourline1" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/pourline1.png"/>
+                    <img id="pourline2" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/pourline2.png"/>
+                    <div id="cylinder"><div id="cylinderwaterDivAll"><div id="cylinderwaterDiv" ><div id="cylinderwaterImg"></div></div></div><img id="cylinderimg" src="../CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/cylinder.png"/></div>
+                    <img id="standBg" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/standBg.png"/>
+                    <canvas id="sampleLabel" class="unselectable"></canvas>
+                    <canvas id="waterLabel" class="unselectable"></canvas>
+                    <canvas id="acidLabel" class="unselectable"></canvas>
+                    <p id="sampleString" class="labelClass unselectable"></p>
+                    <p id="acidString" class="labelClass unselectable"></p>
+                    <p id="waterString" class="labelClass unselectable"></p>       
+                </div>
+                  <!--Second stage filtration-->
+                <div id="filterDiv">    
+                    <canvas id="filter"></canvas>
+                    <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/blueInfunnel1.png" id="funnelsoln" />  
+                    <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/dishunder.png" id="dishunder" />  
+                    <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/potcontent.png" id="potcontent" />
+                    <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/beaker5Shadow.png" id="beaker5Shadow" />
+                    
+                     <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/dishtop.png" id="dishtop" /> 
+                     <div id="beaker3ContentDivBg">
+                        <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/beaker3ContentBg.png" id="beaker3ContentBg" />
+                     </div> 
+                     <div id="beaker3ContentDiv">
+                         <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/beaker3Content.png" id="beaker3Content" /> 
+                     </div> 
+                    <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/beaker3Shadow.png" id="beaker3Shadow" />      
+                    <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/beaker3.png" id="beaker3" /> 
+                     <div id="beaker2"> <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/paticle2.png" id="paticle2" /><div id="beaker2waterDivAll"><div id="beaker2waterDiv" ><div id="beaker2waterImg"></div></div></div><img id="beaker2img" src="../CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/beaker5.png"/></div> 
+                </div>
+                 <!--Show Clock-->
+                <div id="clockDiv">
+                    <img id="clock" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/clock.png"/>
+                    <p id="timeString" class="labelClass unselectable"></p>
+                    <img id="needle" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/needle.png"/>
+                     
+                </div> 
+                 <!--Third stage -->       
+                <div id="thirdPart1">
+                    <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/glassbowlShadow3.png" id="glassbowlShadow3" /> 
+                    <div id="glassbowlContents">          
+                      <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/glassbowlunder3.png" id="glassbowlunder3" /> 
+                      <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/glassbowl3.png" id="glassbowl3" />
+                      </div> 
+                    <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bowlToDragWaterBlue.png" id="bowlToDrag" /> 
+                    <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/sandunder.png" id="sandunder" />
+                    <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/glassbasinshadow3.png" id="glassbasinshadow3" /> 
+                       <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/glassbasin.png" id="glassbasin" /> 
+                   <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/dishTodrag.png" id="dishTodrag" />
+                   <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/dishpourblueline1.png" id="dishpourline1" />
+                   <div id="dishDiv"></div>
+                   <div id="dishContents">
+                        <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/dishUnder3.png" id="dishUnder3" />      
+                        <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/dishbluewater3.png" id="dishbluewater3" />
+                        <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/stirrer3.png" id="stirrer3" />
+                        <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/dishtop3.png" id="dishtop3" />
+                   </div>
+                    <div id="burnerParts">
+                        <canvas id="burner" class="unselectable"></canvas>
+                        <img id="burner_btn" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/burner_off.png" class="unselectable" />
+                        <div id="burnerOnOff"></div>
+                        <!--Loading flame and burner -->
+                        <div id="flame">
+                            <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/flame1.png" class="flame1" />
+                            <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/flame2.png" class="flame2" />
+                            <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/flame3.png" class="flame3" />
+                            <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/flame4.png" class="flame4" />
+                            <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/flame5.png" class="flame5" />
+                        </div>
+                       </div>
+                </div>
+                <div id="thirdPart2"> 
+                     <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/steelbasinunder.png" id="steelbasinunder" /> 
+                    <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/steelbasinwater.png" id="steelbasinwater" />              	
+                    <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/steelbasin.png" id="steelbasin" /> 
+                    <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/beakerhotwatershadow.png" id="benoicAcidbeakershadow" />   	
+                       <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/beakerhotwater.png" id="benoicAcidbeaker" />   
+                </div> 
+                 <!--Fourth stage-->
+                <div id="fourthPart">    	
+                    <img id="solventpour1" class="solventpour" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bluesolventpour.png"/>
+                     <img id="solventpour2" class="solventpour" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bluesolventpour.png"/>
+                    <img id="solventpour3" class="solventpour" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bluesolventpour.png"/>
+                    <img id="solventpour4" class="solventpour" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bluesolventpour.png"/>
+                    <img id="solventpour5" class="solventpour" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bluesolventpour.png"/>
+                    <img id="solventpour6" class="solventpour" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bluesolventpour.png"/>
+                    <img id="solventpour7" class="solventpour" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bluesolventpour.png"/>
+                    <img id="solventpour8" class="solventpour" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bluesolventpour.png"/>
+                    <img id="solventpour9" class="solventpour" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bluesolventpour.png"/>
+                    <img id="solventpour10" class="solventpour" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bluesolventpour.png"/>        
+                    <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bluesolventinTube.png" id="testtubesolvent" />        
+                    <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/testtube5.png" id="testtube5" />  
+                    <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/testtubestand5.png" id="testtubestand5" />
+                    <div id="testtube5Div" ></div>  
+                    <canvas id="glassPlate"></canvas>
+                       <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/corkshadow.png" id="corkshadow" /> 
+                    <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/cork.png" id="cork" /> 
+                    <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/filterpaper.png" id="filterpaper" />   
+                </div>
+                <div id="crystalCleaningPart">
+                     <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/steelbasinsmall.png" id="steelbasinsmall" />
+                     <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bowlshadow7.png" id="bowlshadow7" />
+                     <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/waterbottle7.png" id="waterBottle" />
+                     <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/label2.png" id="waterLabel7" /> 
+                      <p id="acidwithWaterStr" class="labelClass unselectable"></p>
+                     <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/basinpourline1.png" id="basinpourline" /> 
+                     <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bottlepourwater1.png" id="bottlepourwater" /> 
+                     <div id="bowl">
+                         <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bowlParticleBlue.png" id="bowlParticle" />
+                         <div id="bowlWaterDiv">
+                            <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/bowlWater.png" id="bowlWater" /> 
+                         </div>        
+                         <img  src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/glassbowl7.png" id="glassbowl7" />   
+                     </div> 
+                        
+                </div>
+                <!--Last stage-->
+                <canvas id="testubeZoom"></canvas>
+                 <!--Next Button-->
+                <div id="nextClick"> 
+                    <canvas id="nextBtn" class="unselectable"></canvas>
+                    <p id="nextBtnString" class="labelbtnClass unselectable"></p>
+                </div>
+            </div>
+            
+            
+            </div>
+            </div>
+            <div class="g198 controlHolder">
+            <div class="nano has-scrollbar">
+            <ul style="right: -17px;" tabindex="0" class="overthrow content description">
+                <li>
+                    <div class="varBox"> 
+                        <!--Loading drop box -->      
+                        <p class="varTitle"><span id="sampleCombo"></span>:</p>
+                        <!--Loading icons and their clicks-->  
+                        <div style="position:relative;">           
+                            <img id="copperIcon" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/copperIcon.png" />
+                            <p class="fontcntrl" id="coppercntrl" ></p>
+                            <img id="alumIcon" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/icon2.png" />
+                            <p class="fontcntrl" id="alumcntrl" ></p>
+                            <img id="benzoicIcon" src="http://amrita.olabs.edu.in/olab/CHE/ANC/Characterization_and_Purification_of_Chemical_Substances/images/icon2.png"/>
+                            <p class="fontcntrl" id="bencntrl" ></p>
+                            <div id="copperClick"></div>
+                            <div id="alumClick"></div>
+                            <div id="benClick"></div>
+                         </div>  
+                        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                        <br /><br /><br /><br />
+                        
+                        <!--Loading reset button--> 
+                        <p align="center"><input type="button" class="subButton" id="reset"/></p>
+                    </div>
+                </li>
+            </ul>
+            
+            
+            </div></div>
+            <script type="text/javascript">
+                var expTitle="Purification of Impure Samples by Crystallization";
+                document.getElementById("expName").style.size="11px";
+                document.getElementById("expName").innerHTML=expTitle;
+                
+               </script>
+            </div>
+            </body>
+            
+</div> 
+    <!-- <div class="content" id="simulation" style="display: none;">
+      <h2>Simulation</h2>
+        <p>This is the simulation section of the experiment.</p>
+    </div> -->
+    
+    <div class="content" id="video" style="display: none;">
+        <h2>Video</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/pvilJbKVxmw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+  </div>
+    <div class="content" id="vivavoce" style="display: none;">
+        <h2>Vivavoce</h2>
+        <!-- <p>This is the vivavoce section of the experiment.</p> -->
+        <!-- <link rel="stylesheet" href="caliper.html"> -->
+        <h1>Purification of Impure Samples by Crystallization</h1>
+        <form>
+            <h2>Question 1:</h2>
+            <p>What is the most important characteristic of a crystal?</p>
+            <input type="radio" name="q1" value="A">Colour<br>
+            <input type="radio" name="q1" value="B">Isotropic nature<br>
+            <input type="radio" name="q1" value="C">Geometry and shape<br>
+    
+            <h2>Question 2:</h2>
+            <p> What is the formula of Blue vitriol?</p>
+            <input type="radio" name="q2" value="A">Fe₂(SO₄)₃<br>
+            <input type="radio" name="q2" value="B">CuSO₄.5H₂O<br>
+            <input type="radio" name="q2" value="C">CuSO₄<br>
+    
+            <h2>Question 3:</h2>
+            <p>What is green vitriol?</p>
+            <input type="radio" name="q3" value="A">Hydrated ferrous sulphate<br>
+            <input type="radio" name="q3" value="B">Hydrated copper sulphate<br>
+            <input type="radio" name="q3" value="C">Aluminium sulphate<br>
+    
+            <h2>Question 4:</h2>
+            <p>What is the crystal structure of blue vitriol?</p>
+            <input type="radio" name="q4" value="A">Cubic<br>
+            <input type="radio" name="q4" value="B">Monoclinic<br>
+            <input type="radio" name="q4" value="C">Triclinic<br>
+    
+            <h2>Question 5:</h2>
+            <p>What is the shape of potash alum?</p>
+            <input type="radio" name="q5" value="A">Octahedral<br>
+            <input type="radio" name="q5" value="B">Square planar<br>
+            <input type="radio" name="q5" value="C">Cubic<br>
+    
+            <input type="submit" value="Submit">
+        </form>
+
+      </div>
+      <div class="content" id="resources" style="display: none;">
+        <h2>Resources</h2>
+        <div class="divContent"><h1>Books:</h1>
+
+            <ul>
+                <li>Laboratory Manual Chemistry for class XI - Published by NCERT</li>
+                <li>Text book for Class XI Chemistry Part I, National Council of Educational Research and Training</li>
+            </ul>
+            
+            <h1>Websites:</h1>
+            
+            <ul>
+                <li><a href="https://www.google.co.in/?gfe_rd=cr&amp;ei=mxVRU9CdKsPM8geSw4DoBQ#q=potash+alum" target="_blank">www.google.co.in/</a></li>
+                <li><a href="http://en.wikipedia.org/wiki/Copper%28II%29_sulfate" target="_blank">en.wikipedia.org/wiki/Copper%28II%29_sulfate</a></li>
+                <li><a href="http://www.google.co.in/imgres?imgurl=http%3A%2F%2Fwww.daviddarling.info%2Fimages%2Funit_cell_triclinic.jpg&amp;imgrefurl=http%3A%2F%2Fwww.daviddarling.info%2Fencyclopedia%2FC%2Fcrystal.html&amp;h=366&amp;w=300&amp;tbnid=EAwzZwbjbZVJHM%3A&amp;zoom=1&amp;docid=zzEvoJc4GQVvrM&amp;ei=fhdRU-_GG8rprQfcyYDgDg&amp;tbm=isch&amp;ved=0CHUQMygQMBA&amp;iact=rc&amp;uact=3&amp;dur=726&amp;page=2&amp;start=5&amp;ndsp=15" target="_blank">www.google.co.in/imgres</a></li>
+                <li><a href="http://en.wikipedia.org/wiki/Benzoic_acid" target="_blank">en.wikipedia.org/wiki/Benzoic_acid</a></li>
+            </ul>
+            </div>
+    </div>
+<!-- </div> -->
+    <script>
+   
+
+function simFullScreenOlab(){
+		var $ = function(selector,context){return(context||document).querySelector(selector)};
+        var iframe = $("iframe"),
+            domPrefixes = 'Webkit Moz O ms Khtml'.split(' ');
+
+            var fullscreen = function(elem){
+            var prefix;
+			
+            // Mozilla and webkit intialise fullscreen slightly differently
+            for ( var i = -1, len = domPrefixes.length; ++i < len; ) 
+			{
+              prefix = domPrefixes[i].toLowerCase();
+              if ( elem[prefix + 'EnterFullScreen'] ) {
+                // Webkit uses EnterFullScreen for video
+                return prefix + 'EnterFullScreen';
+                break;
+              } else if( elem[prefix + 'RequestFullScreen'] ) {
+                // Mozilla uses RequestFullScreen for all elements and webkit uses it for non video elements
+                return prefix + 'RequestFullScreen';
+                break;
+              }
+            }
+            return false;
+        }; 
+        // Webkit uses "requestFullScreen" for non video elements
+        var fullscreenother = fullscreen(document.createElement("iframe"));
+        if(!fullscreen) {
+            alert("Fullscreen won't work, please make sure you're using a browser that supports it and you have enabled the feature");
+            return;
+        }
+		iframe[fullscreenother]();
+		(this,this.document);
+	    }
+
+
+      //simulator script 
+      function simFullScreenOlab(){
+		var $ = function(selector,context){return(context||document).querySelector(selector)};
+        var iframe = $("iframe"),
+            domPrefixes = 'Webkit Moz O ms Khtml'.split(' ');
+
+            var fullscreen = function(elem){
+            var prefix;
+			
+            // Mozilla and webkit intialise fullscreen slightly differently
+            for ( var i = -1, len = domPrefixes.length; ++i < len; ) 
+			{
+              prefix = domPrefixes[i].toLowerCase();
+              if ( elem[prefix + 'EnterFullScreen'] ) {
+                // Webkit uses EnterFullScreen for video
+                return prefix + 'EnterFullScreen';
+                break;
+              } else if( elem[prefix + 'RequestFullScreen'] ) {
+                // Mozilla uses RequestFullScreen for all elements and webkit uses it for non video elements
+                return prefix + 'RequestFullScreen';
+                break;
+              }
+            }
+            return false;
+        }; 
+        // Webkit uses "requestFullScreen" for non video elements
+        var fullscreenother = fullscreen(document.createElement("iframe"));
+        if(!fullscreen) {
+            alert("Fullscreen won't work, please make sure you're using a browser that supports it and you have enabled the feature");
+            return;
+        }
+		iframe[fullscreenother]();
+		(this,this.document);
+	    }
+  // Get the form element
+const form = document.querySelector('form');
+
+// Add an event listener for form submission
+form.addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  // Get the selected radio buttons
+  const q1 = form.elements['q1'].value;
+  const q2 = form.elements['q2'].value;
+  const q3 = form.elements['q3'].value;
+  const q4 = form.elements['q4'].value;
+  const q5 = form.elements['q5'].value;
+
+  // Check the answers
+  const correctAnswers = {q1: 'C', q2: 'B',q3: 'A',q4: 'C',q5: 'A'};
+  let score = 0;
+  let resultMsg = '';
+
+  if (q1 === correctAnswers.q1) {
+    score++;
+    resultMsg += 'Question 1: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 1: &#10060; <br>';
+  }
+
+  if (q2 === correctAnswers.q2) {
+    score++;
+    resultMsg += 'Question 2: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 2: &#10060; <br>';
+  }
+  if (q3 === correctAnswers.q3) {
+    score++;
+    resultMsg += 'Question 3: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 3: &#10060; <br>';
+  }
+  if (q4 === correctAnswers.q4) {
+    score++;
+    resultMsg += 'Question 4: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 4: &#10060; <br>';
+  }
+  if (q5 === correctAnswers.q5) {
+    score++;
+    resultMsg += 'Question 5: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 5: &#10060; <br>';
+  }
+
+
+  // Display the result message in a dialog box
+  resultMsg = `You scored ${score} out of 5. <br><br> ${resultMsg}`;
+  const resultDiv = document.createElement('div');
+  resultDiv.innerHTML = resultMsg;
+  
+  const dialog = document.createElement('dialog');
+  dialog.appendChild(resultDiv);
+  const closeButton = document.createElement('button');
+  closeButton.textContent = 'Close';
+  closeButton.addEventListener('click', function() {
+    dialog.close();
+  });
+  dialog.appendChild(closeButton);
+  document.body.appendChild(dialog);
+  dialog.showModal();
+});
+
+        
+      function showTheory() {
+        document.getElementById("theory").style.display = "block";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "none";
+        // document.getElementById("simulation").style.display = "none";
+        document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(0);
+      }
+
+      function showProcedure() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "block";
+        document.getElementById("animation").style.display = "none";
+        // document.getElementById("simulation").style.display = "none";
+        document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(1);
+      }
+      function showAnimation() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "block";
+        // document.getElementById("simulation").style.display = "none";
+        document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(2);
+      }
+
+
+      // function showSimulation() {
+      //   document.getElementById("theory").style.display = "none";
+      //   document.getElementById("procedure").style.display = "none";
+      //   document.getElementById("animation").style.display = "none";
+      //   document.getElementById("simulation").style.display = "block";
+      //   document.getElementById("video").style.display = "none";
+      //   document.getElementById("vivavoce").style.display = "none";
+      //   document.getElementById("resources").style.display = "none";
+      //   setActiveButton(3);
+      // }
+
+      function showVideo() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "none";
+        // document.getElementById("simulation").style.display = "none";
+        document.getElementById("video").style.display = "block";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(4);
+      }
+      function showVivavoce() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "none";
+        // document.getElementById("simulation").style.display = "none";
+        document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "block";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(5);
+      }
+      function showResources() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "none";
+        // document.getElementById("simulation").style.display = "none";
+        document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "block";
+        setActiveButton(6);
+      }
+
+      function setActiveButton(index) {
+        // Remove active class from all buttons
+        var buttons = document.getElementsByClassName("nav-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+
+        // Add active class to the button with the given index
+        buttons[index].classList.add("active");
+      }
+    </script>
+  </body>
+</html>

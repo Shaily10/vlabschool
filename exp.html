@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Experiment</title>
+    <style>
+        .navbar{
+            background-color: #012603;
+            margin-left: 40%;
+        }
+      /* Style the buttons */
+      .nav-button {
+        font-size: 16px;
+        padding: 10px 15px;
+        margin: 5px;
+        border: none;
+        border-radius: 4px;
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      /* Style the active button */
+      .active {
+        font-size: 20px;
+        padding: 10px;
+      }
+
+      .content{
+        background-color: rgb(158, 158, 172);
+        padding-bottom: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div >
+    <h1><u>Metre bridge- Law of combination of resistors</u></h1>
+    <nav class="navbar">
+      <button class="nav-button active" onclick="showTheory()">
+        <img src="./img/theory.png" alt="Theory" width="20" height="20">
+        Theory
+      </button>
+      <button class="nav-button" onclick="showProcedure()">
+        <img src="procedure.png" alt="Procedure" width="20" height="20">
+        Procedure
+      </button>
+      <button class="nav-button" onclick="showSimulation()">
+        <img src="simulation.png" alt="Simulation" width="20" height="20">
+        Simulation
+      </button>
+      <button class="nav-button" onclick="showVideo()">
+        <img src="video.png" alt="Video" width="20" height="20">
+        Video
+      </button>
+      <button class="nav-button" onclick="showVivavoce()">
+        <img src="vivavoce.png" alt="Video" width="20" height="20">
+        Vivavoce
+      </button>
+      <button class="nav-button" onclick="showResources()">
+        <img src="resources.png" alt="Video" width="20" height="20">
+        Resource
+    </nav></div>
+    <div class="content" id="theory">
+      <h2>Theory</h2>
+      <p>This is the theory section of the experiment.</p>
+    </div>
+    <div class="content" id="procedure" style="display: none;">
+      <h2>Procedure</h2>
+      <p>This is the procedure section of the experiment.</p>
+    </div>
+    <div class="content" id="simulation" style="display: none;">
+      <h2>Simulation</h2>
+      <p>This is the simulation section of the experiment.</p>
+    </div>
+    <div class="content" id="video" style="display: none;">
+      <h2>Video</h2>
+      <p>This is the video section of the experiment.</p>
+    </div>
+    <div class="content" id="vivavoce" style="display: none;">
+        <h2>Vivavoce</h2>
+        <p>This is the vivavoce section of the experiment.</p>
+      </div>
+      <div class="content" id="resources" style="display: none;">
+        <h2>Resources</h2>
+        <p>This is the resources section of the experiment.</p>
+      </div>
+    <script>
+      function showTheory() {
+        document.getElementById("theory").style.display = "block";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("simulation").style.display = "none";
+        document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(0);
+      }
+
+      function showProcedure() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "block";
+        document.getElementById("simulation").style.display = "none";
+        document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(1);
+      }
+
+      function showSimulation() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("simulation").style.display = "block";
+        document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(2);
+      }
+
+      function showVideo() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("simulation").style.display = "none";
+        document.getElementById("video").style.display = "block";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(3);
+      }
+      function showVivavoce() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("simulation").style.display = "none";
+        document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "block";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(4);
+      }
+      function showResources() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("simulation").style.display = "none";
+        document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "block";
+        setActiveButton(5);
+      }
+
+      function setActiveButton(index) {
+        // Remove active class from all buttons
+        var buttons = document.getElementsByClassName("nav-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+
+        // Add active class to the button with the given index
+        buttons[index].classList.add("active");
+      }
+    </script>
+  </body>
+</html>

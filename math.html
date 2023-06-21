@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Grade 9 Math Virtual Lab</title>
+	
+	<style>
+		.pdf-container {
+		  width: 100%;
+		  height: 400px;
+		  overflow: auto;
+		  border: 2px solid #ccc;
+		  border-radius: 10px;
+		  padding: 10px;
+		  position: relative;
+		}
+		
+		.pdf-container object {
+		  width: 100%;
+		  height: 100%;
+		}
+		
+		.pdf-container::before {
+		  content: '+';
+		  position: absolute;
+		  top: 10px;
+		  right: 10px;
+		  font-size: 30px;
+		  cursor: pointer;
+		}
+		
+		.pdf-container.zoom-out::before {
+		  content: '-';
+		}
+		
+		.pdf-container.zoom-out object {
+		  width: 80%;
+		  height: 80%;
+		}
+		
+		.pdf-container.zoom-out {
+		  height: 800px;
+		}
+	  </style>
+	<div class="pdf-container">
+		<object data="example.pdf" type="application/pdf" width="100%" height="100%">
+		  <p>Alternative text - include a link <a href="example.pdf">to the PDF!</a></p>
+		</object>
+	  </div>		
+</html>

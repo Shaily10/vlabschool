@@ -1,0 +1,109 @@
+.trip-content {
+	color: #DDDDDD;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 1.5vw;
+    /* line-height: 20px; */
+	}
+.trip-block {
+    display: none;
+    background: #000000;
+    color: #ffffff;
+    padding: 0.5%;
+    position: absolute;
+    text-align: center;
+    /* min-width: 100px; */
+    border-radius: 3px;
+
+    -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+       -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+        -ms-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+         -o-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.trip-arrow {
+    position: absolute;
+    background: none;
+    /* background: url("./arrow.png"); */
+    z-index: 1;
+}
+
+.trip-arrow.n {
+        /* height: 8px; */
+        bottom: -5%;
+        left: 41%;
+        /* right: 15px; */
+        background-repeat: no-repeat;
+        /* background-position: 50% 100%; */
+        transform: rotate(-90deg);
+        width: 9%;
+}
+
+.trip-arrow.s {
+    height: 8%;
+    top: -5%;
+    left: 49%;
+    /* right: 48%; */
+    background-repeat: no-repeat;
+    /* background-position: 50% 0%; */
+    transform: rotate(90deg);
+    width: 9%;
+}
+
+.trip-arrow.e {
+    width: 8%;
+    height: 44%;
+    left: -6%;
+    top: 36%;
+    /* bottom: 15px; */
+    background-repeat: no-repeat;
+    /* background-position: 0% 50%; */
+    position: absolute;
+}
+
+.trip-arrow.w {
+    width: 9%;
+    height: 43%;
+    right: -6%;
+    top: 27%;
+    /* bottom: 15px; */
+    background-repeat: no-repeat;
+    /* background-position: 100% 50%; */
+    transform: rotate(180deg);
+}
+
+.trip-progress-wrapper {
+
+}
+
+.trip-progress-bar {
+    height: 1px;
+    background-color: #9e9e9e;
+    width: 0;
+}
+
+.trip-overlay {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: black;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    filter: alpha(opacity = 70);
+}
+
+/*
+ *  TODO:
+ *  implement with more details later
+ */
+.trip-exposed { 
+    background: white
+}
+#imgTripNew
+{
+    width: 100%;
+    position: absolute;
+    left: -9%;
+}

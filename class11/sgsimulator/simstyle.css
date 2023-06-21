@@ -1,0 +1,329 @@
+@font-face {
+	font-family:MRKGPEN;
+	src:url(MRKGPEN.TTF);
+}
+.main{
+	overflow:hidden;
+}
+.varResult {
+	padding: 5px 0px 10px 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: 600;
+	color: #000;
+	text-align:left;
+}
+#mainDiv {
+	overflow:hidden;
+	position:absolute;
+	height:336px;
+	width:568px;
+	background:#FFF;
+	opacity:0.99;
+}
+.labelClass{
+	 position:absolute;
+	 width:110px; height:42px;
+	 font-family:MRKGPEN;
+	 font-size: 18px;
+	 text-align:center;
+	 font-weight:500;
+	 color:#333;
+}
+.userSelect {
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+/*controls*/
+/*check button and text box */
+#Ins2
+{
+	font-weight:bold;
+	margin: -6px;
+}
+
+#TextBox{
+padding: 0px;
+margin: 0px;
+}
+#textpos{
+	
+margin: 8px 0px 8px 0px;
+}
+#txt1{
+margin:1px 0px 0px -6px;
+}
+/*Image div display */
+#images{
+cursor: pointer;
+position:absolute;
+}
+/*Image Text*/
+
+#imgtext
+{
+margin: -10px 0px 8px 50px;
+}
+/*image position*/
+#default0{
+position: absolute;
+top: 212px;
+left: 74px;
+}
+
+/*canvas*/
+/*value in least count*/
+#textlc
+{
+position: absolute;
+top: 206.3px;
+left: 41px;
+z-index: 5;
+/*border:#0FF solid;*/
+}
+/*result msg*/
+#result
+{
+	
+padding: 0px 0px 0px 33px;
+margin: 7px 2px 0px 0px;
+visibility:hidden;
+
+}
+/*target div*/
+
+#targets{
+/*border: 1px solid #000;*/
+width: 0px;
+height: 23px;
+position: absolute;
+top: 126px;
+left: 43px;
+overflow: hidden;
+z-index: 5;
+}
+
+/*apparatus position*/
+#mainimage
+{
+width: 511px;
+height: 312px;
+/* border: 1px solid #000; */
+position: absolute;
+left: 21px;
+top: 5px;
+	}
+#ushapeguage
+{
+position: absolute;
+top: 114px;
+left: 12px;
+width: 180px;
+height: 120px;
+}
+#innerSCL{
+position: absolute;
+top: 126.3px;
+left: 121px;
+width: 164px;
+height: 24px;
+}
+#smallimg
+{
+position: absolute;
+top: 125px;
+left: 43px;
+overflow:hidden;
+display:none;
+}
+#msr
+{
+position: absolute;
+top: 115.8px;
+left: 197px;
+width: 180px;
+height: 45px;
+}
+#holder
+{
+position: absolute;
+width: 244px;
+height: 61px;
+left: 266px;
+top: 107px;
+z-index: 1;
+/* border: 1px solid #000; */
+}
+#hscale
+{
+position: absolute;
+top: 0px;
+left: 0px;	
+}
+#scalereading{
+position: absolute;
+top: 6px;
+left: 1px;
+height: 47px;
+width: 21px;
+z-index: 5;
+overflow: hidden;
+}
+#vscalebase
+{
+position: absolute;
+top: -247.3px;
+}
+#end
+{
+position: absolute;
+top: 8px;
+left: 94px;
+z-index: -1;
+}
+#arrows
+{
+position: absolute;
+top: 8px;
+left: 223px;
+cursor: pointer;
+}
+#arrows1
+{
+position: absolute;
+top: 34px;
+left: 223px;
+cursor: pointer;
+/*border: #000 solid 1px;*/
+}
+/*z00m part*/
+#zoompreview
+{
+	width: 217px;
+	height: 147px;
+	border: 3px solid #CACACA;
+	position: absolute;
+	top: 179px;
+	left: 309px;
+	border-radius: 2px;
+	overflow: hidden;
+	display: none;
+	z-index: 5;
+}
+#mss{
+	position: absolute;
+	top: -22px;
+	left: 0px;
+	z-index: 0;
+}
+#zoomhorizontal{
+	z-index: 1;
+	position: absolute;
+	top: -22px;
+	left: 3px;
+}
+
+#msblck1{
+	position: absolute;
+	top: -18px;
+	left: 34px;
+	overflow: hidden;
+	z-index: 2;	
+}
+#msblck{
+	position: absolute;
+	top: 18px;
+	left: 2px;
+	height: 147px;
+	width: 76px;
+	/* border: 1px solid #000; */
+	overflow: hidden;
+
+}
+#css{
+	position: absolute;
+	top:-395px;
+	left: 0px;
+	z-index: 3;
+
+}
+/*Graph part*/
+
+#graphpage
+{
+height: 329px;
+width: 555px;
+/*border:#F00 solid;*/
+display:none;
+}
+#mainimage2	{
+	
+/*border: 1px solid #000;
+*/width: 460px;
+height: 230px;
+position:absolute;
+/*cursor: -webkit-zoom-in; 
+cursor: -moz-zoom-in;*/
+left: 9px;
+top: 5px;
+
+}
+#graphimgs
+{
+position: absolute;
+left: -23px;
+top: -15px;
+width: 496px;
+height: 256px;
+
+}
+
+#outerdiv
+{
+border: 2px solid #A4061E;
+width: 492px;
+height: 252px;
+position: absolute;
+left: 29px;
+top: 7px;
+overflow: hidden;
+}
+.cusrsors{
+display:none;
+position:absolute;
+z-index:10;
+}
+.graphimg{
+position: absolute;
+top: 47px;
+left: 106px;
+display:none;
+
+
+}
+#linegraph{
+position: absolute;
+top: 56px;
+left: 106px;
+display:none;
+
+}
+.positions{
+position: absolute;
+top: 271px;
+left: 423px;
+display:none;
+}
+
+/*#resetid
+{
+position: absolute;
+top: 298px;
+left: 34px;
+
+
+}
+*/

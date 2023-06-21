@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Experiment</title>
+    <style>
+        .navbar{
+            background-color: #6a6d6a;
+            margin-left: 35%;
+        }
+      /* Style the buttons */
+      .nav-button {
+        font-size: 16px;
+        padding: 10px 15px;
+        margin: 5px;
+        border: none;
+        border-radius: 4px;
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      /* Style the active button */
+      .active {
+        font-size: 20px;
+        padding: 10px;
+      }
+
+      .content{
+        background-color: rgb(234, 234, 243);
+        padding-bottom: 100%;
+      }
+      #container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+h1 {
+  text-align: center;
+}
+
+#main-scale,
+#vernier-scale {
+  position: relative;
+  height: 50px;
+}
+
+.scale-line,
+.vernier-marking {
+  position: absolute;
+  height: 100%;
+  border-left: 1px solid #ccc;
+}
+
+.scale-marking,
+.vernier-marking {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+}
+
+.scale-marking {
+  height: 10px;
+  border-top: 1px solid #ccc;
+}
+
+#vernier-scale {
+  margin-top: -20px;
+}
+
+#measurement {
+  position: relative;
+  height: 70px;
+  margin-top: 20px;
+}
+
+#measurement-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  border-top: 2px solid #000;
+}
+
+#measurement-value {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: bold;
+}
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  margin: 20px auto;
+  width: 50%;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+form p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+form input[type="radio"] {
+  margin-right: 10px;
+}
+
+form input[type="submit"] {
+  display: block;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.result-msg {
+  margin: 20px auto;
+  width: 50%;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.result-msg p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.result-msg span {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.result-msg .correct {
+  color: green;
+}
+
+.result-msg .incorrect {
+  color: red;
+}
+
+    </style>
+
+
+<!-- <!DOCTYPE html><html lang="en">
+  <head> -->
+    <!--Google Tag Manager-->
+    <script class="gtm">
+      var dataLayer = [{
+      'labName': 'Colloid and Surface Chemistry Virtual Lab',
+      'discipline': 'Chemical Sciences',
+      'college': 'IIITH',
+      'phase': '2',
+      'expName': 'Preparation of Sols',
+      'expShortName': 'preparation-of-sols'
+      }];
+  
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-W59SWTR');
+    </script>
+    <!--End Google Tag Manager-->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="" name="description">
+  <meta content="" name="author">
+  
+      <meta name="experiment-short-name" content="preparation-of-sols">
+      <meta name="developer-institute" content="IIITH">
+      <meta name="learning-unit" content="PREPARATION OF SOLS">
+      <meta name="task-name" content="Simulation">
+  
+  <!-- For iPhone -->
+  <meta name="msapplication-TileColor" content="#4076e0">
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#4076e0">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#4076e0">
+  <title>Virtual Labs</title>
+  <link rel="shortcut icon" href="./assets/images/favicon.ico">
+  <link rel="stylesheet" href="bootstrapmin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" integrity="sha512-Oy18vBnbSJkXTndr2n6lDMO5NN31UljR8e/ICzVPrGpSud4Gkckb8yUpqhKuUNoE+o9gAb4O/rAxxw1ojyUVzg==" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&amp;family=Raleway&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./chemprac/fontawe.css">
+  <link rel="stylesheet" href="./chemprac/github.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.6-b/css/style.min.css">
+  <link rel="stylesheet" href="./chemprac/style.css">
+  
+  <script src="./chemprac/slimin.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+  <style>
+    h1 {
+    font-size: 1.8rem;
+    }
+    h2 {
+    font-size: 1.4rem;
+    }
+    h3 {
+    font-size: 1.2rem;
+    }
+
+    h2, h3 {
+    font-weight: 800;
+    }
+  </style>
+<!-- </head> -->
+<head>
+    <!-- <title>Ohm's Law </title> -->
+    <meta charset="windows-1252">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <!--  <script src="C:\Users\sukriti\ohmslaw\js\plotly-latest.min.js"></script>-->
+
+    <script src="./phyprac/canvas.js"></script>
+    <script class="include" type="text/javascript" src="./phyprac/jquerymin.js"></script>
+    <script class="include" type="text/javascript" src="./phyprac/jqplt.js"></script>
+    <script type="text/javascript" src="./phyprac/shcore.js"></script>
+    <script type="text/javascript" src="./phyprac/brushscriptmin.js"></script>
+    <script type="text/javascript" src="./phyprac/brushmin.js"></script>
+    <script class="include" type="text/javascript" src="./phyprac/meterguagerender.js"></script>
+    <script type="text/javascript" src="./phyprac/popup.js"></script>
+    <link rel="stylesheet" type="text/css" href="./phyprac/popup.css">
+    <link rel="stylesheet" type="text/css" href="./phyprac/ohmslw.css">
+     
+   
+
+</head>
+  </head>
+  <body>
+    <div >
+    <h1><u>Ohm's Law</u></h1>
+    <nav class="navbar">
+      <button class="nav-button active" onclick="showTheory()">
+        <img src="../img/theory.png" alt="Theory" width="20" height="20">
+        Theory
+      </button>
+      <button class="nav-button" onclick="showProcedure()">
+        <img src="../img/procedure.png" alt="Procedure" width="20" height="20">
+        Procedure
+      </button>
+      <button class="nav-button" onclick="showAnimation()">
+        <img src="../img/simulation.png" alt="Animation" width="20" height="20">
+        Simulation
+      </button>
+      <!-- <button class="nav-button" onclick="showSimulation()">
+        <img src="../img/simulation.png" alt="Simulation" width="20" height="20">
+        Simulation
+      </button> -->
+      <button class="nav-button" onclick="showVideo()">
+        <img src="../img/video.png" alt="Video" width="20" height="20">
+        Video
+      </button>
+      <button class="nav-button" onclick="showVivavoce()">
+        <img src="../img/vivavoce.png" alt="Vivavoce" width="20" height="20">
+        Vivavoce
+      </button>
+      <button class="nav-button" onclick="showResources()">
+        <img src="../img/resources.png" alt="Resources" width="20" height="20">
+        Resource
+    </nav></div>
+    <div class="content" id="theory" >
+        <div class="divContent"><h1>Aim:</h1>
+
+            <p>&nbsp;To determine the resistance per cm of a given wire by plotting a graph of potential difference versus current, and hence to determine its resistivity.</p>
+            
+            <h1>The Theory:</h1>
+            
+            <p>What does Ohm's Law state?</p>
+            
+            <p><img alt="" src="/userfiles/1/image/ohm.jpg"></p>
+            
+            <p>According to the Ohm's law, "The current flowing through a conductor is directly proportional to the potential difference across its ends provided the physical conditions (temperature, dimensions, pressure) of the conductor remains the same." If I be the current flowing through a conductor and V be the potential difference across its ends, then according to Ohm's Law,</p>
+            
+            <h2>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img alt="" src="//amrita.olabs.edu.in/userfiles/1/1501051176_image014(3).jpg" style="width: 43px; height: 25px;"></h2>
+            
+            <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<img alt="" src="//amrita.olabs.edu.in/userfiles/1/1501051201_image015(7).jpg" style="width: 127px; height: 25px;"></p>
+            
+            <p>where, R is the constant of proportionality. It is known as resistance of the conductor. Or</p>
+            
+            <h2>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img alt="" src="//amrita.olabs.edu.in/userfiles/1/1501051257_image016(9).jpg"></h2>
+            
+            <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ..the working formula</p>
+            
+            <p>R depends upon the material, temperature and dimensions of the conductor.</p>
+            
+            <p>In S.I. units, the potential difference V is measured in volt and the current I in ampere, the resistance R is measured in ohm.</p>
+            
+            <p>How do we establish the current-voltage relationship?</p>
+            
+            <p>To establish the current-voltage relationship, it is to be shown that the ratio V /&nbsp;I remains constant for a given resistance, therefore a graph between the potential difference(V) and the current (I) must be a straight line.</p>
+            
+            <p>How then do we find the unknown values of resistance?</p>
+            
+            <p>It is the constant ratio that gives the unknown values of resistance,&nbsp;</p>
+            
+            <h2>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img alt="" src="//amrita.olabs.edu.in/userfiles/1/1501051275_image016(9).jpg"></h2>
+            
+            <p>For a wire of uniform cross-section, the resistance depends on the length l and the area of cross-section A. It also depends on the temperature of the conductor. At a given temperature the resistance,</p>
+            
+            <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img alt="" src="//amrita.olabs.edu.in/userfiles/1/1501052586_Untitled-1.jpg" style="width: 84px; height: 56px;"><br>
+            &nbsp;where ρ is the specific resistance or resistivity and is characteristic of the material of wire.</p>
+            
+            <p>Hence, the specific resistance or resistivity of the material of the wire,</p>
+            
+            <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img alt="" src="//amrita.olabs.edu.in/userfiles/1/1501052959_Untitled-2.jpg" style="width: 84px; height: 56px;"></p>
+            
+            <p>If 'r' is the radius of the wire, then the cross sectional area, A =&nbsp;πr². Then the specific resistance or resistivity of the material of the wire is,</p>
+            
+            <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img alt="" src="//amrita.olabs.edu.in/userfiles/1/1501058042_Untitled-3.jpg" style="width: 84px; height: 56px;"></p>
+            
+            <h1>Learning Outcomes:</h1>
+            
+            <ul>
+                <li>Students learn Ohm’s law.</li>
+                <li>Students know the relation between voltage, current and resistance.&nbsp;</li>
+                <li>Students learn how to find out the resistivity of the material &nbsp;of a give wire.</li>
+            </ul>
+            </div>            
+    </div>
+    </div>
+    <div class="content" id="procedure" style="display: none;">
+      <h2>Procedure</h2>
+      <div class="divContent"><h1>Materials Required:</h1>
+
+        <ul>
+            <li>A resistance wire</li>
+            <li>A voltmeter and an ammeter of appropriate range</li>
+            <li>A battery (battery eliminator)</li>
+            <li>A rheostat</li>
+            <li>A metre scale</li>
+            <li>One way key</li>
+            <li>Connecting wires</li>
+            <li>A piece of sand paper</li>
+            <li>Screw gauge</li>
+        </ul>
+        
+        <h1>Real Lab Procedure:</h1>
+        
+        <ul>
+            <li>First we'll draw the circuit diagram.</li>
+            <li>Arrange the apparatus in the same manner as given in the arrangement diagram.</li>
+            <li>Clean the ends of the connecting wires with sand paper to remove insulation, if any.</li>
+            <li>Make neat, clean and tight connections according to the circuit diagrams. While making connections ensure that +ve marked terminals of the voltmeter and ammeter are joined towards the +ve terminals of the battery.</li>
+            <li>Determine the least count of voltmeter and ammeter, and also note the zero error, if any.</li>
+            <li>Insert the key K, slide the rheostat contact and see that the ammeter and voltmeter are working properly.</li>
+            <li>Adjust the sliding contact of the rheostat such that a small current passes through the resistance coil or the resistance wire.</li>
+            <li>Note down the value of the potential difference V from the voltmeter and current I from the ammeter.</li>
+            <li>Shift the rheostat contact slightly so that both the ammeter and voltmeter show full divisions readings and not in fraction.</li>
+            <li>Record the readings of the voltmeter and ammeter.</li>
+            <li>Take at least six sets of independent observations.</li>
+            <li>Record the observations in a tabular column</li>
+            <li>Now, cut the resistance wire at the points where it leaves the terminals, stretch it and find its length by the meter scale.</li>
+            <li>Then find out the diameter and hence the radius of the wire using the screw gauge and calculate the cross- sectional area A (πr²).</li>
+            <li>Plot a graph between current (I) along X-axis and potential difference across the wire (V) along Y-axis.</li>
+            <li>The graph should be a stright line.&nbsp;</li>
+            <li>Determine the slope of the graph. The slope will give the value of resistance (R) of the material of the wire.</li>
+            <li>Calculate the resistance per centimeter of the wire.</li>
+            <li>Now,calculate the resistivity of the material of the wire using the formula,</li>
+        </ul>
+        
+        <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img alt="" src="//amrita.olabs.edu.in/userfiles/1/1501058006_Untitled-3.jpg" style="width: 84px; height: 56px;"></p>
+        
+        <h1>&nbsp;Simulator Procedure (as performed through the <a href="http://amrita.olabs.co.in/" target="_blank">Online Labs</a>)</h1>
+        
+        <ul>
+            <li>Select the metal form the drop down list.</li>
+            <li>Select the length of the wire from the slider.</li>
+            <li>Select the diameter of the wire using the slider.</li>
+            <li>Select the resistance of the rheostat using the slider.</li>
+            <li>To see the circuit diagram, click on the ‘Show circuit diagram’ check box seen inside the simulator window.</li>
+            <li>Connections can be made as seen in the circuit diagram by clicking and dragging the mouse form one connecting terminal to the other connecting terminal of the devices to be connected.</li>
+            <li>Drag the wire and place it on the voltmeter to have it connected.</li>
+            <li>Once all connections are made, click and drag the key to insert it into the switch.</li>
+            <li>Slowly move the rheostat contact to change the voltage and current in the voltmeter and ammeter accordingly.</li>
+            <li>Calculate the resistivity of the materials based on the length of the wire selected.</li>
+            <li>Click on the ‘Show result’ check box to verify your result.</li>
+            <li>Click on the ‘Reset’ button to redo the experiment.</li>
+        </ul>
+        
+        <h1>Observations:</h1>
+        
+        <ol>
+            <li>Length<br>
+            Length of the resistance wire l =......cm&nbsp;</li>
+            <li>Range<br>
+            Range of the given ammeter = .......A.<br>
+            Range of the given voltmeter = .......V.&nbsp;</li>
+            <li>Least count<br>
+            Least count of ammeter = .......A.<br>
+            Least count of voltmeter = .......V.&nbsp;</li>
+            <li>Zero error<br>
+            Zero error in ammeter, e<sub>1</sub> = .......A.<br>
+            Zero error in voltmeter,e<sub>2</sub> = ......V.&nbsp;</li>
+            <li>Zero correction<br>
+            Zero correction for ammeter, (-e<sub>1</sub>) = .......A.<br>
+            Zero correction for voltmeter, (-e<sub>2</sub>) = ......V.&nbsp;</li>
+        </ol>
+        
+        <p><strong>Table for Ammeter and Voltmeter Readings:</strong></p>
+        
+        <div style="overflow-x:auto">
+        <table align="center" border="1" cellpadding="0" cellspacing="0" class="responsive_table">
+            <tbody>
+                <tr>
+                    <td style="text-align: center;"><strong>Serial no of obs</strong></td>
+                    <td colspan="2" style="text-align: center;"><strong>Ammeter Reading I&nbsp;(A)</strong></td>
+                    <td colspan="2" style="text-align: center;"><strong>Voltmeter Reading V (V)</strong></td>
+                    <td style="text-align: center;">&nbsp;<img alt="" src="//amrita.olabs.edu.in/userfiles/1/1513329962_ohmslaw1.png">&nbsp;<br>
+                    <strong>&nbsp;&nbsp;&nbsp; (Ohm)</strong></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td style="text-align: center;"><strong>&nbsp;&nbsp; Observed&nbsp;&nbsp;<br>
+                    &nbsp;<img alt="" src="//amrita.olabs.edu.in/userfiles/1/1513330935_ohmslaw2.png">&nbsp;</strong></td>
+                    <td style="text-align: center;"><p><strong>Corrected</strong></p>
+        
+                    <img alt="" src="//amrita.olabs.edu.in/userfiles/1/1513333074_ohmsLaw3.png">
+                    </td>
+                    <td style="text-align: center;"><p>&nbsp;&nbsp; <strong>Observed</strong>&nbsp;<br>
+                    <img alt="" src="//amrita.olabs.edu.in/userfiles/1/1513333085_ohmslaw4.png"></p>
+                    </td>
+                    <td style="text-align: center;"><p><strong>Corrected</strong></p>
+        
+                    <img alt="" src="//amrita.olabs.edu.in/userfiles/1/1513333094_ohmslaw5.png">
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">&nbsp;1</td>
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">&nbsp;2</td>
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">&nbsp;3</td>
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">&nbsp;4</td>
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        
+        <p>&nbsp;Mean value of resistance, R = ....................ohms.</p>
+        
+        <p><strong>Results:</strong></p>
+        
+        <p>Resistance per cm of the wire is ........................Ωcm<sup>-1</sup>.</p>
+        
+        <p>Cross-sectional area of the wire, A =&nbsp;πr² = ...........cm²</p>
+        
+        <p>Resistivity of the material of the wire,&nbsp;ρ =&nbsp;................Ωcm</p>
+        
+        <p>&nbsp;</p>
+        
+        <p>&nbsp;</p>
+        
+        <p>&nbsp;</p>
+        
+        <p>&nbsp;</p>
+        </div>
+    </div>
+    <div class="content" id="animation" style="display: none;">
+        <h2>Simulation</h2>
+        <!-- <p>This is the simulation section of the experiment.</p> -->
+        <body bgcolor="#000066" >
+
+            <div id="dialogoverlay"></div>
+            <div id="dialogbox">
+                <div>
+                    <div id="dialogboxhead"></div>
+                    <div id="dialogboxbody"></div>
+                    <div id="dialogboxfoot"></div>
+                </div>
+            </div>
+            <div id="whole_body" style=" background-color:white;position:relative; margin-left:auto; margin-right:auto; top:0px;height:800px; width:1075px;">
+                <div style="font-size:30px; text-align:center;padding-right:100px; height:60px"> <b> Ohm's Law </b></div>
+                <div id="ckt_values1" style="position:relative; top:0px;left:400px; height:300px; width:400px">
+                    <p>
+                        <img src ="http://vlabs.iitkgp.ernet.in/be/exp4/image/ohmsl.png" style="width:350px;height:250px;position:absolute;right:90px" /> 
+                    <div class="example-content" style="position:absolute; top:10px;right:150px;left:200px">
+                        <link rel="stylesheet" type="text/css" href="./phyprac/meterguage.css">
+                        <!------------------------------------Metergauge1(Voltmeter)-------------------------------------------------->
+                        <div id="chart1" class="plot" style="position:relative;width:200px; height:110px;top:-60px;right:170px"></div>
+                        <script src="./phyprac/meterguage.js"></script>
+                    <!------------------------------------Metergauge2(Ammeter)---------------------------------------------------->
+                        <div id="chart2" class="plot" style="position:absolute;width:250px; height:110px;right:100px;top:90px"></div>
+              
+                        <p style="position:absolute;top:10px;right:170px;font-size:15px"><b>V</b></p>
+                        <p style="position:absolute;top:160px;right:270px;font-size:15px"><b>A</b></p>
+                        <p style="position:absolute;top:80px;right:150px;font-size:15px"><b>R</b></p>
+                    </div>	
+                    <p style="position:absolute;top:235px;right:330px;font-size:15px"><b>V<sub>DC</sub></b></p>
+                    <input type="text" value=""  id='dc'  min="0" max="30" step="2"  placeholder="Volt" oninput="txtchng()"  style="background-color:#e6f5ff;position:absolute; top:250px;  right:250px; width:70px" readonly/>
+                    <input type="text" value="" id ='volt' placeholder="Volt"  style="background-color:#e6f5ff;position:absolute; top:32px;  right:230px; width:70px" readonly/>
+                    <input type="text" value="" id='amp' placeholder="Ampere"  style="background-color:#e6f5ff;position:absolute; top:182px;  right:335px; width:70px" readonly/>
+                    <input type ="text" value="" id="res"  min="1" max="100" step="1"  placeholder="Resistance" oninput="txtchnge()"  style="background-color:#e6f5ff;position:absolute; top:100px;  right:220px; width:90px"readonly />
+                    <!--   <input type="button" id="siml" value="check" onclick="check()"  style="position:absolute; top:210px; width:100px; right:40px;"/>-->
+    
+                </div>
+    
+    
+                <div id="cntrwrap" style="position:absolute;border: 2px solid #3385ff; top:20px;width:350px;height:150px;right:12px;">
+    
+                    <div id="cntrlr" style="position:absolute; background-color:#3385ff;   height:50px; top:0px; right:0px; width:350px;font-size: 16px;font-weight: bold;"><p style="text-align:center;padding-right:210px;color:white"><b>CONTROLS</b></p> 
+                    </div>
+    
+                    <div id="slide" style=" position:absolute; top:70px; right:0px; width:350px;  border-radius: 10px;">
+    
+                        &nbsp&nbsp DC volt : &nbsp&nbsp&nbsp <input type="range" name="inpdc" id="vdc" min="0" max="30" step="1" value=""  oninput="sliderChange()" style="width:180px;"> &nbsp; Volt<br>	
+                        &nbsp&nbsp Resistance : <input type="range" name="resis" id="res1" min="1" max="100" step="1" value="" oninput="textChange()" style="width:180px">  Kohms<br>
+                        <!--&nbsp&nbsp Voltmeter :  <input type="range" name="v1" id="v1" min="20" max="28" step="2" value="" onchange="volt.value=this.value; " style=" width:280px">&nbsp mAmp<br>
+                        &nbsp&nbsp Ammeter  :  <input type="range" name="amp1" id="amp1" min="0.17" max="8.17" step="2" value="" onchange="amp.value=this.value; " style=" width:280px"><br>-->
+                        <br>	
+                        <input type="button" id="add" value="Add to Table" onclick="tabled()" style="position:absolute; top:100px; width:100px;  right:250px;cursor:pointer; "/>  
+                        <input type="button" id="plt" value="Plot" onclick="plot()" style="position:absolute; top:100px; width:100px; right:140px;cursor:pointer; "/>  
+                        <input type="button" id="clr" value="Clear" onclick="clearf()" style="position:absolute; top:100px; width:100px; right:30px;cursor:pointer;  "/>
+                    </div>
+                </div>
+                <div id="msg" style="position:absolute;top:250px;right:100px;width:270px;height:150px;">
+                    <p id="demo" style="color:red;"></p>
+                    <p id="demos" style="color:green;"></p>
+    
+                </div>
+                <div id="description" style="background-color: #3385ff;   position:absolute; top:10px; left:10px; width:307px;font-size: 16px;font-weight: bold;">
+    
+    
+                    <div class="dropdown">
+                        <p style="text-align:center;padding-right:150px;color:white"> INSTRUCTION</p>
+                        <div class="dropdown-content">
+                            <ol type="1">
+                                <li>Set the Resistance Value(1 Kohm - 100 Kohm).</li>
+                                <li>Set DC voltage(0-30 V).</li>
+                                <li>Voltmeter is placed parallel to resistor and ammeter in series with resistor.</li>
+                                <li>Now note the Voltmeter and Ammeter reading for DC voltage.  </li>
+                                <li>Increase the DC voltage by 2 factor and note Voltmeter and Ammeter Readings. Keeping resistance value constant</li>
+                                <li>Plot the V-I graph to verify Ohm's Law</li>
+                                <li>Repeat step 2 to 6 for another set of resistance value. </li>
+                                <li>V versus I graph is  a straight line.</li>
+                                <li>Therefore from the graph we see that the resistance do adhere to Ohm’s law. Thus resistance is said to be an Ohmic device.</li>
+    
+                            </ol> 
+    
+                        </div>
+                    </div>
+                </div>
+                <div id="tblwrap" style="position:absolute;border: 2px solid #3385ff; top:100px;width:305px;height:290px;left:10px">
+                    <div style="position:absolute; font-size:16px;background-color: #3385ff;  top:0px;left:0px; width:305px; height:50px;font-weight: bold;"><p style="text-align:center;padding-right:80px;color:white"> <b> EXPERIMENTAL TABLE</b></p>
+                    </div>
+                    <p style="position:absolute; font-size:20px;top:40px;left:10px;">Resistance:&nbsp;<input type="text" id="rs" value="" size="4" readonly />K&#937;</p><br><br>
+    
+                    <div id="table" style="background-color:#e6f5ff;position:absolute;top:100px;width:305px;height:190px; left:0px;overflow-y: auto;">
+    
+                        <table id="mytable" border="1" >                    
+                            <tr>
+                                <th>Serial No.</th>
+                                <th>Voltage(Volt)<br>V</th>
+                                <th>Current(milliAmpere)<br>mA</th>
+                                <!-- <th>Resistance(KOhm)</th>-->
+                            </tr>                   
+    
+                        </table>
+                    </div>
+                </div>
+    
+                <div id="grpwrap" style="position:absolute;border: 2px solid #3385ff; top:420px;width:1050px;height:360px;left:10px">
+                    <div style="position:absolute; font-size:16px; top:0px;left:0px;  height:50px;background-color:#3385ff;  width:1050px;font-weight: bold;"><p> <b style="text-align:center;padding-right:910px;color:white"> GRAPH PLOT</b></p>
+                        <div class="tooltip" ><button id="calci"  onclick="printf()" style="position:absolute;padding-right:40px; cursor:pointer;top:13px;right:20px;width:5px;height:25px;border:none; background-color:#3385ff;">
+                                <img src="http://vlabs.iitkgp.ernet.in/be/exp4/image/Print%20Filled.png" alt="Save icon" style="width:20px;height:20px;top:13px;"/></button> 
+                            <span class="tooltiptext">Print</span></div>
+    
+                    <div id="chartContainer" style="position:absolute;  top:50px;  left:0px; height:300px; width:1050px;">
+    
+                    </div>
+                </div>
+            </div>
+    
+            </div>
+    <script src="./phyprac/vrf.js"></script>
+        </body>
+    </div>
+</div> 
+    <!-- <div class="content" id="simulation" style="display: none;">
+      <h2>Simulation</h2>
+        <p>This is the simulation section of the experiment.</p>
+    </div>
+     -->
+    <div class="content" id="video" style="display: none;">
+        <iframe width="460" height="315" src="https://www.youtube.com/embed/zn308fHapZw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <!-- <p>This is the video section of the experiment.</p> -->
+    </div>
+  </div>
+    <div class="content" id="vivavoce" style="display: none;">
+        <h2>Vivavoce</h2>
+        <!-- <p>This is the vivavoce section of the experiment.</p> -->
+        <!-- <link rel="stylesheet" href="caliper.html"> -->
+        <h1>Vernier Caliper Quiz</h1>
+        <form>
+            <h2>Question 1:</h2>
+            <p>You are measuring the current in a circuit that is operated on an 18 V battery. The ammeter reads 40 mA. Later you notice the current has dropped to 20 mA. How much has the voltage changed?</p>
+            <input type="radio" name="q1" value="A">9 v<br>
+            <input type="radio" name="q1" value="B">36 v<br>
+            <input type="radio" name="q1" value="C">0 v<br>
+    
+            <h2>Question 2:</h2>
+            <p> What does the current through a wire depend on?</p>
+            <input type="radio" name="q2" value="A">The thickness of the wire.<br>
+            <input type="radio" name="q2" value="B">The potential difference applied.<br>
+            <input type="radio" name="q2" value="C">Both resistance and potential difference.<br>
+    
+            <h2>Question 3:</h2>
+            <p>	What is the potential difference required to pass a current of 5A through a metallic rod of resistance 10Ω?</p>
+            <input type="radio" name="q3" value="A">5V<br>
+            <input type="radio" name="q3" value="B">50V<br>
+            <input type="radio" name="q3" value="C">0.5V<br>
+    
+            <h2>Question 4:</h2>
+            <p>	If the voltage across a fixed value of resistance is increased five times, what will be the variation in current?</p>
+            <input type="radio" name="q4" value="A">Increases to a factor of five<br>
+            <input type="radio" name="q4" value="B"> Remains fixed<br>
+            <input type="radio" name="q4" value="C"> Become doubled<br>
+    
+            <h2>Question 5:</h2>
+            <p>Which one of the following is the resistivity of gold wire?</p>
+            <input type="radio" name="q5" value="A">1.59 x 10¯⁸ Ωm<br>
+            <input type="radio" name="q5" value="B"> 2.82 x 10¯⁸ Ωm<br>
+            <input type="radio" name="q5" value="C">2.44 x 10¯⁸ Ωm<br>
+    
+            <input type="submit" value="Submit">
+        </form>
+
+      </div>
+      <div class="content" id="resources" style="display: none;">
+        <h2>Resources</h2>
+        <div class="divContent"><h1>Books</h1>
+
+            <ul>
+                <li>&nbsp;&nbsp;Laboratory Manual Physics for class XII - Published by NCERT</li>
+            </ul>
+            
+            <h1>Websites</h1>
+            
+            <ul>
+                <li><a href="http://epathshala.nic.in/wp-content/doc/book/flipbook/Class%20XII/12089-Physics%20Part-1/Chapter-3/index.html" target="_blank">http://epathshala.nic.in/wp-content/doc/book/flipbook/Class%20XII/12089-Physics%20Part-1/Chapter-3/index.html</a></li>
+                <li><a href="https://www.youtube.com/embed/4-GxinG7AVw?rel=0&amp;vq=hd1080" target="_blank">https://www.youtube.com/embed/4-GxinG7AVw?rel=0&amp;vq=hd1080</a></li>
+                <li><a href="https://www.youtube.com/embed/Ls5_PcXZRc8?rel=0&amp;vq=hd1080" target="_blank">https://www.youtube.com/embed/Ls5_PcXZRc8?rel=0&amp;vq=hd1080</a></li>
+            </ul>
+            </div>
+      </div>
+    </div>
+    <script>
+      
+      //simulator script 
+      function simFullScreenOlab(){
+		var $ = function(selector,context){return(context||document).querySelector(selector)};
+        var iframe = $("iframe"),
+            domPrefixes = 'Webkit Moz O ms Khtml'.split(' ');
+
+            var fullscreen = function(elem){
+            var prefix;
+			
+            // Mozilla and webkit intialise fullscreen slightly differently
+            for ( var i = -1, len = domPrefixes.length; ++i < len; ) 
+			{
+              prefix = domPrefixes[i].toLowerCase();
+              if ( elem[prefix + 'EnterFullScreen'] ) {
+                // Webkit uses EnterFullScreen for video
+                return prefix + 'EnterFullScreen';
+                break;
+              } else if( elem[prefix + 'RequestFullScreen'] ) {
+                // Mozilla uses RequestFullScreen for all elements and webkit uses it for non video elements
+                return prefix + 'RequestFullScreen';
+                break;
+              }
+            }
+            return false;
+        }; 
+        // Webkit uses "requestFullScreen" for non video elements
+        var fullscreenother = fullscreen(document.createElement("iframe"));
+        if(!fullscreen) {
+            alert("Fullscreen won't work, please make sure you're using a browser that supports it and you have enabled the feature");
+            return;
+        }
+		iframe[fullscreenother]();
+		(this,this.document);
+	    }
+  // Get the form element
+const form = document.querySelector('form');
+
+// Add an event listener for form submission
+form.addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  // Get the selected radio buttons
+  const q1 = form.elements['q1'].value;
+  const q2 = form.elements['q2'].value;
+  const q3 = form.elements['q3'].value;
+  const q4 = form.elements['q4'].value;
+  const q5 = form.elements['q5'].value;
+
+  // Check the answers
+  const correctAnswers = {q1: 'A', q2: 'C',q3: 'B',q4: 'A',q5: 'C'};
+  let score = 0;
+  let resultMsg = '';
+
+  if (q1 === correctAnswers.q1) {
+    score++;
+    resultMsg += 'Question 1: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 1: &#10060; <br>';
+  }
+
+  if (q2 === correctAnswers.q2) {
+    score++;
+    resultMsg += 'Question 2: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 2: &#10060; <br>';
+  }
+  if (q3 === correctAnswers.q3) {
+    score++;
+    resultMsg += 'Question 3: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 3: &#10060; <br>';
+  }
+  if (q4 === correctAnswers.q4) {
+    score++;
+    resultMsg += 'Question 4: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 4: &#10060; <br>';
+  }
+  if (q5 === correctAnswers.q5) {
+    score++;
+    resultMsg += 'Question 5: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 5: &#10060; <br>';
+  }
+
+
+  // Display the result message in a dialog box
+  resultMsg = `You scored ${score} out of 5. <br><br> ${resultMsg}`;
+  const resultDiv = document.createElement('div');
+  resultDiv.innerHTML = resultMsg;
+  
+  const dialog = document.createElement('dialog');
+  dialog.appendChild(resultDiv);
+  const closeButton = document.createElement('button');
+  closeButton.textContent = 'Close';
+  closeButton.addEventListener('click', function() {
+    dialog.close();
+  });
+  dialog.appendChild(closeButton);
+  document.body.appendChild(dialog);
+  dialog.showModal();
+});
+
+        
+      function showTheory() {
+        document.getElementById("theory").style.display = "block";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "none";
+        // document.getElementById("simulation").style.display = "none";
+        document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(0);
+      }
+
+      function showProcedure() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "block";
+        document.getElementById("animation").style.display = "none";
+        // document.getElementById("simulation").style.display = "none";
+        document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(1);
+      }
+      function showAnimation() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "block";
+        // document.getElementById("simulation").style.display = "none";
+        document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(2);
+      }
+
+
+      // function showSimulation() {
+      //   document.getElementById("theory").style.display = "none";
+      //   document.getElementById("procedure").style.display = "none";
+      //   document.getElementById("animation").style.display = "none";
+      //   document.getElementById("simulation").style.display = "block";
+      //   document.getElementById("video").style.display = "none";
+      //   document.getElementById("vivavoce").style.display = "none";
+      //   document.getElementById("resources").style.display = "none";
+      //   setActiveButton(3);
+      // }
+
+      function showVideo() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "none";
+        // document.getElementById("simulation").style.display = "none";
+        document.getElementById("video").style.display = "block";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(4);
+      }
+      function showVivavoce() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "none";
+        // document.getElementById("simulation").style.display = "none";
+        document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "block";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(5);
+      }
+      function showResources() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "none";
+        // document.getElementById("simulation").style.display = "none";
+        document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "block";
+        setActiveButton(6);
+      }
+
+      function setActiveButton(index) {
+        // Remove active class from all buttons
+        var buttons = document.getElementsByClassName("nav-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+
+        // Add active class to the button with the given index
+        buttons[index].classList.add("active");
+      }
+    </script>
+  </body>
+</html>

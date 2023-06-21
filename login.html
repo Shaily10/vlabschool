@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Virtual Lab Login</title>
+</head>
+<body>
+	<h1>Virtual Lab Login</h1>
+    <style>
+        /* Center the form and apply some padding */
+form {
+  width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  background-color: #fff;
+}
+
+/* Style the heading */
+h1 {
+  text-align: center;
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Style the form labels */
+label {
+  display: block;
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+/* Style the form inputs */
+input[type="text"], input[type="password"], select {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  color: #333;
+}
+
+input[type="submit"] {
+  display: inline-block;
+  background-color: #0066cc;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #004080;
+}
+ 
+    </style>
+	<form action="#" method="POST">
+		<label for="username">Username:</label>
+		<input type="text" id="username" name="username" required><br><br>
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password" required><br><br>
+		<label for="role">Select role:</label>
+		<select id="role" name="role" required>
+			<option value="" disabled selected>Select role</option>
+			<option value="student">Student</option>
+			<option value="teacher">Teacher</option>
+			<option value="other">Other</option>
+		</select><br><br>
+		<input type="submit" value="Login">
+	</form>
+</body>
+</html>

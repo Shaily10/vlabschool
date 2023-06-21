@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vernier Caliper Vivavoce Form</title>
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  margin: 20px auto;
+  width: 50%;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+form p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+form input[type="radio"] {
+  margin-right: 10px;
+}
+
+form input[type="submit"] {
+  display: block;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.result-msg {
+  margin: 20px auto;
+  width: 50%;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.result-msg p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.result-msg span {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.result-msg .correct {
+  color: green;
+}
+
+.result-msg .incorrect {
+  color: red;
+}
+
+    </style>
+  </head>
+  <body>
+    <h1>Vernier Caliper Quiz</h1>
+	<form>
+		<h2>Question 1:</h2>
+		<p>What is a Vernier Caliper used for?</p>
+		<input type="radio" name="q1" value="A">Measuring lengths with high precision<br>
+		<input type="radio" name="q1" value="B">Cutting materials with high precision<br>
+		<input type="radio" name="q1" value="C">Sewing clothes with high precision<br>
+
+		<h2>Question 2:</h2>
+		<p>What is the maximum length that can be measured using a Vernier Caliper?</p>
+		<input type="radio" name="q2" value="A">150mm<br>
+		<input type="radio" name="q2" value="B">300mm<br>
+		<input type="radio" name="q2" value="C">500mm<br>
+
+		<h2>Question 3:</h2>
+		<p>What is the resolution of a Vernier Caliper?</p>
+		<input type="radio" name="q3" value="A">0.01mm<br>
+		<input type="radio" name="q3" value="B">0.1mm<br>
+		<input type="radio" name="q3" value="C">1mm<br>
+
+		<h2>Question 4:</h2>
+		<p>What is the least count of a Vernier Caliper?</p>
+		<input type="radio" name="q4" value="A">0.1mm<br>
+		<input type="radio" name="q4" value="B">0.01mm<br>
+		<input type="radio" name="q4" value="C">1mm<br>
+
+		<h2>Question 5:</h2>
+		<p>What is the name of the device used to measure the inside diameter of a cylinder using a Vernier Caliper?</p>
+		<input type="radio" name="q5" value="A">Depth gauge<br>
+		<input type="radio" name="q5" value="B">Height gauge<br>
+		<input type="radio" name="q5" value="C">Inside micrometer<br>
+
+		<input type="submit" value="Submit">
+	</form>
+    <script>// Get the form element
+const form = document.querySelector('form');
+
+// Add an event listener for form submission
+form.addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  // Get the selected radio buttons
+  const q1 = form.elements['q1'].value;
+  const q2 = form.elements['q2'].value;
+  const q3 = form.elements['q3'].value;
+  const q4 = form.elements['q4'].value;
+  const q5 = form.elements['q5'].value;
+
+  // Check the answers
+  const correctAnswers = {q1: 'A', q2: 'A',q3: 'A',q4: 'B',q5: 'C'};
+  let score = 0;
+  let resultMsg = '';
+
+  if (q1 === correctAnswers.q1) {
+    score++;
+    resultMsg += 'Question 1: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 1: &#10060; <br>';
+  }
+
+  if (q2 === correctAnswers.q2) {
+    score++;
+    resultMsg += 'Question 2: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 2: &#10060; <br>';
+  }
+  if (q3 === correctAnswers.q3) {
+    score++;
+    resultMsg += 'Question 2: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 2: &#10060; <br>';
+  }
+  if (q4 === correctAnswers.q4) {
+    score++;
+    resultMsg += 'Question 2: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 2: &#10060; <br>';
+  }
+  if (q5 === correctAnswers.q5) {
+    score++;
+    resultMsg += 'Question 2: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 2: &#10060; <br>';
+  }
+
+
+  // Display the result message in a dialog box
+  resultMsg = `You scored ${score} out of 5. <br><br> ${resultMsg}`;
+  const resultDiv = document.createElement('div');
+  resultDiv.innerHTML = resultMsg;
+  
+  const dialog = document.createElement('dialog');
+  dialog.appendChild(resultDiv);
+  const closeButton = document.createElement('button');
+  closeButton.textContent = 'Close';
+  closeButton.addEventListener('click', function() {
+    dialog.close();
+  });
+  dialog.appendChild(closeButton);
+  document.body.appendChild(dialog);
+  dialog.showModal();
+});
+
+        </script>
+  </body>
+</html>

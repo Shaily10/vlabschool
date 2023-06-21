@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Experiment</title>
+    <style>
+        .navbar{
+            background-color: #012603;
+            margin-left: 35%;
+        }
+      /* Style the buttons */
+      .nav-button {
+        font-size: 16px;
+        padding: 10px 15px;
+        margin: 5px;
+        border: none;
+        border-radius: 4px;
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      /* Style the active button */
+      .active {
+        font-size: 20px;
+        padding: 10px;
+      }
+
+      .content{
+        background-color: rgb(158, 158, 172);
+        padding-bottom: 100%;
+      }
+      #container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+h1 {
+  text-align: center;
+}
+
+#main-scale,
+#vernier-scale {
+  position: relative;
+  height: 50px;
+}
+
+.scale-line,
+.vernier-marking {
+  position: absolute;
+  height: 100%;
+  border-left: 1px solid #ccc;
+}
+
+.scale-marking,
+.vernier-marking {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+}
+
+.scale-marking {
+  height: 10px;
+  border-top: 1px solid #ccc;
+}
+
+#vernier-scale {
+  margin-top: -20px;
+}
+
+#measurement {
+  position: relative;
+  height: 70px;
+  margin-top: 20px;
+}
+
+#measurement-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  border-top: 2px solid #000;
+}
+
+#measurement-value {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: bold;
+}
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  margin: 20px auto;
+  width: 50%;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+form p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+form input[type="radio"] {
+  margin-right: 10px;
+}
+
+form input[type="submit"] {
+  display: block;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.result-msg {
+  margin: 20px auto;
+  width: 50%;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.result-msg p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.result-msg span {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.result-msg .correct {
+  color: green;
+}
+
+.result-msg .incorrect {
+  color: red;
+}
+
+    </style>
+<!-- Enable IE9 Standards mode -->
+<meta http-equiv="X-UA-Compatible" content="IE=9" >
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title></title>
+<link rel="stylesheet" type="text/css" media="all" href="./vcsimulator/font.css" />
+<link rel="stylesheet" type="text/css" media="all" href="./vcsimulator/reset.css" />
+<link rel="stylesheet" type="text/css" media="all" href="./vcsimulator/grid.css" />
+<link href="./vcsimulator/mainstyle.css" rel="stylesheet" type="text/css" />
+<link href="./vcsimulator/nanoscroller.css" rel="stylesheet" type="text/css" />
+<script src="./vcsimulator/overthrow.js"></script>
+<script src="./vcsimulator/171.js"></script>
+<script src="./vcsimulator/nanoscroller.js"></script>
+<script type="text/javascript" src="./vcsimulator/touchready.js"></script>
+<script type="text/javascript" src="./vcsimulator/main.js"></script>
+<!--[if IE]><script src="js/excanvas.js"></script><![endif]-->
+<link  href="./vcsimulator/simstyle.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="./vcsimulator/i18.js"></script>
+<script language="javascript" type="text/javascript" src="./vcsimulator/i18.js"></script>
+<script language="javascript" type="text/javascript" src="./vcsimulator/min.js"></script>
+<script language="javascript" type="text/javascript" src="./vcsimulator/simcontrol.js"></script>
+<script type="text/javascript" language="javascript" src="./vcsimulator/touchconvert.js"></script>
+
+<script language="javascript"  >
+var language_script= 'en-IN';
+var language=language_script.toString();
+	language=language.slice(0, 2);
+	gt.gettext.setLocale(language);
+</script>
+<script type='text/javascript'  src='./vcsimulator/scr.json'></script><!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+<script src="./vcsimulator/script1.js"></script>
+<script> 
+if( !Modernizr.inputtypes.range ){  
+		document.write("<script type=\"text/javascript\" src=\"js/js-webshim/1.9.7/minified/polyfiller.js\"></"+"script>");
+        $(document).ready(function(){
+			$.webshims.setOptions("waitReady", false);
+     		$.webshims.polyfill('forms-ext');
+		});  
+    };  
+
+
+</script>
+
+
+  </head>
+  <body>
+    <div >
+    <h1><u>Vernier Calipers</u></h1>
+    <nav class="navbar">
+      <button class="nav-button active" onclick="showTheory()">
+        <img src="../img/theory.png" alt="Theory" width="20" height="20">
+        Theory
+      </button>
+      <button class="nav-button" onclick="showProcedure()">
+        <img src="../img/procedure.png" alt="Procedure" width="20" height="20">
+        Procedure
+      </button>
+      <button class="nav-button" onclick="showAnimation()">
+        <img src="../img/procedure.png" alt="Animation" width="20" height="20">
+        Animation
+      </button>
+      <button class="nav-button" onclick="showSimulation()">
+        <img src="../img/simulation.png" alt="Simulation" width="20" height="20">
+        Simulation
+      </button>
+      <button class="nav-button" onclick="showVideo()">
+        <img src="../img/video.png" alt="Video" width="20" height="20">
+        Video
+      </button>
+      <button class="nav-button" onclick="showVivavoce()">
+        <img src="../img/vivavoce.png" alt="Vivavoce" width="20" height="20">
+        Vivavoce
+      </button>
+      <button class="nav-button" onclick="showResources()">
+        <img src="../img/resources.png" alt="Resources" width="20" height="20">
+        Resource
+    </nav></div>
+    <div class="content" id="theory" >
+      <div><h1>Our Objective&nbsp;</h1>
+
+        <ul>
+            <li>To know the use of the Vernier Calipers.</li>
+            <li>To measure the diameter of a small spherical / cylindrical body.&nbsp;</li>
+            <li>To measure the length, width and height of the given rectangular block.</li>
+            <li>To measure the internal diameter and depth of a given beaker/calorimeter and hence find its volume.&nbsp;&nbsp;</li>
+        </ul>
+        
+        <h1>The Theory&nbsp;</h1>
+        
+        <h2>What is a Vernier Caliper?</h2>
+        
+        <p>A calliper is a device used to measure the distance between two opposing sides of an object. It can be as simple as a compass with inward or outward-facing points. First the tips of the calliper are adjusted to fit across the points to be measured and the calliper is then removed and the distance between the tips is measured using a ruler.&nbsp;</p>
+        
+        <p>The modern Vernier calliper was invented by Joseph R. Brown in 1851. It was the first practical tool for exact measurements that could be sold at an affordable price to ordinary machinists.&nbsp;&nbsp; The Vernier Calliper consists of a main scale fitted with a jaw at one end. Another jaw, containing the vernier scale, moves over the main scale. When the two jaws are in contact, the zero of the main scale and the zero of the Vernier scale should coincide. If both the zeros do not coincide, there will be a positive or negative zero error.&nbsp;</p>
+        
+        <h2>Parts of a Vernier Caliper</h2>
+        
+        <h3>1.Main Scale<img alt="" src="https://vernierscaliper.com/wp-content/uploads/2016/10/vernier-caliper-parts-300x200.jpg"></h3>
+        
+        <p>The main scale consists of a steel metallic strip graduated in centimeters at one edge and in inches at the other edge . It carries the inner and outer measuring jaws. When the two jaws are in contact, the zero of the main scale and the zero of the Vernier scale should coincide. If both the zeros do not coincide, there will be a positive or negative zero error.</p>
+        
+        <h3>2. Vernier Scale</h3>
+        
+        <p>A vernier scale&nbsp; slides on the strip. It can be fixed in any position by the retainer. On the Vernier scale, 0.9 cm is divided into ten equal parts.</p>
+        
+        <h3>3. Outer Measuring Jaws</h3>
+        
+        <p>The outer measuring jaws helps to take the outer dimension of an object</p>
+        
+        <h3>4. Inner Measuring Jaws</h3>
+        
+        <p>The inner measuring jaws helps to take the inner dimension of an object.</p>
+        
+        <h3>5. Retainer</h3>
+        
+        <p>The retainer helps to retain the object within the jaws of the Vernier calipers.</p>
+        
+        <h3>6. Depth Measuring Prong</h3>
+        
+        <p>The depth measuring prong helps to measure the depth of an object.&nbsp;</p>
+        
+        <h2>Least Count</h2>
+        
+        <p>The least count or the smallest reading which you can get with the instrument can be calculated as;</p>
+        
+        <p>Least Count = One main scale (MS) division - one vernier scale (VS) division ..(1)</p>
+        
+        <p>or</p>
+        
+        <p>Least Count = One main scale (MS) division / No. of division in vernier scale </p>
+        
+        <p>First calculate the least count and only then place the object between the two jaws.</p>
+        
+        <p>Record the position of zero of the Vernier scale on the main scale.&nbsp;</p>
+        
+        <h2>Calculating the Reading&nbsp;</h2>
+        
+        <p>When a body is between the jaws of the Vernier Caliper;&nbsp;</p>
+        
+        <p>If the zero of the vernier scale lies ahead of the Nth division of the main scale, then the main scale reading (MSR) is;</p>
+        
+        <p>MSR = N &nbsp;</p>
+        
+        <p>If nth division of Vernier scale coincides with any division of the main scale, then the Vernier scale reading (VSR) is;</p>
+        
+        <p>VSR = n * L.C,(L.C is least count of vernier calliper)&nbsp;</p>
+        
+        <p>Total reading,</p>
+        
+        <p>TR = MSR + VSR = N + (n * L.C)..(2)</p>
+        
+        <h2>Finding the Volumes</h2>
+        
+        <h3>Volume of a Beaker / Calorimeter</h3>
+        
+        <p>Volume of the beaker / calorimeter = internal area of the cross section x depth</p>
+        
+        <p>This can be expressed as;</p>
+        
+        <p>V = π(D/2)^2.d</p>
+        
+        <p>where 'D' is the internal diameter of beaker / calorimeter and 'd' the depth of beaker / calorimeter.</p>
+        
+        <h3>Volume of a Sphere</h3>
+        
+        <p>(4/3) * π * r³</p>
+        
+        <p>where 'r' is the radius of the sphere.</p>
+        
+        <h3>Volume of a Rectangular Block</h3>
+        
+        <p>V = l*b*h</p>
+        
+        <p>where 'l' is length of the block, 'b' the breadth and 'h' the height of the block.</p>
+        
+        <h2>Learning Outcomes</h2>
+        
+        <ul>
+            <li>Students get to know the use of vernier calipers.</li>
+            <li>Students know what is the Least count of vernier callipers.</li>
+        </ul>
+        
+        <p>&nbsp;</p>
+        </div>
+      <!-- <h3>Our Objective</h3> -->
+    </div>
+    <div class="content" id="procedure" style="display: none;">
+      <h2>Procedure</h2>
+      <p>This is the procedure section of the experiment.</p>
+      <div class="divContent"><h1>Materials Required&nbsp;</h1>
+
+        <ul>
+            <li>Vernier callipers.</li>
+            <li>A spherical body ( it can be a pendulum bob)</li>
+            <li>A cylinder.</li>
+            <li>A small rectangular metallic block of known mass</li>
+            <li>A beaker or a calorimeter.&nbsp;</li>
+        </ul>
+        
+        <h1>The Procedure</h1>
+        
+        <p>&nbsp;<img alt="" src="https://vernierscaliper.com/wp-content/uploads/2016/10/vernier-caliper-parts-300x200.jpg"></p>
+        
+        <ol>
+            <li>We'll first determine the vernier constant (VC), which is the least count (L.C) of the vernier calliper and record it stepwise as in the equation, L.C = 1 MSD - 1 VSD.</li>
+            <li>Now, bring the movable jaw in close contact with the fixed jaw and find the zero error. Do this three times and record the values. If there is no zero error, then record 'zero error nil'.</li>
+            <li>Open the jaws of the Vernier Calliper and place the sphere or cylinder between the two jaws and adjust the movable jaw, such that it gently grips the body without any undue pressure on it. That done, tighten the screw attached to the Vernier scale.</li>
+            <li>Note the position of the zero mark of the Vernier scale on the main scale. Record the main scale reading just before the zero mark of the vernier scale. This reading (N) is called main scale reading (MSR).</li>
+            <li>Note the number (n) of the Vernier scale division which coincides with the division of the main scale.</li>
+            <li>You'll have to repeat steps 5 and 6 after rotating the body by 90<sup>o</sup> for measuring the diameter in a perpendicular direction.</li>
+            <li>Repeat steps 4 to 7 for three different positions and record the observations.</li>
+            <li>Now find total reading using the equation, TR = MSR+VSR = N+(n x L.C)&nbsp; and apply the zero correction.</li>
+            <li>Take the mean of the different values of the diameter and show that in the result with the proper unit.</li>
+        </ol>
+        
+        <p><strong>Note:</strong></p>
+        
+        <ul>
+            <li>To measure the internal diameter of a calorimeter or beaker, place the beaker upside down over the internal jaws of the vernier calipers.Then repeat the steps 4 to 8.</li>
+            <li>To find the ‘Depth’ of the beaker, move the metallic strip till it touches the bottom of the beaker.Then repeat steps 4 to 8.</li>
+        </ul>
+        
+        <h1>Simulator Procedure (as performed through the Online Labs)</h1>
+        <!-- <a href="http://www.olabs.co.in/" target="_blank"></a> -->
+        
+        <ol>
+            <li>Select the object to measure by clicking on it.</li>
+            <li>The object is placed between the jaws of the vernier caliper.</li>
+            <li>Drag the movable jaw so that it touches the object.</li>
+            <li>Based on the object selected, select the physical dimension to be measured.</li>
+            <li>Note the MSR and VSR value that exactly coincides with the main scale.</li>
+            <li>Calculate the dimension using the equation 2.</li>
+            <li>Enter the reading in the ‘Enter Reading’ text box.</li>
+            <li>Click on the ‘Check’ button to find if the reading entered is correct.</li>
+            <li>If the object selected is the ‘Beaker’;
+            <ul>
+                <li>To find ‘Internal Diameter’ drag the mouse to move the jaw of the vernier scale away from the jaw of the main scale till the jaw&nbsp; touches the opposite inner wall of the beaker.</li>
+                <li>To find the ‘Depth’ of the beaker, drag the jaw of the vernier scale away from the jaw of the main scale till the metallic strip touches the bottom of the beaker.</li>
+                <li>Enter the reading in the ‘Enter Reading’ text box.</li>
+                <li>Click on the ‘Check’ button to find if the reading entered is correct.</li>
+            </ul>
+            </li>
+            <li>Click on the 'Reset' button to reset and perform the experiment once again.</li>
+        </ol>
+        
+        <h1>Our Observations&nbsp;</h1>
+        
+        <ol>
+            <li><strong>Determination of Vernier constant (Least Count ) of the vernier callipers:</strong><br>
+            1 M.S.D. = 1 mm<br>
+            10 V.S.D.= 9 M.S.D.<br>
+            1 V.S.D.= 9/10 M.S.D. = 0.9 mm.<br>
+            Vernier Constant, V.C.= 1 M.S.D.-1 V.S.D. = (1-0.9)&nbsp;mm = 0.1 mm = 0.01cm.<br>
+            &nbsp;</li>
+            <li><strong>Zero error</strong><br>
+            (i).........cm,&nbsp;&nbsp;<br>
+            (ii).........cm, &nbsp;<br>
+            (iii)...........cm.<br>
+            Mean zero error (e)=..........cm.<br>
+            Mean zero correction (c) = -e=.........cm.</li>
+        </ol>
+        
+        <div style="overflow-x:auto">
+        <table border="1" cellpadding="1" cellspacing="1" class="responsive_table">
+            <tbody>
+                <tr>
+                    <td style="text-align: center;">Dimension to be measured</td>
+                    <td style="text-align: center;">Sl No</td>
+                    <td><p>Main Scale Reading</p>
+        
+                    <p>MSR cm</p>
+                    </td>
+                    <td><p>Vernier Scale Reading</p>
+        
+                    <p>VSR cm</p>
+                    </td>
+                    <td><p>VSR x L.C</p>
+        
+                    <p>cm</p>
+                    </td>
+                    <td><p>Toatl Reading</p>
+        
+                    <p>MSR + (V S R x L.C)</p>
+        
+                    <p>cm</p>
+                    </td>
+                    <td><p>Mean</p>
+        
+                    <p>cm</p>
+        
+                    <p>&nbsp;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="3">Diameter of the bob</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">Diameter of the cylinder</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">Length of thye cylinder</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Length of the block</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Breadth of the block</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Thickness of the block</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Internal diameter of the beaker</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Internal depth of the beaker</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        
+        <h1>Calculations&nbsp;</h1>
+        
+        <p>Mean corrected diameter------------cm</p>
+        
+        <p>Volume of sphere,<img text-align="middle" alt="«math xmlns=¨http://www.w3.org/1998/Math/MathML¨»«mi mathvariant=¨normal¨»V«/mi»«mo»=«/mo»«mfrac»«mn»4«/mn»«mn»3«/mn»«/mfrac»«msup»«mi mathvariant=¨normal¨»§#960;r«/mi»«mn»3«/mn»«/msup»«/math»" class="Wirisformula" src="/fckeditor/editor/plugins/fckeditor_wiris/integration/showimage.php?formula=9a56caf02bf7ae07ede9b1020c888ab4.png" title="Double click to edit">=---------cm<sup>3</sup>= ------m<sup>3.</sup></p>
+        
+        <p>Mean corrected length of the block, l=............cm</p>
+        
+        <p>Mean corrected breadth of the block,&nbsp; b= .......cm</p>
+        
+        <p>Mean corrected thickness of the block,&nbsp; h= .........cm</p>
+        
+        <p>Volume of block ,&nbsp;<img text-align="middle" alt="«math xmlns=¨http://www.w3.org/1998/Math/MathML¨»«mi mathvariant=¨normal¨»l«/mi»«mo»§#215;«/mo»«mi mathvariant=¨normal¨»b«/mi»«mo»§#215;«/mo»«mi mathvariant=¨normal¨»h«/mi»«/math»" class="Wirisformula" src="/fckeditor/editor/plugins/fckeditor_wiris/integration/showimage.php?formula=64469ad2fb6d5858c19f1bc9465c95d7.png" title="Double click to edit"> =........................cm<sup>3&nbsp; </sup>=..........m<sup>3</sup></p>
+        
+        <p>Density of the block material,<img text-align="middle" alt="«math xmlns=¨http://www.w3.org/1998/Math/MathML¨»«mfrac»«mi mathvariant=¨normal¨»m«/mi»«mi mathvariant=¨normal¨»V«/mi»«/mfrac»«/math»" class="Wirisformula" src="/fckeditor/editor/plugins/fckeditor_wiris/integration/showimage.php?formula=2bd2975c4ff1ae73fb07933a6f297c3f.png" title="Double click to edit">=..................cm</p>
+        
+        <p>Mean corrected internal diameter,D=................cm</p>
+        
+        <p>Mean correcteddepth,d=........cm&nbsp;</p>
+        
+        <p>Volume of beaker / calorimeter ,<img text-align="middle" alt="«math xmlns=¨http://www.w3.org/1998/Math/MathML¨»«mi mathvariant=¨normal¨»v«/mi»«mo»=«/mo»«mi mathvariant=¨normal¨»§#960;«/mi»«msup»«mfenced»«mfrac»«mi mathvariant=¨normal¨»D«/mi»«mn»2«/mn»«/mfrac»«/mfenced»«mn»2«/mn»«/msup»«mo».«/mo»«mi mathvariant=¨normal¨»d«/mi»«/math»" class="Wirisformula" src="/fckeditor/editor/plugins/fckeditor_wiris/integration/showimage.php?formula=00df9b0e9c7c38eb6d66857903f19253.png" title="Double click to edit">= ..........cm<sup>3</sup>=............m<sup>3</sup>.&nbsp;</p>
+        
+        <h1>The Result</h1>
+        
+        <p>&nbsp;The volume of the beaker / calorimeter is ...........m<sup>3</sup>.</p>
+        
+        <p>Volume of Sphere=.......................... m<sup>3</sup></p>
+        
+        <p>Volume of block is ................................m<sup>3</sup></p>
+        
+        <p>The volume of the&nbsp; beaker / calorimeter is ...........cm<sup>3</sup>. &nbsp;</p>
+        
+         
+        </div>
+
+    </div>
+    <div class="content" id="animation" style="display: none;">
+        <h2>Animation</h2>
+        <p>This is the animation section of the experiment.</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/MOivxqXYCZk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    <div class="content" id="simulation" style="display: none;">
+        <h2>Video</h2>
+        <p>This is the simulation section of the experiment.</p>
+        <!-- <iframe src="https://amrita.olabs.edu.in/olab/html5/?sub=PHY&cat=CLA&exp=VernierCalipers&tempId=olab_ot&linktoken=c57b21f9a6cf727df3b4a715f0239635&elink_lan=en-IN&elink_title=Vernier%20Calipers" width="820px" height="500px" align="middle" class="iframeStyle" frameborder="0" allowfullscreen="true"> </iframe> -->
+        <!-- <link  href="./vcsimulator/simulator.html" > -->
+        <div class="main">
+          <header id="silumatorTemp">
+            <div class="g99 logo">
+            </div>
+            <!-- end .g99 -->
+              <div class="g495 mainTitle">
+              <p id="expName"></p>
+            </div>
+            <!-- end .g495 -->
+              <div class="g198 menuSet">
+                    
+            </div>
+            <!-- end .g198 -->
+          <div class="g792 bannerFoot">
+          <ul id="olabmenuBar">
+              <li><a href="#">SAVE</a></li>
+              <li><a id="olabFullscrBtn" onClick="parent.simFullScreenOlab()" style="cursor:pointer;" >FULLSCREEN</a></li>
+              <li><a href="#">EXIT</a></li>
+            </ul>
+          </div>
+              <!-- end .grid_8 -->
+          </header><!-- /header -->
+          <div class="g594 canvasHolder"> 
+              <div id="canvasBox">
+          <div id="ExpContainer">
+          <div id="Lc_labl"></div>
+          <div id="Vernier_Main">
+          <div id="Main_Scale">
+          <div id="Drag_area">
+          
+          <div id="Verier_Scale"></div>
+          </div>
+          <div id="sclDragger"></div>
+          </div>
+          
+          <div id="Scale_Needl"></div>
+          </div>
+          <div id="Vernier_Zoom">
+          <div id="Vernier_Zoom_area">
+          <div id="Big_Still_Scale"></div>
+          <div id="Zoom_Scale"></div>
+          </div>
+          </div>
+          <div id="Object_Store"></div>
+          </div></div>
+          </div>
+           <!-- <div id="Object_Store" style="display:flex; background-image: url(https://amrita.olabs.edu.in/olab/PHY/CLA/VernierCalipers/images/Beaker_Big_Two.png); top: 166px; left: 421px; z-index: 0; height: 135px; width: 143px; background-size: 142px;"></div>  -->
+          
+          <div class="g198 controlHolder">
+          <div class="nano has-scrollbar">
+          <ul style="right: -17px" tabindex="0" class="overthrow content description">
+              <li>	
+            <div class="varBox"> 
+              <p class="varTitle" id="CnrtlTitle"></p>
+               <ul class="tiles">
+          <li id="sphere">
+          <img src="https://amrita.olabs.edu.in/olab/PHY/CLA/VernierCalipers/images/sphere.png">
+          </li>
+          <p class="varTitle" id="SphereText"></p>
+          <li id="IronBlock">
+          <img src="https://amrita.olabs.edu.in/olab/PHY/CLA/VernierCalipers/images/IronBlock.png">
+          </li>
+          <p class="varTitle" id="IronBlockText"></p>
+          <li id="Beaker">
+          <img src="https://amrita.olabs.edu.in/olab/PHY/CLA/VernierCalipers/images/Beaker.png">
+          </li>
+          <p class="varTitle" id="BeakerText"></p>
+          <li id="Cylinder">
+          <img src="https://amrita.olabs.edu.in/olab/PHY/CLA/VernierCalipers/images/Cylinder.png">
+          </li>
+          
+          <p class="varTitle" id="CylinderText"></p>
+          </ul>
+          <div id="Select_Measure">
+          <p id="Select_Measure_text" class="varTitle"></p><br />
+          <input type="radio" id="Radio_One"  name="val"/><span class="varTitleTwo" id="FirstRDBttn"></span><br /><br />
+          <input type="radio" id="Radio_Two" name="val"/><span class="varTitleTwo" id="SecondRDBttn"></span><br /><br />
+          <input type="radio" id="Radio_Three" name="val"/><span class="varTitleTwo" id="ThirdRDBttn"></span>
+          </div>
+          <div id="Reading">
+          <div id="Rsl_text_div" ></div>
+          <div class="varTitle" ><span id="ReseltText"></span>
+          <input type="text" id="TextBox"  />
+          <div id="Result_Icon_correct"></div>
+          <div id="Result_Icon_wrong"></div></div>
+          <input type="button" id="AnswrChkr"    class="subButton"/>
+          </div>
+          <input type="button"  id="ResetBtn" class="subButton"/>
+          </div>
+          </li>
+          </ul></div>
+          </div>
+          <script type="text/javascript">
+           var expTitle="Vernier Calipers";
+           document.getElementById("expName").style.size="11px";
+           document.getElementById("expName").innerHTML=expTitle;
+           
+          </script>   <footer id="tempFooter">
+           <div class="g396 footer">
+          <p class="labName">Developed by AITM
+          <!-- <br>Ministry of  Doggy</p>   -->
+          </div>
+            <!-- end .g396 -->
+            <div class="g396 footer">
+              <p class="copyName"></p>
+            </div>
+              <div class="clear"></div>
+              </footer> <!-- /footer -->
+          </div>
+      </div>
+    <div class="content" id="video" style="display: none;">
+      <h2>Video</h2>
+      <p>This is the video section of the experiment.</p>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/2_KrtHaqw-w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+
+    <div class="content" id="vivavoce" style="display: none;">
+        <h2>Vivavoce</h2>
+        <p>This is the vivavoce section of the experiment.</p>
+        <!-- <link rel="stylesheet" href="caliper.html"> -->
+        <h1>Vernier Caliper Quiz</h1>
+        <form>
+            <h2>Question 1:</h2>
+            <p>What is a Vernier Caliper used for?</p>
+            <input type="radio" name="q1" value="A">Measuring lengths with high precision<br>
+            <input type="radio" name="q1" value="B">Cutting materials with high precision<br>
+            <input type="radio" name="q1" value="C">Sewing clothes with high precision<br>
+    
+            <h2>Question 2:</h2>
+            <p>What is the maximum length that can be measured using a Vernier Caliper?</p>
+            <input type="radio" name="q2" value="A">150mm<br>
+            <input type="radio" name="q2" value="B">300mm<br>
+            <input type="radio" name="q2" value="C">500mm<br>
+    
+            <h2>Question 3:</h2>
+            <p>What is the resolution of a Vernier Caliper?</p>
+            <input type="radio" name="q3" value="A">0.01mm<br>
+            <input type="radio" name="q3" value="B">0.1mm<br>
+            <input type="radio" name="q3" value="C">1mm<br>
+    
+            <h2>Question 4:</h2>
+            <p>What is the least count of a Vernier Caliper?</p>
+            <input type="radio" name="q4" value="A">0.1mm<br>
+            <input type="radio" name="q4" value="B">0.01mm<br>
+            <input type="radio" name="q4" value="C">1mm<br>
+    
+            <h2>Question 5:</h2>
+            <p>What is the name of the device used to measure the inside diameter of a cylinder using a Vernier Caliper?</p>
+            <input type="radio" name="q5" value="A">Depth gauge<br>
+            <input type="radio" name="q5" value="B">Height gauge<br>
+            <input type="radio" name="q5" value="C">Inside micrometer<br>
+    
+            <input type="submit" value="Submit">
+        </form>
+
+      </div>
+      <div class="content" id="resources" style="display: none;">
+        <h2>Resources</h2>
+        <p>This is the resources section of the experiment.</p>
+        <div class="divContent"><h1>Books</h1>
+            <ul>
+                <li>&nbsp;&nbsp;Laboratory Manual Physics for class XII - Published by NCERT</li>
+            </ul>        
+            <h1>Websites</h1>
+            <ul>
+                <li><a href="http://epathshala.nic.in/wp-content/doc/book/flipbook/Class%20XII/12089-Physics%20Part-1/Chapter-3/index.html" target="_blank">http://epathshala.nic.in/wp-content/doc/book/flipbook/Class%20XII/12089-Physics%20Part-1/Chapter-3/index.html</a></li>
+                <li><a href="https://www.youtube.com/embed/4-GxinG7AVw?rel=0&amp;vq=hd1080" target="_blank">https://www.youtube.com/embed/4-GxinG7AVw?rel=0&amp;vq=hd1080</a></li>
+                <li><a href="https://www.youtube.com/embed/Ls5_PcXZRc8?rel=0&amp;vq=hd1080" target="_blank">https://www.youtube.com/embed/Ls5_PcXZRc8?rel=0&amp;vq=hd1080</a></li>
+            </ul>
+            </div>
+      </div>
+    <script>
+      //simulator script 
+      function simFullScreenOlab(){
+		var $ = function(selector,context){return(context||document).querySelector(selector)};
+        var iframe = $("iframe"),
+            domPrefixes = 'Webkit Moz O ms Khtml'.split(' ');
+
+            var fullscreen = function(elem){
+            var prefix;
+			
+            // Mozilla and webkit intialise fullscreen slightly differently
+            for ( var i = -1, len = domPrefixes.length; ++i < len; ) 
+			{
+              prefix = domPrefixes[i].toLowerCase();
+              if ( elem[prefix + 'EnterFullScreen'] ) {
+                // Webkit uses EnterFullScreen for video
+                return prefix + 'EnterFullScreen';
+                break;
+              } else if( elem[prefix + 'RequestFullScreen'] ) {
+                // Mozilla uses RequestFullScreen for all elements and webkit uses it for non video elements
+                return prefix + 'RequestFullScreen';
+                break;
+              }
+            }
+            return false;
+        }; 
+        // Webkit uses "requestFullScreen" for non video elements
+        var fullscreenother = fullscreen(document.createElement("iframe"));
+        if(!fullscreen) {
+            alert("Fullscreen won't work, please make sure you're using a browser that supports it and you have enabled the feature");
+            return;
+        }
+		iframe[fullscreenother]();
+		(this,this.document);
+	    }
+  // Get the form element
+const form = document.querySelector('form');
+
+// Add an event listener for form submission
+form.addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  // Get the selected radio buttons
+  const q1 = form.elements['q1'].value;
+  const q2 = form.elements['q2'].value;
+  const q3 = form.elements['q3'].value;
+  const q4 = form.elements['q4'].value;
+  const q5 = form.elements['q5'].value;
+
+  // Check the answers
+  const correctAnswers = {q1: 'A', q2: 'A',q3: 'A',q4: 'B',q5: 'C'};
+  let score = 0;
+  let resultMsg = '';
+
+  if (q1 === correctAnswers.q1) {
+    score++;
+    resultMsg += 'Question 1: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 1: &#10060; <br>';
+  }
+
+  if (q2 === correctAnswers.q2) {
+    score++;
+    resultMsg += 'Question 2: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 2: &#10060; <br>';
+  }
+  if (q3 === correctAnswers.q3) {
+    score++;
+    resultMsg += 'Question 3: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 3: &#10060; <br>';
+  }
+  if (q4 === correctAnswers.q4) {
+    score++;
+    resultMsg += 'Question 4: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 4: &#10060; <br>';
+  }
+  if (q5 === correctAnswers.q5) {
+    score++;
+    resultMsg += 'Question 5: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 5: &#10060; <br>';
+  }
+
+
+  // Display the result message in a dialog box
+  resultMsg = `You scored ${score} out of 5. <br><br> ${resultMsg}`;
+  const resultDiv = document.createElement('div');
+  resultDiv.innerHTML = resultMsg;
+  
+  const dialog = document.createElement('dialog');
+  dialog.appendChild(resultDiv);
+  const closeButton = document.createElement('button');
+  closeButton.textContent = 'Close';
+  closeButton.addEventListener('click', function() {
+    dialog.close();
+  });
+  dialog.appendChild(closeButton);
+  document.body.appendChild(dialog);
+  dialog.showModal();
+});
+
+        
+      function showTheory() {
+        document.getElementById("theory").style.display = "block";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "none";
+        document.getElementById("simulation").style.display = "none";
+        document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(0);
+      }
+
+      function showProcedure() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "block";
+        document.getElementById("animation").style.display = "none";
+        document.getElementById("simulation").style.display = "none";
+        document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(1);
+      }
+      function showAnimation() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "block";
+        document.getElementById("simulation").style.display = "none";
+        document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(2);
+      }
+
+
+      function showSimulation() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "none";
+        document.getElementById("simulation").style.display = "block";
+        document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(3);
+      }
+
+      function showVideo() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "none";
+        document.getElementById("simulation").style.display = "none";
+        document.getElementById("video").style.display = "block";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(4);
+      }
+      function showVivavoce() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "none";
+        document.getElementById("simulation").style.display = "none";
+        document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "block";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(5);
+      }
+      function showResources() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "none";
+        document.getElementById("simulation").style.display = "none";
+        document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "block";
+        setActiveButton(6);
+      }
+
+      function setActiveButton(index) {
+        // Remove active class from all buttons
+        var buttons = document.getElementsByClassName("nav-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+
+        // Add active class to the button with the given index
+        buttons[index].classList.add("active");
+      }
+    </script>
+  </body>
+</html>

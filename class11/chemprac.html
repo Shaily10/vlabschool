@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Experiment</title>
+    <style>
+        .navbar{
+            background-color: #6a6d6a;
+            margin-left: 35%;
+        }
+      /* Style the buttons */
+      .nav-button {
+        font-size: 16px;
+        padding: 10px 15px;
+        margin: 5px;
+        border: none;
+        border-radius: 4px;
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      /* Style the active button */
+      .active {
+        font-size: 20px;
+        padding: 10px;
+      }
+
+      .content{
+        background-color: rgb(234, 234, 243);
+        padding-bottom: 100%;
+      }
+      #container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+h1 {
+  text-align: center;
+}
+
+#main-scale,
+#vernier-scale {
+  position: relative;
+  height: 50px;
+}
+
+.scale-line,
+.vernier-marking {
+  position: absolute;
+  height: 100%;
+  border-left: 1px solid #ccc;
+}
+
+.scale-marking,
+.vernier-marking {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+}
+
+.scale-marking {
+  height: 10px;
+  border-top: 1px solid #ccc;
+}
+
+#vernier-scale {
+  margin-top: -20px;
+}
+
+#measurement {
+  position: relative;
+  height: 70px;
+  margin-top: 20px;
+}
+
+#measurement-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  border-top: 2px solid #000;
+}
+
+#measurement-value {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: bold;
+}
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  margin: 20px auto;
+  width: 50%;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+form p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+form input[type="radio"] {
+  margin-right: 10px;
+}
+
+form input[type="submit"] {
+  display: block;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.result-msg {
+  margin: 20px auto;
+  width: 50%;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.result-msg p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.result-msg span {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.result-msg .correct {
+  color: green;
+}
+
+.result-msg .incorrect {
+  color: red;
+}
+
+    </style>
+
+
+<!-- <!DOCTYPE html><html lang="en">
+  <head> -->
+    <!--Google Tag Manager-->
+    <script class="gtm">
+      var dataLayer = [{
+      'labName': 'Colloid and Surface Chemistry Virtual Lab',
+      'discipline': 'Chemical Sciences',
+      'college': 'IIITH',
+      'phase': '2',
+      'expName': 'Preparation of Sols',
+      'expShortName': 'preparation-of-sols'
+      }];
+  
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-W59SWTR');
+    </script>
+    <!--End Google Tag Manager-->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="" name="description">
+  <meta content="" name="author">
+  
+      <meta name="experiment-short-name" content="preparation-of-sols">
+      <meta name="developer-institute" content="IIITH">
+      <meta name="learning-unit" content="PREPARATION OF SOLS">
+      <meta name="task-name" content="Simulation">
+  
+  <!-- For iPhone -->
+  <meta name="msapplication-TileColor" content="#4076e0">
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#4076e0">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#4076e0">
+  <title>Virtual Labs</title>
+  <link rel="shortcut icon" href="./assets/images/favicon.ico">
+  <link rel="stylesheet" href="bootstrapmin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" integrity="sha512-Oy18vBnbSJkXTndr2n6lDMO5NN31UljR8e/ICzVPrGpSud4Gkckb8yUpqhKuUNoE+o9gAb4O/rAxxw1ojyUVzg==" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&amp;family=Raleway&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./chemprac/fontawe.css">
+  <link rel="stylesheet" href="./chemprac/github.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.6-b/css/style.min.css">
+  <link rel="stylesheet" href="./chemprac/style.css">
+  
+  <script src="./chemprac/slimin.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+  <style>
+    h1 {
+    font-size: 1.8rem;
+    }
+    h2 {
+    font-size: 1.4rem;
+    }
+    h3 {
+    font-size: 1.2rem;
+    }
+
+    h2, h3 {
+    font-weight: 800;
+    }
+  </style>
+<!-- </head> -->
+<head>
+    <!-- <title>Ohm's Law </title> -->
+    <meta charset="windows-1252">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <!--  <script src="C:\Users\sukriti\ohmslaw\js\plotly-latest.min.js"></script>-->
+   
+</head>
+  </head>
+  <body>
+    <div >
+    <h1><u>Basic Laboratory Techniques</u></h1>
+    <nav class="navbar">
+      <button class="nav-button active" onclick="showTheory()">
+        <img src="../img/theory.png" alt="Theory" width="20" height="20">
+        Theory
+      </button>
+      <button class="nav-button" onclick="showProcedure()">
+        <img src="../img/procedure.png" alt="Procedure" width="20" height="20">
+        Procedure
+      </button>
+      <button class="nav-button" onclick="showAnimation()">
+        <img src="../img/simulation.png" alt="Animation" width="20" height="20">
+        Animation
+      </button>
+      <!-- <button class="nav-button" onclick="showSimulation()">
+        <img src="../img/simulation.png" alt="Simulation" width="20" height="20">
+        Simulation
+      </button> -->
+      <!-- <button class="nav-button" onclick="showVideo()">
+        <img src="../img/video.png" alt="Video" width="20" height="20">
+        Video
+      </button> -->
+      <button class="nav-button" onclick="showVivavoce()">
+        <img src="../img/vivavoce.png" alt="Vivavoce" width="20" height="20">
+        Vivavoce
+      </button>
+      <button class="nav-button" onclick="showResources()">
+        <img src="../img/resources.png" alt="Resources" width="20" height="20">
+        Resource
+    </nav></div>
+    <div class="content" id="theory" >
+        <div class="divContent"><h1>Our Objective</h1>
+
+            <p>Our objective is to perform the following basic laboratory techniques:</p>
+            
+            <ul>
+                <li>Working of Bunsen burner</li>
+                <li>Cutting a glass tube or glass rod</li>
+                <li>Bending a glas tube</li>
+                <li>Drawing a glass jet</li>
+                <li>Use of wash bottle</li>
+                <li>Boring a cork</li>
+            </ul>
+            
+            <h1>The Theory</h1>
+            
+            <p>In a chemical laboratory, we carry out some simple operations like bending or cutting a glass tube, boring a cork and studying the complex process of analysing substances qualitatively and quantitatively.</p>
+            
+            <p>We are going to learn some basic laboratory techniques that are easy as long as we concentrate on accuracy, cleanliness, and strict adherence to details when performing any techniques.&nbsp;</p>
+            
+            <p>Before we go ahead, we'll have to know that most laboratory techniques require knowledge of how to use the equipment.&nbsp; Let us study them in detail.</p>
+            
+            <h2>Bunsen Burner</h2>
+            
+            <p>A<strong> </strong>Bunsen burner is a common heating device used in a laboratory.&nbsp; We'll first figure out the different parts of the burner and then see how it works.The Bunsen burner was named after Robert Bunsen, the German chemist who introduced it in 1855. The Bunsen burner was the forerunner of the gas-stove burner and the gas furnace.</p>
+            
+            <p>The Bunsen burner consists of the following parts:</p>
+            
+            <ul>
+                <li>A Base that is made of cast iron that keeps the burner in a stable upright position.</li>
+                <li>A Gas-inlet tube that fits horizontally into the side of the base and can be connected to the gas tap through a rubber tube.</li>
+                <li>The Nipple made of a brass rod with a fine pin-hole running through it. At its lower end, the nipple is screwed into the base. At the upper end, it carries the burner base.</li>
+                <li>The Burner tube that is a metallic tube with two opposite air holes near its lower end. It is screwed to the nipple and carries the air regulator.</li>
+                <li>The Air adjusting disc that is a metallic ring that loosely fits at the lower end of the burner tube. It is pierced with two holes that exactly correspond to the two air holes of the burner tube. It can be rotated to regulate supply of air into the burner tube by partially or wholly closing the air holes.</li>
+            </ul>
+            
+            <h3>How a&nbsp; Bunsen Burner works:</h3>
+            
+            <p>The rubber tubing is connected to the gas tap and the burner is lit. As the gas escapes through the nipple, there is a fall of pressure resulting in air being sucked in through the air holes. The mixture of air and combustible gas burns at the top with a flame.&nbsp; Depending on the quantity of air mixed, the flame can be luminous or non-luminous.</p>
+            
+            <h3>Types of flames produced by the Bunsen burner:</h3>
+            
+            <p>The Bunsen burner produces three different types of flames.</p>
+            
+            <p>The "coolest" flame is a yellow or orange coloured one.&nbsp; It is approximately 300<sup>o</sup>C and is not used to heat anything, only to show that the Bunsen burner is on.&nbsp; It is called the safety flame.&nbsp;&nbsp;</p>
+            
+            <p>The medium flame, also called the blue flame or the invisible flame is difficult to see in a well-lit room.&nbsp; It is the most commonly used flame. It is approximately 500<sup>o</sup>C.</p>
+            
+            <p>The hottest flame, called the roaring blue flame, is characterized by a light blue triangle in the middle and it is the only flame of the three that makes a noise.&nbsp; The Oxidising flame or non-luminous zone, which is hottest, is the portion that should be used for the purpose of heating.&nbsp; The Luminous zone is the brightest part of the flame. It is reducing in character and is used for reducing processes, such as in charcoal cavity test; match stick test and borax bead test of some radicals.&nbsp; It is approximately 700<sup>o</sup>C.&nbsp;</p>
+            
+            <h2>Wash-bottle</h2>
+            
+            <p>A wash-bottle is a container in which distilled water is taken.&nbsp; With the help of a wash-bottle a fine stream of water can be obtained for washing precipitate and for other purposes.</p>
+            
+            <p>Now-a-days, most laboratories use polythene wash bottles.&nbsp; It consists of&nbsp; flexible plastic material, is fitted with a plastic tube having a jet at its outer end.&nbsp; On squeezing the bottle, a fine stream of water comes out of the jet.&nbsp;</p>
+            
+            <h2>Glass rod</h2>
+            
+            <p>It is a piece of laboratory equipment used to mix chemicals and liqids for laboratory purposes. It is also called stirring rod. It is also used as an aid for transfering the liquid into the funnel. they are usually made of solid glass, about the thickness and slightly longer than a drinking straw, with rounded end.Glass rods are made of borosilicate.</p>
+            
+            <h2>Glass tube</h2>
+            
+            <p>The glass tubes are hollow pieces of borosilicate glasses used primarily as a laboratory glassware.It is commercially available in various lengths and thicknesses and is frequently attached to rubber stoppers. Although modifying a glass tube is an essential laboratory technique, a glass cutter is used to break a long glass tube into small pieces. Freshly cut glass tubes are flame polished before use to remove the rough edge. Glass tubes can be bent by heating evenly over a Bunsen burner.</p>
+            
+            <h2>Cork</h2>
+            
+            <p>The cork has a variety of important uses in laboratories. It is mainly used as a stopper for bottles. Boring a cork is required for setting an apparatus for the preparation of gas for carrying out ditillations etc. Above all, it is required for setting up a wash bottle. Cork is bored using a Cork borer, which is a metal tool for cutting a hole in a cork, or a rubber stopper to insert glass tubing. Choose a borer slightly smaller in diameter than that of the tube to be fitted in the cork. This will ensure tight fitting of the glass tube.</p>
+            
+            <h1>Learning Outcomes</h1>
+            
+            <ul>
+                <li>Students understant some commonly used laboratory apparatus.</li>
+                <li>Students understant the types of flames produced by the Bunsen burner.</li>
+                <li>Students acquird skill to do the following laboratory techniques in the real lab.
+                <ul>
+                    <li>Cutting a glass tube or a glass rod.</li>
+                    <li>Bending a glass tube.</li>
+                    <li>Extending a glass jet to obtain two jets.</li>
+                    <li>Boring a cork.</li>
+                </ul>
+                </li>
+            </ul>
+            </div>
+    </div>
+    <div class="content" id="procedure" style="display: none;">
+      <h2>Procedure</h2>
+      <div class="divContent"><h1>Working of Bunsen Burner</h1>
+
+        <h2>Materials Required</h2>
+        
+        <p><img alt="" src="/userfiles/1/1432184697_Working-of-Bunsen-Burner.jpg"></p>
+        
+        <h2>Real Lab Procedure</h2>
+        
+        <ul>
+            <li>Connect the gas-inlet of the bunsen burner to the gas tap through a rubber tube.</li>
+            <li>Turn on the Bunsen burner and light it using a spark lighter.</li>
+            <li>Ensure the air holes at the bottom of the burner are completely opened.</li>
+            <li>The gas will mix with more air and the flame will burn much hotter producing a blue flame called the non-luminous flame.</li>
+            <li>Close the air hole by rotating the air adjusting disc.</li>
+            <li>Now the gas will only mix with ambient air and this reduced mixing produces an incomplete reaction producing a cooler, but brighter, luminous yellow flame.</li>
+        </ul>
+        
+        <h2>Precautions</h2>
+        
+        <ul>
+            <li>Remove all the flammable and combustible material from the lab bench or work area when the Bunsen burner is to be used.</li>
+            <li>Tie-back long hair, dangling jewelry, or loose clothing.</li>
+            <li>Replace all hoses found to have defect before using.</li>
+            <li>Use a spark lighter with extended nozzle to ignite the burner.</li>
+            <li>Adjust the flame by turning the air adjusting disc to regulate air flow and to produce an appropriate flame for the experiment.</li>
+            <li>Do not leave open flames unattended and never leave the laboratory while the burner is on.</li>
+            <li>Shut off gas when its use is complete and ensure that the main gas valve is off before leaving the lab.</li>
+        </ul>
+        
+        <h1>Cutting a Glass Tube or Rod</h1>
+        
+        <h2>Materials Required</h2>
+        
+        <p><img alt="" src="/userfiles/1/1432184710_Cutting-a-Glass-Tube-or-Rod.jpg"></p>
+        
+        <h2>Real Lab Procedure</h2>
+        
+        <ul>
+            <li>Place the glass tube on a bench or flat surface and without applying too much pressure, hold it firmly.</li>
+            <li>Using the triangular file make a single deep scratch on the glass tube by placing the file perpendicular to the tube and pushing it down and across the tube.&nbsp; Do not saw!&nbsp; By placing the triangular file perpendicular to the tube, you ensure that the scratch made is a straight one.</li>
+            <li>You've got a scratch on the glass tube and that is all it needs to break it.&nbsp;&nbsp; Now, place both your thumbs directly behind the scratch and applying gentle pressure and using a quick motion bend the tube towards you.&nbsp; It just breaks.&nbsp;&nbsp;</li>
+            <li>You may find that the broken edges of the tube is not smooth and can cause bruises.&nbsp; This can be made smooth by rotating the broken edges over a flame for 2 - 3 minutes and then allowing it to cool.</li>
+        </ul>
+        
+        <h2>Precautions</h2>
+        
+        <ul>
+            <li>Make a single deep scratch at the desired length with one stroke of file.</li>
+            <li>To avoid injury, hold the glass tube with the help of a thick piece of cloth.</li>
+            <li>Do not heat the end for long time. It may seal the end or make it narrow.</li>
+        </ul>
+        
+        <h1>Bending a Glass Tube</h1>
+        
+        <h2>Materials Required:</h2>
+        
+        <p><img alt="" src="/userfiles/1/1432184747_Bending-a-Glass-Tube.jpg"></p>
+        
+        <h2>Real Lab Procedure</h2>
+        
+        <ul>
+            <li>Hold both ends of the glass tube by hand and introduce it lengthwise into the luminous flame of the burner.&nbsp;</li>
+            <li>Don't keep it in a fixed position over the flame; instead roll the glass tubing with the fingers to evenly heat it.</li>
+            <li>You'll feel the area of the glass being heated becoming soft and delicate.&nbsp; When this happens apply gentle pressure so that it bends by itself. When the desired angle is formed, remove the tubing from the flame.</li>
+            <li>Place the bent limb on the glazed tile and press it gently to make it coplanar. Then allow the tubing to cool.&nbsp;</li>
+        </ul>
+        
+        <h2>Precautions</h2>
+        
+        <ul>
+            <li>Select the tube of sufficient length to keep your hands safe from heat. Do not try to bend very small glass tubes of length less than 20 cm.</li>
+            <li>While heating, the glass tube should be rotated in order to ensure uniform heating.</li>
+            <li>Never bend the glass tubing by force. Doing so can break the tubing.</li>
+        </ul>
+        
+        <h1>Drawing Out a Glass Jet from a Delivery Tube</h1>
+        
+        <h2>Materials Required</h2>
+        
+        <p><img alt="" src="/userfiles/1/1432184765_Drawing-Out-a-Glass-Jet-from-a-Delivery-Tube.jpg"></p>
+        
+        <h2>Real Lab Procedure</h2>
+        
+        <ul>
+            <li>Holding the delivery tube with both hands, place it lengthwise in the flame.</li>
+            <li>Keep rotating the tube in the flame as this ensures uniform heating.&nbsp; Continue to heat it until it softens.</li>
+            <li>Now remove the tubing from the flame and gently pull both ends of the tube. What happens is that&nbsp; the middle portion becomes narrow as a capillary.&nbsp; Do this till the thickness is about 2 mm.</li>
+            <li>Now cool and cut the narrow portion that has been obtained using&nbsp; them the triangular file.&nbsp; We have now two jets.</li>
+            <li>The broken edges of the jets that are not smooth can be rounded by rotating over the flame for 2 - 3 minutes and then allowing them to cool.&nbsp;</li>
+        </ul>
+        
+        <h2>Precautions</h2>
+        
+        <ul>
+            <li>While drawing a jet, pull apart the two ends of the red-hot tube slowly so that it becomes thin uniformly.</li>
+            <li>Do not heat the ends too long, as it may seal the ends or make them too narrow.</li>
+        </ul>
+        
+        <h1>The Wash Bottle</h1>
+        
+        <h2>Material Required</h2>
+        
+        <p><img alt="" src="/userfiles/1/1432183705_The-Wash-Bottle.jpg"></p>
+        
+        <h2>Real Lab Procedure</h2>
+        
+        <ul>
+            <li>Take the&nbsp; 500 ml flat-bottom flask and fill it with water.</li>
+            <li>Fit&nbsp; the flask with an appropriate cork that has two bores.</li>
+            <li>Pass the two bent tubes, one bent at an angle of 120<sup>o</sup> and the second at 60<sup>o</sup> through the bores. The angles are slanted in such a way that the bent portions of the tubes lie in a straight line.</li>
+            <li>The upper portion of the 120<sup>o</sup> angled tube in held in the mouth whereas a jet is fitted to the tube angled at 60<sup>o</sup>.</li>
+            <li>On blowing air through the mouth, water comes out from the other tube through the jet.</li>
+        </ul>
+        
+        <h2>Precautions</h2>
+        
+        <ul>
+            <li>The edges of the tubes must be rounded off.</li>
+            <li>The longer arm of the tube bent at 60<sup>o</sup> should be only very slightly above the bottom of the flask so that it can be used even when it contains only a small amount of water.</li>
+            <li>All connections must be air tight.</li>
+        </ul>
+        
+        <h1>Boring a cork</h1>
+        
+        <h2>Materials Required</h2>
+        
+        <p><img alt="" src="/userfiles/1/1432184213_Boring-a-cork.jpg"></p>
+        
+        <h2>Real Lab Procedure</h2>
+        
+        <h3>Softening the cork</h3>
+        
+        <p>A cork gets harder over time and trying to bore a cork that has hardened results in formation of cracks.&nbsp; We need to wet the cork in water to soften it.&nbsp; Once the cork becomes flexible, press it in a cork presser that is a mechanical device.&nbsp; Alternatively, we can wrap the wet cork in a piece of paper and place it under our shoes and press it.&nbsp; We now have a softened cork.&nbsp;&nbsp;</p>
+        
+        <h3>Boring the cork</h3>
+        
+        <ul>
+            <li>Place the cork on a table or a flat surface with its narrow end facing up.&nbsp;&nbsp;</li>
+            <li>To ensure we get a straight hole, mark the position of the borer on both the sides of the cork.&nbsp;</li>
+            <li>If the cork taken is a rubber one, we can apply some glycerine on the borer.&nbsp; The reason we do this is glycerine acts as lubricant on the hard rubber cork.&nbsp;&nbsp;</li>
+            <li>Now hold the cork tightly with the left hand and applying force, start the boring process using a twisting motion.&nbsp; Make sure the borer remains vertical throughout.&nbsp;&nbsp;</li>
+            <li>When half of the cork has been bored, take the borer out and reverse the cork. Start boring from the reversed side till a hole is obtained.&nbsp;</li>
+            <li>We can now remove the borer.</li>
+        </ul>
+        
+        <h3>Fitting a glass tube in the bore</h3>
+        
+        <ul>
+            <li>We'll now fit the glass tube into the hole bored in the cork.</li>
+            <li>Dip the end of the cork through which the tube is going to be inserted in water.&nbsp; Do the same with the end of the tube to be used.&nbsp; This ensures easy insertion of the tube into the cork.</li>
+            <li>Hold the cork in one hand and the tube in the other hand.&nbsp;</li>
+            <li>Hold the tube close to the wet end and insert the tube into the bored hole of the cork using a rotatory motion.&nbsp;</li>
+        </ul>
+        
+        <h2>Precautions</h2>
+        
+        <ul>
+            <li>Select bores of diameter slightly smaller in size than that of the tube to be inserted in the hole.</li>
+            <li>Make a mark on both sides of the cork.</li>
+            <li>To obtain a smooth hole, drill half the hole from one side and other half from other side of the cork.</li>
+            <li>Since the rubber is hard, the end of the tube to be inserted is usually dipped in caustic soda solution or glycerine before fitting it in the hole.</li>
+        </ul>
+        </div>
+    </div>
+    <div class="content" id="animation" style="display: none;">
+        <h2>Animation</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/22ZB0ZwvOsQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div> 
+    <!-- <div class="content" id="simulation" style="display: none;">
+      <h2>Simulation</h2>
+        <p>This is the simulation section of the experiment.</p>
+    </div> -->
+    
+    <!-- <div class="content" id="video" style="display: none;">
+    </div>
+  </div> -->
+    <div class="content" id="vivavoce" style="display: none;">
+        <h2>Vivavoce</h2>
+        <!-- <p>This is the vivavoce section of the experiment.</p> -->
+        <!-- <link rel="stylesheet" href="caliper.html"> -->
+        <h1>Basic Laboratory Techniques Quiz</h1>
+        <form>
+            <h2>Question 1:</h2>
+            <p>Which one of the following is used for the filtration of solutions?</p>
+            <input type="radio" name="q1" value="A">Wash bottle<br>
+            <input type="radio" name="q1" value="B">Watch glass<br>
+            <input type="radio" name="q1" value="C">Funnel<br>
+    
+            <h2>Question 2:</h2>
+            <p>Which one of the following is used for accurate measurement of a volume of a liquid?</p>
+            <input type="radio" name="q2" value="A">Test tube<br>
+            <input type="radio" name="q2" value="B">RB flask<br>
+            <input type="radio" name="q2" value="C">Measuring jar<br>
+    
+            <h2>Question 3:</h2>
+            <p>Why is a cork moistened before boring?</p>
+            <input type="radio" name="q3" value="A">To change the shape of the cork.<br>
+            <input type="radio" name="q3" value="B">To make the cork soft.<br>
+            <input type="radio" name="q3" value="C">To change the colour of the cork.<br>
+    
+            <h2>Question 4:</h2>
+            <p>Which one of the following acts as a lubricant for a hard rubber cork?</p>
+            <input type="radio" name="q4" value="A">Acetic acid<br>
+            <input type="radio" name="q4" value="B"> Methanol<br>
+            <input type="radio" name="q4" value="C"> Glycerine<br>
+    
+            <h2>Question 5:</h2>
+            <p>	What is the maximum weight measured using a common balance?</p>
+            <input type="radio" name="q5" value="A">Usually 700g<br>
+            <input type="radio" name="q5" value="B">Usually 100g<br>
+            <input type="radio" name="q5" value="C">Usually 500g<br>
+    
+            <input type="submit" value="Submit">
+        </form>
+
+      </div>
+      <div class="content" id="resources" style="display: none;">
+        <h2>Resources</h2>
+        <div class="divContent"><h1>Books:</h1>
+
+            <ul>
+                <li>Laboratory Manual Chemistry for class XI - Published by NCERT</li>
+                <li>Text book for Class XI Chemistry Part I, National Council of Educational Research and Training</li>
+            </ul>
+            
+            <h1>Websites:</h1>
+            
+            <ul>
+                <li><a href="https://www.google.co.in/?gfe_rd=cr&amp;ei=fRpRU-WkCsbM8geLw4CYBg#q=bunsen+burner" target="_blank">www.google.co.in/</a></li>
+                <li><a href="http://www.eiu.edu/~eiuchem/GenChem/burner.pdf" target="_blank">www.eiu.edu/~eiuchem/GenChem/burner.pdf</a></li>
+                <li><a href="https://www.youtube.com/watch?v=N7ssCM3qM3U" target="_blank">www.youtube.com/watch</a></li>
+                <li><a href="https://www.youtube.com/watch?v=W3xHWzmSOfU" target="_blank">www.youtube.com/watch</a></li>
+                <li><a href="http://en.wikipedia.org/wiki/Wash_bottle" target="_blank">en.wikipedia.org/wiki/Wash_bottle</a></li>
+                <li><a href="http://en.wikipedia.org/wiki/Stirring_rod" target="_blank">en.wikipedia.org/wiki/Stirring_rod</a></li>
+                <li><a href="https://www.youtube.com/watch?v=oE_26YP0IRM" target="_blank">www.youtube.com/watch</a></li>
+                <li><a href="https://www.youtube.com/watch?v=LznzCBGQjXw" target="_blank">www.youtube.com/watch</a></li>
+                <li><a href="//www.youtube.com/watch?v=P-ldT5-aDiM" target="_blank">www.youtube.com/watch</a></li>
+            </ul>
+            
+            <h1>&nbsp;</h1>
+            
+            <p>&nbsp;</p>
+            </div>
+    </div>
+<!-- </div> -->
+    <script>
+      
+      //simulator script 
+      function simFullScreenOlab(){
+		var $ = function(selector,context){return(context||document).querySelector(selector)};
+        var iframe = $("iframe"),
+            domPrefixes = 'Webkit Moz O ms Khtml'.split(' ');
+
+            var fullscreen = function(elem){
+            var prefix;
+			
+            // Mozilla and webkit intialise fullscreen slightly differently
+            for ( var i = -1, len = domPrefixes.length; ++i < len; ) 
+			{
+              prefix = domPrefixes[i].toLowerCase();
+              if ( elem[prefix + 'EnterFullScreen'] ) {
+                // Webkit uses EnterFullScreen for video
+                return prefix + 'EnterFullScreen';
+                break;
+              } else if( elem[prefix + 'RequestFullScreen'] ) {
+                // Mozilla uses RequestFullScreen for all elements and webkit uses it for non video elements
+                return prefix + 'RequestFullScreen';
+                break;
+              }
+            }
+            return false;
+        }; 
+        // Webkit uses "requestFullScreen" for non video elements
+        var fullscreenother = fullscreen(document.createElement("iframe"));
+        if(!fullscreen) {
+            alert("Fullscreen won't work, please make sure you're using a browser that supports it and you have enabled the feature");
+            return;
+        }
+		iframe[fullscreenother]();
+		(this,this.document);
+	    }
+  // Get the form element
+const form = document.querySelector('form');
+
+// Add an event listener for form submission
+form.addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  // Get the selected radio buttons
+  const q1 = form.elements['q1'].value;
+  const q2 = form.elements['q2'].value;
+  const q3 = form.elements['q3'].value;
+  const q4 = form.elements['q4'].value;
+  const q5 = form.elements['q5'].value;
+
+  // Check the answers
+  const correctAnswers = {q1: 'C', q2: 'C',q3: 'C',q4: 'C',q5: 'B'};
+  let score = 0;
+  let resultMsg = '';
+
+  if (q1 === correctAnswers.q1) {
+    score++;
+    resultMsg += 'Question 1: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 1: &#10060; <br>';
+  }
+
+  if (q2 === correctAnswers.q2) {
+    score++;
+    resultMsg += 'Question 2: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 2: &#10060; <br>';
+  }
+  if (q3 === correctAnswers.q3) {
+    score++;
+    resultMsg += 'Question 3: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 3: &#10060; <br>';
+  }
+  if (q4 === correctAnswers.q4) {
+    score++;
+    resultMsg += 'Question 4: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 4: &#10060; <br>';
+  }
+  if (q5 === correctAnswers.q5) {
+    score++;
+    resultMsg += 'Question 5: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 5: &#10060; <br>';
+  }
+
+
+  // Display the result message in a dialog box
+  resultMsg = `You scored ${score} out of 5. <br><br> ${resultMsg}`;
+  const resultDiv = document.createElement('div');
+  resultDiv.innerHTML = resultMsg;
+  
+  const dialog = document.createElement('dialog');
+  dialog.appendChild(resultDiv);
+  const closeButton = document.createElement('button');
+  closeButton.textContent = 'Close';
+  closeButton.addEventListener('click', function() {
+    dialog.close();
+  });
+  dialog.appendChild(closeButton);
+  document.body.appendChild(dialog);
+  dialog.showModal();
+});
+
+        
+      function showTheory() {
+        document.getElementById("theory").style.display = "block";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "none";
+        // document.getElementById("simulation").style.display = "none";
+        // document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(0);
+      }
+
+      function showProcedure() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "block";
+        document.getElementById("animation").style.display = "none";
+        // document.getElementById("simulation").style.display = "none";
+        // document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(1);
+      }
+      function showAnimation() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "block";
+        // document.getElementById("simulation").style.display = "none";
+        // document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(2);
+      }
+
+
+      // function showSimulation() {
+      //   document.getElementById("theory").style.display = "none";
+      //   document.getElementById("procedure").style.display = "none";
+      //   document.getElementById("animation").style.display = "none";
+      //   document.getElementById("simulation").style.display = "block";
+      //   document.getElementById("video").style.display = "none";
+      //   document.getElementById("vivavoce").style.display = "none";
+      //   document.getElementById("resources").style.display = "none";
+      //   setActiveButton(3);
+      // }
+
+    //   function showVideo() {
+    //     document.getElementById("theory").style.display = "none";
+    //     document.getElementById("procedure").style.display = "none";
+    //     document.getElementById("animation").style.display = "none";
+    //     document.getElementById("simulation").style.display = "none";
+    //     document.getElementById("video").style.display = "block";
+    //     document.getElementById("vivavoce").style.display = "none";
+    //     document.getElementById("resources").style.display = "none";
+    //     setActiveButton(4);
+    //   }
+      function showVivavoce() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "none";
+        // document.getElementById("simulation").style.display = "none";
+        // document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "block";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(3);
+      }
+      function showResources() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "none";
+        // document.getElementById("simulation").style.display = "none";
+        // document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "block";
+        setActiveButton(4);
+      }
+
+      function setActiveButton(index) {
+        // Remove active class from all buttons
+        var buttons = document.getElementsByClassName("nav-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+
+        // Add active class to the button with the given index
+        buttons[index].classList.add("active");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VIRTUAL LAB</title>
+	<style>
+		.navbar {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			background-color: #333;
+			color: white;
+			height: 70px;
+			padding: 10px;
+		}
+
+		/* .logo {
+			font-size: 28px;
+			font-weight: bold;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+		} */
+
+		.logo{
+		  height: 70%;
+          width: 70%;
+		  display: flex;
+		  border-radius: 50%;
+		}
+
+		.search-bar {
+			flex: 45%;
+			margin: 70px 70px;
+			position: relative;
+            /* height: 10px; */
+            width: 10px;
+		}
+
+		.search-bar input[type="text"] {
+			width: 100%;
+			height: 40px;
+			padding: 10px;
+			border: none;
+			border-radius: 20px;
+			font-size: 16px;
+		}
+
+		.search-bar button {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			height: 40px;
+			width: 80px;
+			border: none;
+			border-radius: 20px;
+			background-color: #fff;
+			color: #333;
+			cursor: pointer;
+			font-size: 16px;
+		}
+		.search-bar button:hover {
+			background-color: grey;
+		}
+
+		.translate {
+			font-size: 16px;
+			cursor: pointer;
+		}
+
+		.login {
+			font-size: 16px;
+			cursor: pointer;
+		}
+        .subject-info{
+            font-size: 16px;
+            cursor: pointer;
+            position:fixed;
+            margin-left: 20%;
+            align-items: center;
+        }
+        .subject-bar {
+			display: flex;
+			position:fixed;
+			justify-content: space-between;
+			align-items: center;
+			background-color: #eee;
+			height: 50px;
+			margin-left: 5%;
+            margin-right:5% ;
+			margin-top: 1%;
+			padding: 15px;
+			font-size: 16px;
+			position: relative;
+            border-radius: 20px;
+		}
+
+		.subject-name {
+			font-weight: bold;
+            font-size: 40px;
+			margin-right: 20px;
+			/* position:static; */
+           /* margin-left:    21; */
+		}
+
+		.subject-class {
+			list-style-type: disc;
+			margin: 0;
+			padding: 0 0 0 20px;
+			/* text-align: center; */
+			flex: 1;
+		}
+
+		.share-button {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			height: 40px;
+			width: 50px;
+			border: none;
+			background-color: #fff;
+			color: #333;
+			cursor: pointer;
+			font-size: 16px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.share-button:hover{
+			background-color: #0e0d0d;
+			color: #eee;
+		}
+
+		.share-link {
+			display: none;
+			position: absolute;
+			top: 50px;
+			right: 10px;
+			height: 30px;
+			width: 200px;
+			background-color: #fff;
+			color: #333;
+			font-size: 16px;
+			padding: 10px;
+			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		}
+
+		.share-link input[type="text"] {
+			width: 100%;
+			height: 100%;
+			border: none;
+			outline: none;
+			font-size: 14px;
+			padding: 5px;
+		}
+
+  .container {
+			/* position: relative;
+			width: 100%;
+			height: 500px;
+			overflow: hidden; */
+			border: 1px solid black;
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            margin-top: 50%;
+            margin-right: 50%;
+            margin-left: -2%;
+			border-radius: 2%;
+		}
+		.slider {
+			position: absolute;
+			top: 0;
+			left: 1%;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			transition: transform 0.5s ease-in-out;
+		}
+		.slide {
+			position: relative;
+			flex: 1;
+			min-width: 100%;
+			height: 100%;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+		.slide img {
+			display: none;
+		}
+		.slide.active img {
+			display: block;
+			max-width: 100%;
+			max-height: 100%;
+			transform: scale(1);
+			transform-origin: center center;
+			transition: transform 0.5s ease-in-out;
+		}
+		.prev,
+		.next {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 50px;
+			height: 50px;
+			background-color: black;
+			color: white;
+			text-align: center;
+			line-height: 50px;
+			cursor: pointer;
+		}
+		.prev:hover,
+		.next:hover {
+			background-color: grey;
+		}
+		.prev {
+			left: 0;
+		}
+		.next {
+			right: 0;
+		}
+		.zoom-in{
+			position: absolute;
+			top: 5px;
+			right: 2%;
+			width: 30px;
+			height: 30px;
+			background-color: black;
+			color: white;
+			text-align: center;
+			line-height: 30px;
+			cursor: pointer;
+		}
+        .zoom-out {
+			position: absolute;
+			top: 5px;
+			right: 7%;
+			width: 30px;
+			height: 30px;
+			background-color: black;
+			color: white;
+			text-align: center;
+			line-height: 30px;
+			cursor: pointer;
+		}
+		.zoom-in:hover {
+			background-color: grey;
+		}
+        .zoom-out:hover {
+			background-color: grey;
+		}
+		.compiler {
+         background-color: #f5f5f5;
+         padding: 20px;
+         box-sizing: border-box;
+         position: fixed;
+         bottom: 100px;
+         left: 100px;
+         width: 50%;
+        }
+
+		.sidebar {
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+			box-sizing: border-box;
+            padding: 10px;
+            height: 100vh;
+            margin-top: 70%;
+			border-radius: 5%;
+			margin-left: -45%;
+			width: 50%;
+            /* margin-left: 25%; */
+            /* margin-left: -2%; */
+        }
+
+        .sidebar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        }
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar li a {
+  display: block;
+  padding: 5px;
+  text-decoration: none;
+  color: #333;
+}
+
+.sidebar li a:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+
+.sidebar-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  font-family: 'Merriweather', serif;
+  background-color: transparent;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.sidebar-content {
+  display: none;
+  margin-top: 10px;
+}
+
+.sidebar-content.show {
+  display: block;
+}
+.pdf {
+  width: 100% ;
+  height: 500px;
+  border: none;
+  margin-bottom: 30px;
+  margin-left: -10px;
+}
+
+</style>
+</head>
+<body>
+	<div class="navbar">
+		<div class="logo"><img src="../img/vlablogo.png"><h1>&nbsp;&nbsp; VIRTUAL LAB</h1></div>
+		<div class="search-bar">
+			<input type="text" placeholder="Search...">
+			<button>Search</button>
+		</div>
+		<div class="language">
+			<div class="translate" id="google_translate_element"></div>
+			<script type="text/javascript">
+				function googleTranslateElementInit() {
+					new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'es,fr,hi,ur,gu,ja,en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
+				}
+			</script>
+			<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+		</div>
+		<!-- <div class="login">
+			<i class="fa fa-user"></i> Log In
+		</div> -->
+	</div>
+    <div class="subject-bar">
+        <!-- <button class="back-button">Go Back</button> -->
+        <div class="subject-info">
+            <div class="subject-name">Chemistry Lab </div>
+            <ul class="subject-class">
+                <li>Class 11</li>
+            </ul>
+        </div>
+        <!-- <button class="share-button">Share</button>
+        <div class="share-link">
+        </div> -->
+		<button id="share-button">Share</button>
+
+          <div class="container">
+            <div class="slider">
+
+				<!-- <h3 class="Headings">5.Arithmetic Progressions in some given lists of numbers (patterns)</h3> <a href="exp.html"></a>-->
+                <div class="slide active" ><iframe class ="pdf" src="../class11/unit-1 (1).pdf" > </iframe></div>
+				<div class="slide active" ><iframe class ="pdf" src="../class11/unit-2 (1).pdf" > </iframe></div>
+                <div class="slide" ><iframe class ="pdf" src="../class11/unit-3.pdf" > </iframe></div>
+				<div class="slide" ><iframe class ="pdf" src="../class11/unit-4 (1).pdf" > </iframe></div>
+				<div class="slide" ><iframe class ="pdf" src="../class11/unit-5 (1).pdf" > </iframe></div>
+                <!-- <div class="slide" ><iframe class ="pdf" src="../class11/experiment_5.pdf" > </iframe></div>
+                <div class="slide"><iframe class ="pdf" src="../class11/experiment_6.pdf" > </iframe></div> -->
+                <!-- <div class="slide" ><img src="image6.jpg" alt=""></div> -->
+            </div>
+            <div class="prev">&#10094;</div>
+            <div class="next">&#10095;</div>
+            <!-- <div class="zoom-in">+</div>
+            <div class="zoom-out">-</div> -->
+        </div>
+		
+        <div class="sidebar">
+			<button class="sidebar-btn" onclick="toggleSidebar()">UNIT-1 : Introduction ▼</button>
+			<div class="sidebar-content" id="sidebar-content">
+                <!-- <iframe width="360" height="215" src="https://www.youtube.com/embed/BbkiDVfK3i0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>			   -->
+              <a href="../class11/unit-1 (1).pdf">Unit 1</a>
+			  
+			</div>
+			<button class="sidebar-btn" onclick="toggleSidebar2()">UNIT-2: Basic Laboratory Techniques ▼</button>
+			<div class="sidebar-content" id="sidebar-content2">
+                <a href="../class11/unit-2 (1).pdf">Unit 2</a>
+                <h3>Explanation Resources</h3>
+			  <a href="../class11/chemprac.html">2.1 Cutting of glass tube and glass</a>
+                <!-- <iframe width="360" height="215" src="https://www.youtube.com/embed/ilwhceWPt3E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>			   -->
+			</div>
+			<button class="sidebar-btn" onclick="toggleSidebar3()">UNIT-3: Purification and Criteria of Purity ▼</button>
+			<div class="sidebar-content" id="sidebar-content3">
+                <!-- <iframe width="360" height="215" src="https://www.youtube.com/embed/uj_qxRcKxwA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>                -->
+				 <a href="../class11/unit-3.pdf">Unit 3</a>  
+				 <h3>Explanation Resources</h3>
+				 <a href="../class11/chemtwoprac.html">3.1. Purification of a compound by crystallisation</a>
+			</div>
+            <button class="sidebar-btn" onclick="toggleSidebar4()">UNIT-4: Chemical Equilibrium (lonic Equilibrium in Solution) ▼</button>
+			<div class="sidebar-content" id="sidebar-content4">
+                <!-- <iframe width="360" height="215" src="https://www.youtube.com/embed/bMVEJ9p7SvM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>                 -->
+				<a href="../class11/unit-4 (1).pdf">Unit 4</a>   
+			</div>
+            <button class="sidebar-btn" onclick="toggleSidebar5()">UNIT-5: pH and pH Change in Aqueous Solutions ▼</button>
+			<div class="sidebar-content" id="sidebar-content5">
+                <!-- <iframe width="360" height="215" src="https://www.youtube.com/embed/szaWLB0neRU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>                 -->
+				<a href="../class11/unit-5 (1).pdf">Unit 5</a>   
+			</div>
+            <button class="sidebar-btn" onclick="toggleSidebar6()">UNIT-6: Titrimetric Analysis ▼</button>
+			<div class="sidebar-content" id="sidebar-content6">
+                <!-- <iframe width="360" height="215" src="https://www.youtube.com/embed/OgQJhUitC68" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>                -->
+				 <a href="../class11/unit-6 (1).pdf">Unit 6</a>   
+			</div>
+            <button class="sidebar-btn" onclick="toggleSidebar7()">UNIT-7: Systematic Qualitative Analysis ▼</button>
+			<div class="sidebar-content" id="sidebar-content7">
+                <!-- <iframe width="360" height="215" src="https://www.youtube.com/embed/MlhakYv4ZXs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>                -->
+				 <a href="../class11/unit-7 (1).pdf">Unit 7</a>  
+			</div>
+
+        <script>
+			document.getElementById('share-button').addEventListener('click', function() {
+  var url = window.location.href;
+  var shareUrl =  url;
+  window.open(shareUrl,'_blank','toolbar=0,location=0,menubar=0,height=0,width=500');
+});
+
+
+  const slider = document.querySelector('.slider');
+  const slides = document.querySelectorAll('.slide');
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
+  const zoomInBtn = document.querySelector('.zoom-in');
+  const zoomOutBtn = document.querySelector('.zoom-out');
+
+  let currentSlide = 0;
+  const maxSlides = slides.length - 1;
+  let zoomLevel = 1;
+
+  function goToSlide(slide) {
+    slider.style.transform = `translateX(-${slide * 100}%)`;
+    slides[currentSlide].classList.remove('active');
+    slides[slide].classList.add('active');
+    currentSlide = slide;
+  }
+
+  function nextSlide() {
+    if (currentSlide === maxSlides) {
+      goToSlide(0);
+    } else {
+      goToSlide(currentSlide + 1);
+    }
+  }
+
+  function prevSlide() {
+    if (currentSlide === 0) {
+      goToSlide(maxSlides);
+    } else {
+      goToSlide(currentSlide - 1);
+    }
+  }
+
+  function zoomIn() {
+    zoomLevel += 0.1;
+    slides[currentSlide].querySelector('img').style.transform = `scale(${zoomLevel})`;
+  }
+
+  function zoomOut() {
+    zoomLevel -= 0.1;
+    slides[currentSlide].querySelector('img').style.transform = `scale(${zoomLevel})`;
+  }
+
+  // Event listeners
+  nextBtn.addEventListener('click', nextSlide);
+  prevBtn.addEventListener('click', prevSlide);
+  zoomInBtn.addEventListener('click', zoomIn);
+  zoomOutBtn.addEventListener('click', zoomOut);
+
+  function toggleSidebar() {
+  var sidebarContent = document.getElementById("sidebar-content");
+  sidebarContent.classList.toggle("show");
+}
+function toggleSidebar2(){
+    var sidebarContent = document.getElementById("sidebar-content2");
+    sidebarContent.classList.toggle("show");
+}
+function toggleSidebar3(){
+    var sidebarContent = document.getElementById("sidebar-content3");
+    sidebarContent.classList.toggle("show");
+}
+function toggleSidebar4(){
+    var sidebarContent = document.getElementById("sidebar-content4");
+    sidebarContent.classList.toggle("show");
+}
+function toggleSidebar5(){
+    var sidebarContent = document.getElementById("sidebar-content5");
+    sidebarContent.classList.toggle("show");
+}
+function toggleSidebar6(){
+    var sidebarContent = document.getElementById("sidebar-content6");
+    sidebarContent.classList.toggle("show");
+}
+function toggleSidebar7(){
+    var sidebarContent = document.getElementById("sidebar-content7");
+    sidebarContent.classList.toggle("show");
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <link rel="stylesheet" href="./css/role.css">
+  <title>Document</title>
+</head>
+<body>
+  HTML for the modal pop-up 
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <h2>Select Your Role</h2>
+    <form>
+      <input type="radio" name="role" value="teacher" id="teacher">
+      <label for="teacher"><img src="https://thumbs.dreamstime.com/b/professor-lecturer-illustration-cartoon-isolated-personage-34508406.jpg">Teacher</label><br>
+      <input type="radio" name="role" value="student" id="student">
+      <label for="student"><img src="https://img.favpng.com/1/19/14/student-cartoon-png-favpng-TjJpS0PQM5V0uKy9AUBWYAwTW_t.jpg">Student</label><br><br>
+      <button class="sub" id="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
+ JavaScript code to show the modal pop-up and handle user input 
+<script>
+  // Get the modal and the submit button
+  var modal = document.getElementById("modal");
+  var submitButton = document.getElementById("submit");
+  
+  // Show the modal when the page loads
+  window.onload = function() {
+    modal.style.display = "block";
+  }
+  
+  // Handle user input when the submit button is clicked
+  submitButton.onclick = function() {
+    // Get the selected role
+    var role = document.querySelector('input[name="role"]:checked').value;
+    
+    // Redirect the user to the appropriate page based on the selected role
+    if (role === "teacher") {
+      window.location.href = "login.html";
+    } else if (role === "student") {
+      window.location.href = "student.html";
+    }
+    
+    // Prevent the form from submitting and the page from reloading
+    return false;
+  }
+</script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Select Your Role</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Select Your Role</h1>
+		<form>
+			<label>
+				<input type="radio" name="role" value="teacher"><img src="https://thumbs.dreamstime.com/b/professor-lecturer-illustration-cartoon-isolated-personage-34508406.jpg">Teacher
+			</label>
+			<label>
+				<input type="radio" name="role" value="student"><img src="https://img.favpng.com/1/19/14/student-cartoon-png-favpng-TjJpS0PQM5V0uKy9AUBWYAwTW_t.jpg"> Student
+			</label>
+			<button type="button" onclick="selectRole()">Select</button>
+		</form>
+	</div>
+
+	<script>
+		function selectRole() {
+			var role = document.querySelector('input[name="role"]:checked').value;
+			localStorage.setItem("role", role);
+			window.location.href = "index.html";
+		}
+	</script>
+</body>
+</html>

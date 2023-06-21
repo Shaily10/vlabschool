@@ -1,0 +1,44 @@
+
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <title>Stacks practice(Arrays)</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stackque.css">
+    <link rel="stylesheet" href="responsive.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  </head>
+  <body onload="drawArray();">
+    <div class="instruction-box">
+      <button class="collapsible">Instructions</button>
+      <div class="content"> 
+        <ul>
+          <li>Enter a value and click <b>Push</b> to push the entered value into the stack.</li>
+          <li>Click <b>Pop</b> to pop the top most element of the stack.</li>
+          <li>Click <b>Clear</b> to clear the stack</li>
+          <li>The index of the pointer pointing to the top element of stack is also displayed.</li>
+        </ul>
+      </div>
+    </div>
+    
+    <canvas id="stackArray">
+        Your browser does not support canvas.
+    </canvas>
+    
+    <div class="comment-box" id="comments-star">
+      <b>Observations</b><br>
+      <p id="ins"></p>
+    </div>
+    
+    <div class="buttons-wrapper">
+      <input class="text-box" id="numbers-stackarray" type="alphanumeric" placeholder="Enter an element" maxlength="3">
+      <input type="button" class="button-input" value="Push" id="push-button">
+      <input type="button" class="button-input" value="Pop" id="pop-button">
+      <input type="button" class="button-input" value="Clear" id="clear-button">
+    </div>
+    
+    <script src="stackarray.js"></script>
+    <script src="instruction.js"></script>
+  <script src="frameresize.js"></script></body>
+</html>

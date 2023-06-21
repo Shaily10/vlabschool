@@ -1,0 +1,1798 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Experiment</title>
+    <style>
+        .navbar{
+            background-color: #6a6d6a;
+            margin-left: 35%;
+        }
+      /* Style the buttons */
+      .nav-button {
+        font-size: 16px;
+        padding: 10px 15px;
+        margin: 5px;
+        border: none;
+        border-radius: 4px;
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      /* Style the active button */
+      .active {
+        font-size: 20px;
+        padding: 10px;
+      }
+
+      .content{
+        background-color: rgb(234, 234, 243);
+        padding-bottom: 100%;
+      }
+      #container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+h1 {
+  text-align: center;
+}
+
+#main-scale,
+#vernier-scale {
+  position: relative;
+  height: 50px;
+}
+
+.scale-line,
+.vernier-marking {
+  position: absolute;
+  height: 100%;
+  border-left: 1px solid #ccc;
+}
+
+.scale-marking,
+.vernier-marking {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+}
+
+.scale-marking {
+  height: 10px;
+  border-top: 1px solid #ccc;
+}
+
+#vernier-scale {
+  margin-top: -20px;
+}
+
+#measurement {
+  position: relative;
+  height: 70px;
+  margin-top: 20px;
+}
+
+#measurement-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  border-top: 2px solid #000;
+}
+
+#measurement-value {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: bold;
+}
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  margin: 20px auto;
+  width: 50%;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+form p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+form input[type="radio"] {
+  margin-right: 10px;
+}
+
+form input[type="submit"] {
+  display: block;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.result-msg {
+  margin: 20px auto;
+  width: 50%;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.result-msg p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.result-msg span {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.result-msg .correct {
+  color: green;
+}
+
+.result-msg .incorrect {
+  color: red;
+}
+
+    </style>
+
+
+<!-- <!DOCTYPE html><html lang="en">
+  <head> -->
+    <!--Google Tag Manager-->
+    <script class="gtm">
+      var dataLayer = [{
+      'labName': 'Colloid and Surface Chemistry Virtual Lab',
+      'discipline': 'Chemical Sciences',
+      'college': 'IIITH',
+      'phase': '2',
+      'expName': 'Preparation of Sols',
+      'expShortName': 'preparation-of-sols'
+      }];
+  
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-W59SWTR');
+    </script>
+    <!--End Google Tag Manager-->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="" name="description">
+  <meta content="" name="author">
+  
+      <meta name="experiment-short-name" content="preparation-of-sols">
+      <meta name="developer-institute" content="IIITH">
+      <meta name="learning-unit" content="PREPARATION OF SOLS">
+      <meta name="task-name" content="Simulation">
+  
+  <!-- For iPhone -->
+  <meta name="msapplication-TileColor" content="#4076e0">
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#4076e0">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#4076e0">
+  <title>Virtual Labs</title>
+  <link rel="shortcut icon" href="./assets/images/favicon.ico">
+  <link rel="stylesheet" href="bootstrapmin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" integrity="sha512-Oy18vBnbSJkXTndr2n6lDMO5NN31UljR8e/ICzVPrGpSud4Gkckb8yUpqhKuUNoE+o9gAb4O/rAxxw1ojyUVzg==" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&amp;family=Raleway&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./chemprac/fontawe.css">
+  <link rel="stylesheet" href="./chemprac/github.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.6-b/css/style.min.css">
+  <link rel="stylesheet" href="./chemprac/style.css">
+  
+  <script src="./chemprac/slimin.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+  <style>
+    h1 {
+    font-size: 1.8rem;
+    }
+    h2 {
+    font-size: 1.4rem;
+    }
+    h3 {
+    font-size: 1.2rem;
+    }
+
+    h2, h3 {
+    font-weight: 800;
+    }
+  </style>
+<!-- </head> -->
+  </head>
+  <body>
+    <div >
+    <h1><u>Preparation of Lyophilic and Lyophobic Sols</u></h1>
+    <nav class="navbar">
+      <button class="nav-button active" onclick="showTheory()">
+        <img src="../img/theory.png" alt="Theory" width="20" height="20">
+        Theory
+      </button>
+      <button class="nav-button" onclick="showProcedure()">
+        <img src="../img/procedure.png" alt="Procedure" width="20" height="20">
+        Procedure
+      </button>
+      <button class="nav-button" onclick="showAnimation()">
+        <img src="../img/simulation.png" alt="Animation" width="20" height="20">
+        Simulation
+      </button>
+      <!-- <button class="nav-button" onclick="showSimulation()">
+        <img src="../img/simulation.png" alt="Simulation" width="20" height="20">
+        Simulation
+      </button> -->
+      <button class="nav-button" onclick="showVideo()">
+        <img src="../img/video.png" alt="Video" width="20" height="20">
+        Video
+      </button>
+      <button class="nav-button" onclick="showVivavoce()">
+        <img src="../img/vivavoce.png" alt="Vivavoce" width="20" height="20">
+        Vivavoce
+      </button>
+      <button class="nav-button" onclick="showResources()">
+        <img src="../img/resources.png" alt="Resources" width="20" height="20">
+        Resource
+    </nav></div>
+    <div class="content" id="theory" >
+        <div class="divContent"><h1>Objective</h1>
+
+            <p>Our objective is to prepare:</p>
+            
+            <ol>
+                <li>Lyophilic Sols of
+                <ul>
+                    <li>Starch</li>
+                    <li>Gum</li>
+                    <li>Egg albumin</li>
+                </ul>
+                </li>
+                <li>Lyophobic Sols of
+                <ul>
+                    <li>Ferric hydroxide [Fe(OH)<sub>3</sub>]</li>
+                    <li>Aluminium hydroxide [Al(OH)<sub>3</sub>]</li>
+                    <li>Arsenious sulphide [As<sub>2</sub>S<sub>3</sub>]</li>
+                </ul>
+                </li>
+            </ol>
+            
+            <h1>The Theory</h1>
+            
+            <h2><img alt="" src="/userfiles/1/image/Lyophilic%20&amp;%20lyophobic%20sols10.jpg"></h2>
+            
+            <h2>What is Surface Chemistry?</h2>
+            
+            <p>Surface chemistry is a branch of chemistry that deals with the study of the nature of surfaces, and physical and chemical reactions occur at the interface of two phases. It is closely related to colloid science. The foundation of colloidal chemistry was laid down by Thomas Graham, a Scottish scientist.</p>
+            
+            <h2>What are Colloids?</h2>
+            
+            <p>Colloids are the dissolved state of substances that either do not pass, or pass very slowly through a parchment paper or animal membrane. A few examples of colloids are starch, glue and&nbsp; gelatin.</p>
+            
+            <p>A colloid is not a substance, but it depicts a particular state of a substance that depends upon the size of its particles. The size of a particle in a colloidal system is&nbsp; between 1-100 nm. A colloidal system is a two phase heterogeneous system in which one phase is called the dispersed phase and the other is called the dispersion medium.</p>
+            
+            <p><strong>Dispersed phase:</strong> It is the component present in a small proportion.</p>
+            
+            <p><strong>Dispersion medium: </strong>It is the component present in excess.</p>
+            
+            <p>For example, in a colloidal solution of silver in water, silver is the dispersed phase and water is the dispersion medium.</p>
+            
+            <h2>How do we classify colloids?</h2>
+            
+            <p>Based on the physical state of the dispersed phase and dispersion medium, colloids can be classified into different types.</p>
+            
+            <p>One important class of colloidal system is sols. In sols, the dispersed phase is solid and dispersion medium is liquid.</p>
+            
+            <p>Depending upon the nature of the interaction between the dispersed phase and dispersion medium sols can be classified into two types.</p>
+            
+            <ol>
+                <li>Lyophilic sols</li>
+                <li>Lyophobic sols</li>
+            </ol>
+            
+            <h2>What are Lyophilic Sols?</h2>
+            
+            <p>The word meaning of lyophilic means ‘liquid-loving’ or ‘solvent- attracting’. This means that in this colloidal solution there is a strong attraction between the dispersed phase and dispersion medium, i.e., the dispersed phase has great affinity for the dispersion medium that results in the extensive solvation of the colloidal particles. In such solids, the dispersed phase does not easily precipitate and the sols are quite stable. These sols are reversible in nature. The dispersed phase obtained by the evaporation can be easily converted to the sol state by simply agitating it with the dispersion medium. Additional stabilisers are not required during their preparation. If water is used as the dispersion medium, lyophilic sols are called hydrophilic sols. Starch, gum, gelatin, egg albumin etc. are examples of lyophilic sols.</p>
+            
+            <ul>
+                <li>Starch Sol</li>
+            </ul>
+            
+            <p>Starch forms lyophilic sol when water is used as the dispersion medium. The formation of sol is accelerated by heating. Starch sol can be prepared by heating it and water at 100 °C. It is quite stable and is not affected by the presence of any electrolytic impurity.</p>
+            
+            <ul>
+                <li>Gum Sol</li>
+            </ul>
+            
+            <p>Like starch gum also form lyophilic sol with water. Instead of boiling water, warm water is used to for the preparation of sol because gum is quite soluble in warm water.</p>
+            
+            <ul>
+                <li><strong>Egg Albumin Sol</strong></li>
+            </ul>
+            
+            <p>Egg albumin which is obtained from eggs forms lyophilic sol with cold water. The sol is quite stable and is not affected by the presence of traces of impurities.</p>
+            
+            <h2>What are Lyophobic Sols?</h2>
+            
+            <p>The word lyophobic means ‘liquid-hating’. That means in these sols, there is little or no interaction between the dispersed phase and the dispersion medium ie, dispersed phase has little affinity for dispersion medium. These sols are easily precipitated by the addition of small amounts of electrolyte, by heating or by shaking, therefore these sols are relatively less stable than lyophilic sols. They need stabilising agents for their preparation. If water is used as the dispersion medium, lyophobic sols are called hydrophobic sols. Examples of lyophobic sols include sols of metals and their insoluble compounds like sulphides and oxides.</p>
+            
+            <ul>
+                <li>Ferric Hydroxide Sol</li>
+            </ul>
+            
+            <p>Ferric hydroxide forms lyophobic sols on treatment with water. Ferric hydroxide sol is prepared by the hydrolysis of ferric chloride with boiling distilled water. The reaction takes place is as follows.</p>
+            
+           
+            <p>The hydrolysis reaction produces insoluble ferric hydroxide particles which undergo agglomerisation to yield bigger particles of colloidal dimensions. These particles absorb Fe3+ ions preferentially from the solution to give positive charge to the sol particles. Stability of sol is due to the charge on the sol particles. Hydrochloric acid produced during hydrolysis must be removed from the sol because it destabilizes the sol. HCl can be removed from the sol by dialysis process otherwise sol will not be stable.</p>
+            
+            <ul>
+                <li>Aluminium Hydroxide Sol</li>
+            </ul>
+            
+            <p>It is also hydrophobic in nature and is obtained by the hydrolysis of aluminium chloride.</p>
+            
+            
+            <p>Hydrochloric acid produced during the hydrolysis is removed by dialysis because aluminium hydroxide sol is affected by the presence of ionic impurities.</p>
+            
+            <ul>
+                <li>Arsenious Sulphide Sol</li>
+            </ul>
+            
+            <p>It is a lyophobic sol obtained by the hydrolysis of arseniuos oxide with boiling distilled water, followed by passing H<sub>2</sub>S gas through it.</p>
+            
+            
+            <h2>Comparison between Lyophilic and Lyophobic sols</h2>
+            
+            <table align="center" border="1" cellpadding="1" cellspacing="1" class="responsive_table">
+                <thead>
+                    <tr>
+                        <th scope="col">Lyophilic Sol</th>
+                        <th scope="col">Lyophobic Sol</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Relatively stable as strong force of interaction exists between dispersed phase and dispersion medium</td>
+                        <td>Less stable as weak force of interaction exists between dispersed phase and dispersion medium.</td>
+                    </tr>
+                    <tr>
+                        <td>Can be prepared directly by mixing dispersed phase with dispersion medium.</td>
+                        <td>Cannot be prepared directly by mixing dispersed phase and dispersion medium.</td>
+                    </tr>
+                    <tr>
+                        <td>No need of stabilisers during preparation.</td>
+                        <td>Additional stabilisers are required during preparation.</td>
+                    </tr>
+                    <tr>
+                        <td>They are reversible in nature.</td>
+                        <td>They are irreversible in nature.</td>
+                    </tr>
+                    <tr>
+                        <td>These are usually formed by organic substances like starch, gum, proteins etc.</td>
+                        <td>These are usually formed by inorganic materials like metals and their oxides, sulphides etc.</td>
+                    </tr>
+                    <tr>
+                        <td>They are highly viscous and have higher viscosity than that of the medium.</td>
+                        <td>They have nearly the same viscosity as that of the medium.</td>
+                    </tr>
+                    <tr>
+                        <td>They are highly hydrated.</td>
+                        <td>They are not much hydrated.</td>
+                    </tr>
+                    <tr>
+                        <td>Particles cannot be detected even under an ultramicroscope.</td>
+                        <td>Particles can be detected under an ultramicroscope.</td>
+                    </tr>
+                    <tr>
+                        <td>Charge on the lyophilic sol can be postive, negative or netural.</td>
+                        <td>Charge on the lyophobic sol can be postive or negative. As<sub>2</sub>S<sub>3</sub> sol is -ve and Fe(OH)<sub>3</sub> sol is +ve in nature.</td>
+                    </tr>
+                    <tr>
+                        <td>Depending on the charge, their particles migrate to either direction of an electric field.</td>
+                        <td>Depending on the charge, their particles migrate only in one direction of an electric field.</td>
+                    </tr>
+                    <tr>
+                        <td>Surface tension is usually lower than that of the dispersion medium.</td>
+                        <td>Surface tension is nearly the same as that of the dispersion medium.</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h2>Purification of Colloids</h2>
+            
+            <p>The colloidal solutions obtained from various preparation methods are not pure. The impurities present in colloids are generality suspended particles and electrolytes. The presence of electrolytes in a smaller concentration stabilises a sol but their presence in a higher concentration destabilises it. So it is necessary to purify the colloidal solution by removing the electrolyte impurities present in them. The important methods used for the purification of colloids are;</p>
+            
+            <ol>
+                <li>Dialysis</li>
+                <li>Electrodislysis</li>
+                <li>Ultra-filtration</li>
+                <li>Ultra-centrifugation</li>
+            </ol>
+            
+            <p>We will look at the purification of colloids through the process of dialysis.</p>
+            
+            <h3>Dialysis</h3>
+            
+            <p>The process of separating particles of colloid from that of the crystalloid by means of diffusion through a suitable membrane is called dialysis. Colloidal particles cannot be passed through a parchment membrane, but the ions of the electrolyte can pass through it. This property is used in dialysis. The apparatus used in this method is called dialyzer.&nbsp; It consist of a parchment bag that is filled with a colloidal solution and is suspended in a tank through which pure water is circulated. The impurities of the colloidal solution are slowly diffused out of the bag leaving behind the pure colloidal solution. The water in the beaker should be changed otherwise the impurities rediffuses back into the parchment bag.</p>
+            
+            <p><img alt="" src="/userfiles/1/image/Lyophilic%20&amp;%20lyophobic%20sols4%281%29.jpg"></p>
+            
+            <h1>Learning Outcomes</h1>
+            
+            <ul>
+                <li>Students understand the terms lyophilic sols, lyophobic sols etc.</li>
+                <li>Students acquire the skill to prepare lyophilic sols using starch, gum and egg albumin.</li>
+                <li>Students acquire the skill to prepare lyophobic sols using ferric chloride, aluminium chloride and arsenious oxide.</li>
+                <li>Students acquire the skill to purify the sols by dialysis method.</li>
+            </ul>
+            </div>
+    </div>
+    <div class="content" id="procedure" style="display: none;">
+      <h2>Procedure</h2>
+      <div class="divContent"><h1>Preparation of Lyophilic Sols</h1>
+
+        <h2>1. Preparation of colloidal solution (sol) of starch</h2>
+        
+        <h3>Materials Required</h3>
+        
+        <ul>
+            <li>Soluble starch</li>
+            <li>Distilled water</li>
+            <li>250 ml beaker</li>
+            <li>50 ml beaker</li>
+            <li>Glass rod</li>
+            <li>Funnel</li>
+            <li>Filter-paper</li>
+            <li>Pestle and mortar</li>
+            <li>Tripod stand</li>
+            <li>Wire-gauze</li>
+            <li>Bunsen burner</li>
+        </ul>
+        
+        <h3>Real Lab Procedure</h3>
+        
+        <ul>
+            <li>Weigh a small quantity (500mg or 1 g) of soluble starch on an electronic balance.</li>
+            <li>Transfer the weighed quantity of starch into a mortar and add few drops of distilled water.</li>
+            <li>Grind the starch using the pestle to make a thin paste and transfer the paste into a 50 ml beaker.</li>
+            <li>Take about 100 ml of distilled water in a 250 ml beaker and heat the beaker till the water starts to boil.</li>
+            <li>Pour the starch paste slowly into the boiling water while stirring using a glass rod.</li>
+            <li>Continue boiling for about 10 minutes and then allow the beaker to cool.</li>
+            <li>Filter the contents of the beaker, through a filter paper fixed in a funnel and collect the filtrate.</li>
+            <li>Label the filtrate as Starch Sol.</li>
+        </ul>
+        
+        <h3>Precautions</h3>
+        
+        <ul>
+            <li>The apparatus used for preparing the sol should be properly cleaned.</li>
+            <li>Distilled water should be used for preparing sols in water.</li>
+            <li>Starch should be converted into a fine paste before adding to boiling water.</li>
+            <li>Starch paste should be added in a thin stream to boiling water.</li>
+            <li>Constant stirring of the contents is necessary during the preparation of the sol.</li>
+        </ul>
+        
+        <h2>Dialysis of starch sol containing sodium chloride through a parchment membrane</h2>
+        
+        <h3>Materials Required</h3>
+        
+        <ul>
+            <li>Starch sol containing sodium chloride</li>
+            <li>Silver nitrate solution</li>
+            <li>Iodine solution</li>
+            <li>400 ml beaker</li>
+            <li>Funnel with long stem</li>
+            <li>Parchment membrane</li>
+            <li>Dropper</li>
+            <li>Test tubes</li>
+            <li>Iron stand with clamp</li>
+        </ul>
+        
+        <h3>Real Lab Procedure</h3>
+        
+        <ul>
+            <li>Take a parchment bag and fold it in the shape of a bag.</li>
+            <li>Tie it to the end of the stem of a funnel with a thread.</li>
+            <li>Pour the given starch sol containing sodium chloride into the parchment bag through the funnel till the bag is two-third full.</li>
+            <li>Take a 400 ml beaker and fill it upto three-fourth with distilled water and place it over an iron stand.</li>
+            <li>Dip the parchment bag into the distilled water and fix the funnel in position using a clamp.</li>
+            <li>Allow it to stand for about half an hour.</li>
+            <li>Withdraw about 1 ml of water from the beaker using a dropper and transfer it into a test tube.</li>
+            <li>Add a few drops of iodine solution to the test tube.</li>
+            <li>As no blue colour appears, it indicates the absence of starch in water. This means that starch molecules do not diffuse through a parchment membrane.</li>
+            <li>Now withdraw another 1 ml of water from the beaker and transfer it into another test tube.</li>
+            <li>Add a few drops of silver nitrtate solution to it.</li>
+            <li>A white precipitate of silver chloride is produced immediately indicating the presence of chloride ions and hence NaCl in water. It means that sodium ions and chloride ions diffuse through the parchment membrane. As Na+ and Cl<sup>-</sup> diffuse out of the starch sol, it gets free from the ions gradually.</li>
+            <li>In order to check whether NaCl is completely removed change the water in the beaker with fresh distilled water and again place the parchment bag containing sol in it.</li>
+            <li>After about 10 minutes, test for the presence of Cl<sup>- </sup>ions.</li>
+            <li>If no white precipitate is formed, Cl<sup>-</sup> ions are absent and dialysis is complete otherwise dialysis should be continued.</li>
+        </ul>
+        
+        <h3>Precautions</h3>
+        
+        <ul>
+            <li>Fill only two-third of the parchment bag with sol.</li>
+            <li>There should be no leakage of sol from the bag into the beaker.</li>
+            <li>Use distilled water for dialysis.</li>
+        </ul>
+        
+        <h2>2. Preparation of colloidal solution of gum</h2>
+        
+        <h3>Materials Required</h3>
+        
+        <ul>
+            <li>Gum</li>
+            <li>Distilled water</li>
+            <li>250 ml beaker</li>
+            <li>50 ml beaker</li>
+            <li>Glass rod</li>
+            <li>Funnel</li>
+            <li>Filter-paper</li>
+            <li>Pestle and mortar</li>
+            <li>Tripod stand</li>
+            <li>Wire-gauze</li>
+            <li>Bunsen burner</li>
+        </ul>
+        
+        <h3>Real Lab Procedure</h3>
+        
+        <ul>
+            <li>Take a small quantity (500mg or 1g) of gum in a mortar and add a few drops of distilled water.</li>
+            <li>Grind the gum using the pestle to make a thin paste and transfer the paste into a 50 ml beaker.</li>
+            <li>Take about 100 ml of distilled water in a 250 ml beaker and heat the beaker (do not boil).</li>
+            <li>Pour the gum paste slowly into the warm water while stirring using a glass rod.</li>
+            <li>Continue heating for about 10 minutes and then allow the beaker to cool.</li>
+            <li>Filter the contents of the beaker, through a filter paper fixed in a funnel and collect the filtrate.</li>
+            <li>Label the filtrate as Gum Sol.</li>
+        </ul>
+        
+        <h3>Precautions</h3>
+        
+        <ul>
+            <li>The apparatus used for preparing the sol should be properly cleaned.</li>
+            <li>Distilled water should be used for preparing sols in water.</li>
+            <li>Gum should be converted into a fine paste before adding to warm water.</li>
+            <li>Constant stirring of the contents is necessary during the preparation of the sol.</li>
+            <li>Instead of boiling water, warm water is to be used since gum is quite soluble in warm water.</li>
+        </ul>
+        
+        <h2>3. Preparation of colloidal solution (sol) of egg albumin</h2>
+        
+        <h3>Materials Required</h3>
+        
+        <ul>
+            <li>Egg</li>
+            <li>Distilled water</li>
+            <li>5% NaCl solution</li>
+            <li>Beakers</li>
+            <li>Glass rod</li>
+            <li>Funnel</li>
+            <li>Filter-paper</li>
+        </ul>
+        
+        <h3>Real Lab Procedure</h3>
+        
+        <ul>
+            <li>Break the outer shell of an egg by striking it with a glass rod.</li>
+            <li>Collect the colourless liquid along with the yellow yolk in a beaker.</li>
+            <li>Decant the colourless liquid into another beaker. This colourless liquid is known as egg albumin.</li>
+            <li>Take 100 ml of 5% NaCl solution in a 250 ml beaker.</li>
+            <li>Add egg albumin into the NaCl solution in small proportions while constantly stirring.</li>
+            <li>Filter the contents of the beaker through a filter paper fixed in a funnel and collect the filtrate.</li>
+            <li>Label the filtrate as Egg-Albumin sol.</li>
+        </ul>
+        
+        <h3>Precautions</h3>
+        
+        <ul>
+            <li>The apparatus used for preparing the sol should be properly cleaned.</li>
+            <li>Distilled water should be used for preparing sols in water.</li>
+            <li>Egg albumin sol is prepared at room temperature because in hot solution the precipitation of egg albumin takes place.</li>
+            <li>The yellow yolk should be separated completely from the egg albumin before using the later in the experiment.</li>
+            <li>Addition of egg albumin should be done very slowly and while constantly stirring so as to disperse the colloidal particles well in the solution.</li>
+        </ul>
+        
+        <h1>Preparation of Lyophobic Sols</h1>
+        
+        <h2>1. Preparation of aluminium hydroxide sol</h2>
+        
+        <h3>Materials Required</h3>
+        
+        <ul>
+            <li>2% solution of aluminium chloride</li>
+            <li>Distilled water</li>
+            <li>250 ml conical flask</li>
+            <li>250 ml beaker</li>
+            <li>Boiling tube</li>
+            <li>Glass tube</li>
+            <li>Funnel</li>
+            <li>Dropper</li>
+            <li>RB flask</li>
+            <li>Iron stand with clamp</li>
+            <li>Wire gauze</li>
+            <li>Tripod stand</li>
+            <li>Bunsen burner</li>
+        </ul>
+        
+        <h3>Real Lab Procedure</h3>
+        
+        <ul>
+            <li>Take a 250 ml conical flask and clean it using the steaming out process.</li>
+            <li>To this cleaned conical flask, add 100 ml of distilled water using a measuring cylinder.</li>
+            <li>Bring the water to boil by placing the flask over a Bunsen burner.</li>
+            <li>Add aluminium chloride solution dropwise to the boiling water using a dropper.</li>
+            <li>Continue heating until a white coloured solution of aluminium hydroxide is obtained.</li>
+            <li>Note: Replace the water lost by evaporation during boiling at regular intervals.</li>
+            <li>Keep the contents of the conical flask undisturbed for some time at room temperature.</li>
+            <li>Label the solution as Aluminium Hydroxide Sol.</li>
+        </ul>
+        
+        <h3>Precautions</h3>
+        
+        <ul>
+            <li>The apparatus required for the preparation of the sol should be thoroughly cleaned through the steaming out process.</li>
+            <li>Add aluminium chloride solution dropwise.</li>
+            <li>Heating is continued till the desired sol is obtained.</li>
+            <li>Hydrochloric acid formed as a result of hydrolysis of aluminium chloride is removed by dialysis process otherwise it would destabilise the sol.</li>
+        </ul>
+        
+        <h2>Dialysis of aluminium hydroxide sol</h2>
+        
+        <h3>Materials Required</h3>
+        
+        <ul>
+            <li>Aluminum hydroxide sol</li>
+            <li>Silver nitrate solution</li>
+            <li>400 ml beaker</li>
+            <li>Funnel with long stem</li>
+            <li>Parchment membrane</li>
+            <li>Dropper</li>
+            <li>Test tubes</li>
+            <li>Iron stand with clamp</li>
+        </ul>
+        
+        <h3>Real Lab Procedure</h3>
+        
+        <ul>
+            <li>Take a parchment bag and fold it in the shape of a bag.</li>
+            <li>Tie it to the end of the stem of a funnel with a thread.</li>
+            <li>Pour the aluminium hydroxide sol into the parchment bag through the funnel till two-third of the bag is full.</li>
+            <li>Take a 400 ml beaker and fill it three-fourth with distilled water and place it over an iron stand.</li>
+            <li>Dip the parchment bag into the distilled water and fix the funnel in position using a clamp.</li>
+            <li>Allow it to stand for about half an hour.</li>
+            <li>Withdraw about 1 ml of water from the beaker using a dropper and transfer it into a test tube.</li>
+            <li>Add a few drops of silver nitrtate solution to it.</li>
+            <li>A white precipitate of silver chloride is produced immediately indicating the presence of chloride ions in water. It means that chloride ions diffuse through the parchment membrane. As Cl<sup>-</sup> diffuse out of the sol, it gets free from the ions gradually.</li>
+            <li>In order to check whether Cl<sup>- </sup>is completely removed or not replace water in the beaker with fresh distilled water and again place the parchment bag containing sol in it.</li>
+            <li>After about 10 minutes, test for the presence of Cl<sup>-</sup> ions.</li>
+            <li>If no white precipitate is formed, Cl<sup>- </sup>ions are absent and dialysis is complete otherwise dialysis should be continued.</li>
+        </ul>
+        
+        <h3>Precautions</h3>
+        
+        <ul>
+            <li>Fill only two-third of the parchment bag with sol.</li>
+            <li>There should be no leakage of sol from the bag into the beaker.</li>
+            <li>Use distilled water for dialysis.</li>
+        </ul>
+        
+        <h2>2. Preparation of ferric hydroxide sol</h2>
+        
+        <h3>Materials Required</h3>
+        
+        <ul>
+            <li>2% solution of ferric chloride</li>
+            <li>Distilled water</li>
+            <li>250 ml conical flask</li>
+            <li>250 ml beaker</li>
+            <li>Glass tube</li>
+            <li>Funnel</li>
+            <li>Dropper</li>
+            <li>RB flask</li>
+            <li>Iron stand with clamp</li>
+            <li>Wire gauze</li>
+            <li>Tripod stand</li>
+            <li>Bunsen burner</li>
+        </ul>
+        
+        <h3>Real Lab Procedure</h3>
+        
+        <ul>
+            <li>Take a 250 ml conical flask and clean it using the steaming out process.</li>
+            <li>To this cleaned conical flask, add 100 ml of distilled water using a measuring cylinder.</li>
+            <li>Bring the water to boil by placing the flask over a Bunsen burner.</li>
+            <li>Add ferric chloride solution dropwise to the boiling water using a dropper.</li>
+            <li>Continue heating until a deep red or brown solution of ferric hydroxide is obtained.</li>
+            <li>Note: Replace the water lost by evaporation during boiling at regular intervals.</li>
+            <li>Keep the contents of the conical flask undisturbed for some time at room temperature.</li>
+            <li>Label the solution as Ferric Hydroxide Sol.</li>
+        </ul>
+        
+        <h3>Precautions</h3>
+        
+        <ul>
+            <li>Since ferric hydroxide sol is affected by impurities, the apparatus required for the preparation of sol should be thoroughly cleaned by the steaming out process.</li>
+            <li>Add ferric chloride solution dropwise.</li>
+            <li>Heating is continued till the desired sol is obtained.</li>
+            <li>Hydrochloric acid formed as a result of hydrolysis of ferric chloride is removed by dialysis process otherwise it would destabilise the sol.</li>
+        </ul>
+        
+        <h2>Dialysis of ferric hydroxide sol</h2>
+        
+        <h3>Materials Required</h3>
+        
+        <ul>
+            <li>Ferric hydroxide sol</li>
+            <li>Silver nitrate solution</li>
+            <li>400 ml beaker</li>
+            <li>Funnel with long stem</li>
+            <li>Parchment membrane</li>
+            <li>Dropper</li>
+            <li>Test tubes</li>
+            <li>Iron stand with clamp</li>
+        </ul>
+        
+        <h3>Real Lab Procedure</h3>
+        
+        <ul>
+            <li>Take a parchment bag and fold it in the shape of a bag.</li>
+            <li>Tie it to the end of the stem of a funnel with a thread.</li>
+            <li>Pour the given Ferric hydroxide sol into the parchment bag through the funnel till two-third of the bag is full.</li>
+            <li>Take a 400 ml beaker and fill it three-fourth with distilled water and place it over an iron stand.</li>
+            <li>Dip the parchment bag into distilled water and fix the funnel in position using a clamp.</li>
+            <li>Allow it to stand for about half an hour.</li>
+            <li>Withdraw about 1 ml of water from the beaker using a dropper and transfer it into a test tube.</li>
+            <li>Add a few drops of silver nitrtate solution to it.</li>
+            <li>A white precipitate of silver chloride is produced immediately indicating the presence of chloride ions in water. It means that chloride ions diffuse through the parchment membrane. As Cl<sup>-</sup> diffuse out of the sol, it gets free from the ions gradually.</li>
+            <li>In order to check whether Cl<sup>- </sup>is completely removed or not replace water in the beaker by fresh distilled water and again place the parchment bag containing sol in it.</li>
+            <li>After about 10 minutes, test for the presence of Cl<sup>-</sup> ions.</li>
+            <li>If no white precipitate is formed, Cl<sup>-</sup> ions are absent and dialysis is complete otherwise dialysis should be continued.</li>
+        </ul>
+        
+        <h3>Precautions</h3>
+        
+        <ul>
+            <li>Fill only two-third of the parchment bag with sol.</li>
+            <li>There should be no leakage of sol from the bag into the beaker.</li>
+            <li>Use distilled water for dialysis.</li>
+        </ul>
+        
+        <h2>3. Preparation of arsenious sulphide sol</h2>
+        
+        <h3>Materials Required</h3>
+        
+        <ul>
+            <li>Solid arsenious oxide</li>
+            <li>H<sub>2</sub>S gas</li>
+            <li>Distilled water</li>
+            <li>250 ml conical flasks</li>
+            <li>250 ml beakers</li>
+            <li>RB flask</li>
+            <li>Glass tube</li>
+            <li>Funnel</li>
+            <li>Glass rod</li>
+            <li>Filter paper</li>
+            <li>Iron stand with clamp</li>
+            <li>Tripod stand</li>
+            <li>Wire gauze</li>
+            <li>Bunsen burner</li>
+        </ul>
+        
+        <h3>Real Lab Procedure</h3>
+        
+        <ul>
+            <li>Clean a 250 ml conical flask by the steaming out process.</li>
+            <li>To this cleaned flask, add 0.2 g of arsenious oxide and 100 ml of distilled water.</li>
+            <li>Boil the solution for about 10 minutes (while stirring using a glass rod) on a Bunsen burner.</li>
+            <li>Filter the hot solution into another beaker through a flutted filter paper.</li>
+            <li>Pass a slow current of H<sub>2</sub>S gas into to arsenious oxide solution.</li>
+            <li>The solution develops a yellow colour due to the formation of arsenious sulphide.</li>
+            <li>Continue passing H<sub>2</sub>S till the intensity of colour does not change further.</li>
+            <li>Expel excess of H<sub>2</sub>S gas from the sol by boiling the sol till the escaping gas does not turn lead acetate paper black.</li>
+            <li>Filter the solution through a flutted filter paper and collect the yellow filtrate in a dry conical flask.</li>
+            <li>Label it as Arsenious Sulphide Sol.</li>
+        </ul>
+        
+        <h3>Precautions</h3>
+        
+        <ul>
+            <li>Use cleaned apparatus since As<sub>2</sub>S<sub>3</sub> sol is affected by even traces of impurities.</li>
+            <li>Handle arsenious oxide with care since it is highly poisonous. Wash your hand immediately every time you handle this chemical. Do not eat or drink while doing this experiment.</li>
+        </ul>
+        
+        <h2>Simulator Procedure (as performed through the <a href="http://amrita.olabs.co.in/" target="_blank">Online Labs</a>)</h2>
+        
+        <p>You can select the sol from ‘Select the sol’ drop down list.</p>
+        
+        <p><strong>Lyophilic Sols</strong></p>
+        
+        <p>You can select the sample from ‘Select the sample’ drop down list.</p>
+        
+        <p><u>Starch</u></p>
+        
+        <ul>
+            <li>Drag the beaker to the burner to place it over the wire gauze and boil 100 ml distilled water.</li>
+            <li>Click on the ‘knob’ of the burner to turn it on.</li>
+            <li>Drag the watch glass to the beaker to transfer 1 g starch paste into boiling water.</li>
+            <li>Drag the glass rod to the beaker to stir the contents.</li>
+            <li>Continue boiling for 10 minutes.</li>
+            <li>Drag the beaker to the funnel to filter the prepared starch sol.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>To go to the dialysis process sol, click on the ‘Dialysis of starch sol’ button.</li>
+            <li>Drag the conical flask to the funnel to pour starch sol into the parchment bag dipped in distilled water.</li>
+            <li>Allow it to stand for 30 minutes.</li>
+            <li>Drag the dropper to the beaker to take water in it.</li>
+            <li>Drag the dropper to add iodine solution to the 1<sup>st</sup> test tube.</li>
+            <li>You cannot see any characteristic change in the test tube.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>Drag the dropper to the beaker to take water in it.</li>
+            <li>Drag the dropper to add silver nitrate solution to the 2<sup>nd</sup> test tube.</li>
+            <li>You can see the formation of white precipitate in the test tube.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>To replace water in the beaker, click on the ‘Replace the water’ button.</li>
+            <li>Allow it to stand for 10 minutes.</li>
+            <li>Drag the dropper to the beaker to take water in it.</li>
+            <li>Drag the dropper to add silver nitrate solution to the 2<sup>nd</sup> test tube.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>To redo the experiment, click on the ‘Reset’ button.</li>
+        </ul>
+        
+        <p><strong>Note: </strong>Click on the <strong>‘HELP’</strong> button to see the instructions.</p>
+        
+        <p><u>Gum</u></p>
+        
+        <ul>
+            <li>Drag the beaker to the burner to place it over the wire gauze and warm 100 ml distilled water.</li>
+            <li>Click on the ‘knob’ of the burner to turn it on.</li>
+            <li>Drag the watch glass to the beaker to transfer 1 g gum paste into the hot water.</li>
+            <li>Drag the glass rod to the beaker to stir the contents.</li>
+            <li>Continue heating for 10 minutes.</li>
+            <li>Drag the beaker to the funnel to filter the prepared gum sol.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>To redo the experiment, click on the ‘Reset’ button.</li>
+        </ul>
+        
+        <p><strong>Note: </strong>Click on the <strong>‘HELP’</strong> button to see the instructions.</p>
+        
+        <p><u>Egg Albumin</u></p>
+        
+        <ul>
+            <li>Drag the beaker to the beaker containing 5% NaCl solution to transfer egg albumin into it.</li>
+            <li>Drag the glass rod to the beaker to stir the contents.</li>
+            <li>Drag the beaker to the funnel to filter the prepared egg albumin sol.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>To redo the experiment, click on the ‘Reset’ button.</li>
+        </ul>
+        
+        <p><strong>Note:</strong> Click on the <strong>‘HELP’ </strong>button to see the instructions.</p>
+        
+        <p><strong>Lyophobic Sols</strong></p>
+        
+        <p>You can select the sample from ‘Select the sample’ drop down list.</p>
+        
+        <p><u>Aluminium hydroxide</u></p>
+        
+        <ul>
+            <li>Click on the ‘knob’ of the burner to turn it on.</li>
+            <li>Drag the conical flask to the burner to place it over the wire gauze and boil 100 ml distilled water.</li>
+            <li>Drag the dropper to the conical flask to drop aluminium chloride solution into it.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>To go to the dialysis process sol, click on the ‘Dialysis of aluminium hydroxide sol’ button.</li>
+            <li>Drag the conical flask to the funnel to pour aluminium hydroxide sol into the parchment bag dipped in distilled water.</li>
+            <li>Allow it to stand for 30 minutes.</li>
+            <li>Drag the dropper to the beaker to take water in it and drop water into the 1<sup>st</sup> test tube.</li>
+            <li>Drag the dropper to add silver nitrate solution into the test tube.</li>
+            <li>You can see the formation of white precipitate in the test tube.</li>
+            <li>Click on the on the inference icon to see the inference.</li>
+            <li>To replace water in the beaker, click on the ‘Replace distilled water from the beaker’ button.</li>
+            <li>Allow it to stand for 10 minutes.</li>
+            <li>Drag the dropper to the beaker to take water in it and drop water into the 2<sup>nd</sup> test tube.</li>
+            <li>Drag the dropper to add silver nitrate solution to the test tube.</li>
+            <li>You cannot see any characteristic changes in the test tube.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>To redo the experiment, click on the ‘Reset’ button.</li>
+        </ul>
+        
+        <p><strong>Note:</strong> Click on the <strong>‘HELP’ </strong>button to see the instructions.</p>
+        
+        <p><u>Ferric hydroxide</u></p>
+        
+        <ul>
+            <li>Drag the conical flask to the burner to place it over the wire gauze and boil 100 ml distilled water.</li>
+            <li>Click on the ‘knob’ of the burner to turn it on.</li>
+            <li>Drag the dropper to the conical flask to drop ferric chloride solution into it.</li>
+            <li>Wait for some time to complete the reaction.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>To go to the dialysis process sol, click on the ‘Dialysis of ferric hydroxide sol’ button.</li>
+            <li>Drag the conical flask to the funnel to pour ferric hydroxide sol into the parchment bag dipped in distilled water.</li>
+            <li>Allow it to stand for 30 minutes.</li>
+            <li>Drag the dropper to the beaker to take water in it and drop water into the 1<sup>st</sup> test tube.</li>
+            <li>Drag the dropper to add silver nitrate solution to the test tube.</li>
+            <li>You can see the formation of white precipitate in the test tube.</li>
+            <li>Click on the on the inference icon to see the inference.</li>
+            <li>To replace water in the beaker, click on the ‘Replace the water’ button.</li>
+            <li>Allow it to stand for 10 minutes.</li>
+            <li>Drag the dropper to the beaker to take water in it and drop water into the 2<sup>nd</sup> test tube.</li>
+            <li>Drag the dropper to add silver nitrate solution to the test tube.</li>
+            <li>You cannot see any characteristic changes in the test tube.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>To redo the experiment, click on the ‘Reset’ button.</li>
+        </ul>
+        
+        <p><strong>Note:</strong> Click on the <strong>‘HELP’</strong> button to see the instructions.</p>
+        
+        <p><u>Arsenious sulphide</u></p>
+        
+        <ul>
+            <li>Drag the watch glass to the conical flask to add 0.2 g arseniuos oxide into 100 ml distilled water.</li>
+            <li>Drag the conical flask to the burner to place it over the wire gauze.</li>
+            <li>Click on the ‘knob’ of the burner to turn it on.</li>
+            <li>Drag the conical flask to the funnel to filter the solution.</li>
+            <li>Click on the ‘knob’ of the Kipp’s apparatus to pass hydrogen sulphide gas through the solution.</li>
+            <li>Drag the beaker to the burner to place it over the wire gauze.</li>
+            <li>Click on the ‘knob’ of the burner o turn it on.</li>
+            <li>Drag the beaker to the funnel to filter the solution.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>To pass H<sub>2</sub>S gas through the solution, click on the ‘Pass H<sub>2</sub>S gas through arsenous acid’ button.</li>
+            <li>Click on the ‘knob’ of the Kipp’s apparatus to pass hydrogen sulphide gas through the solution.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>Drag the beaker to the burner to place it over the wire gauze.</li>
+            <li>Click on the ‘knob’ of the burner to turn it on and heat the sol for 5 minutes.</li>
+            <li>To filter the sol, click on the ‘Filter the solution’ button.</li>
+            <li>Drag the beaker to the funnel to filter the arseniuos sulphide sol.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>To redo the experiment, click on the ‘Reset’ button.</li>
+        </ul>
+        
+        <p><strong>Note: </strong>Click on the <strong>‘HELP’</strong> button to see the instructions.</p>
+        
+        <p>&nbsp;</p>
+        
+        <p>&nbsp;</p>
+        
+        <p>&nbsp;</p>
+        </div><div class="divContent"><h1>Preparation of Lyophilic Sols</h1>
+        
+        <h2>1. Preparation of colloidal solution (sol) of starch</h2>
+        
+        <h3>Materials Required</h3>
+        
+        <ul>
+            <li>Soluble starch</li>
+            <li>Distilled water</li>
+            <li>250 ml beaker</li>
+            <li>50 ml beaker</li>
+            <li>Glass rod</li>
+            <li>Funnel</li>
+            <li>Filter-paper</li>
+            <li>Pestle and mortar</li>
+            <li>Tripod stand</li>
+            <li>Wire-gauze</li>
+            <li>Bunsen burner</li>
+        </ul>
+        
+        <h3>Real Lab Procedure</h3>
+        
+        <ul>
+            <li>Weigh a small quantity (500mg or 1 g) of soluble starch on an electronic balance.</li>
+            <li>Transfer the weighed quantity of starch into a mortar and add few drops of distilled water.</li>
+            <li>Grind the starch using the pestle to make a thin paste and transfer the paste into a 50 ml beaker.</li>
+            <li>Take about 100 ml of distilled water in a 250 ml beaker and heat the beaker till the water starts to boil.</li>
+            <li>Pour the starch paste slowly into the boiling water while stirring using a glass rod.</li>
+            <li>Continue boiling for about 10 minutes and then allow the beaker to cool.</li>
+            <li>Filter the contents of the beaker, through a filter paper fixed in a funnel and collect the filtrate.</li>
+            <li>Label the filtrate as Starch Sol.</li>
+        </ul>
+        
+        <h3>Precautions</h3>
+        
+        <ul>
+            <li>The apparatus used for preparing the sol should be properly cleaned.</li>
+            <li>Distilled water should be used for preparing sols in water.</li>
+            <li>Starch should be converted into a fine paste before adding to boiling water.</li>
+            <li>Starch paste should be added in a thin stream to boiling water.</li>
+            <li>Constant stirring of the contents is necessary during the preparation of the sol.</li>
+        </ul>
+        
+        <h2>Dialysis of starch sol containing sodium chloride through a parchment membrane</h2>
+        
+        <h3>Materials Required</h3>
+        
+        <ul>
+            <li>Starch sol containing sodium chloride</li>
+            <li>Silver nitrate solution</li>
+            <li>Iodine solution</li>
+            <li>400 ml beaker</li>
+            <li>Funnel with long stem</li>
+            <li>Parchment membrane</li>
+            <li>Dropper</li>
+            <li>Test tubes</li>
+            <li>Iron stand with clamp</li>
+        </ul>
+        
+        <h3>Real Lab Procedure</h3>
+        
+        <ul>
+            <li>Take a parchment bag and fold it in the shape of a bag.</li>
+            <li>Tie it to the end of the stem of a funnel with a thread.</li>
+            <li>Pour the given starch sol containing sodium chloride into the parchment bag through the funnel till the bag is two-third full.</li>
+            <li>Take a 400 ml beaker and fill it upto three-fourth with distilled water and place it over an iron stand.</li>
+            <li>Dip the parchment bag into the distilled water and fix the funnel in position using a clamp.</li>
+            <li>Allow it to stand for about half an hour.</li>
+            <li>Withdraw about 1 ml of water from the beaker using a dropper and transfer it into a test tube.</li>
+            <li>Add a few drops of iodine solution to the test tube.</li>
+            <li>As no blue colour appears, it indicates the absence of starch in water. This means that starch molecules do not diffuse through a parchment membrane.</li>
+            <li>Now withdraw another 1 ml of water from the beaker and transfer it into another test tube.</li>
+            <li>Add a few drops of silver nitrtate solution to it.</li>
+            <li>A white precipitate of silver chloride is produced immediately indicating the presence of chloride ions and hence NaCl in water. It means that sodium ions and chloride ions diffuse through the parchment membrane. As Na+ and Cl<sup>-</sup> diffuse out of the starch sol, it gets free from the ions gradually.</li>
+            <li>In order to check whether NaCl is completely removed change the water in the beaker with fresh distilled water and again place the parchment bag containing sol in it.</li>
+            <li>After about 10 minutes, test for the presence of Cl<sup>- </sup>ions.</li>
+            <li>If no white precipitate is formed, Cl<sup>-</sup> ions are absent and dialysis is complete otherwise dialysis should be continued.</li>
+        </ul>
+        
+        <h3>Precautions</h3>
+        
+        <ul>
+            <li>Fill only two-third of the parchment bag with sol.</li>
+            <li>There should be no leakage of sol from the bag into the beaker.</li>
+            <li>Use distilled water for dialysis.</li>
+        </ul>
+        
+        <h2>2. Preparation of colloidal solution of gum</h2>
+        
+        <h3>Materials Required</h3>
+        
+        <ul>
+            <li>Gum</li>
+            <li>Distilled water</li>
+            <li>250 ml beaker</li>
+            <li>50 ml beaker</li>
+            <li>Glass rod</li>
+            <li>Funnel</li>
+            <li>Filter-paper</li>
+            <li>Pestle and mortar</li>
+            <li>Tripod stand</li>
+            <li>Wire-gauze</li>
+            <li>Bunsen burner</li>
+        </ul>
+        
+        <h3>Real Lab Procedure</h3>
+        
+        <ul>
+            <li>Take a small quantity (500mg or 1g) of gum in a mortar and add a few drops of distilled water.</li>
+            <li>Grind the gum using the pestle to make a thin paste and transfer the paste into a 50 ml beaker.</li>
+            <li>Take about 100 ml of distilled water in a 250 ml beaker and heat the beaker (do not boil).</li>
+            <li>Pour the gum paste slowly into the warm water while stirring using a glass rod.</li>
+            <li>Continue heating for about 10 minutes and then allow the beaker to cool.</li>
+            <li>Filter the contents of the beaker, through a filter paper fixed in a funnel and collect the filtrate.</li>
+            <li>Label the filtrate as Gum Sol.</li>
+        </ul>
+        
+        <h3>Precautions</h3>
+        
+        <ul>
+            <li>The apparatus used for preparing the sol should be properly cleaned.</li>
+            <li>Distilled water should be used for preparing sols in water.</li>
+            <li>Gum should be converted into a fine paste before adding to warm water.</li>
+            <li>Constant stirring of the contents is necessary during the preparation of the sol.</li>
+            <li>Instead of boiling water, warm water is to be used since gum is quite soluble in warm water.</li>
+        </ul>
+        
+        <h2>3. Preparation of colloidal solution (sol) of egg albumin</h2>
+        
+        <h3>Materials Required</h3>
+        
+        <ul>
+            <li>Egg</li>
+            <li>Distilled water</li>
+            <li>5% NaCl solution</li>
+            <li>Beakers</li>
+            <li>Glass rod</li>
+            <li>Funnel</li>
+            <li>Filter-paper</li>
+        </ul>
+        
+        <h3>Real Lab Procedure</h3>
+        
+        <ul>
+            <li>Break the outer shell of an egg by striking it with a glass rod.</li>
+            <li>Collect the colourless liquid along with the yellow yolk in a beaker.</li>
+            <li>Decant the colourless liquid into another beaker. This colourless liquid is known as egg albumin.</li>
+            <li>Take 100 ml of 5% NaCl solution in a 250 ml beaker.</li>
+            <li>Add egg albumin into the NaCl solution in small proportions while constantly stirring.</li>
+            <li>Filter the contents of the beaker through a filter paper fixed in a funnel and collect the filtrate.</li>
+            <li>Label the filtrate as Egg-Albumin sol.</li>
+        </ul>
+        
+        <h3>Precautions</h3>
+        
+        <ul>
+            <li>The apparatus used for preparing the sol should be properly cleaned.</li>
+            <li>Distilled water should be used for preparing sols in water.</li>
+            <li>Egg albumin sol is prepared at room temperature because in hot solution the precipitation of egg albumin takes place.</li>
+            <li>The yellow yolk should be separated completely from the egg albumin before using the later in the experiment.</li>
+            <li>Addition of egg albumin should be done very slowly and while constantly stirring so as to disperse the colloidal particles well in the solution.</li>
+        </ul>
+        
+        <h1>Preparation of Lyophobic Sols</h1>
+        
+        <h2>1. Preparation of aluminium hydroxide sol</h2>
+        
+        <h3>Materials Required</h3>
+        
+        <ul>
+            <li>2% solution of aluminium chloride</li>
+            <li>Distilled water</li>
+            <li>250 ml conical flask</li>
+            <li>250 ml beaker</li>
+            <li>Boiling tube</li>
+            <li>Glass tube</li>
+            <li>Funnel</li>
+            <li>Dropper</li>
+            <li>RB flask</li>
+            <li>Iron stand with clamp</li>
+            <li>Wire gauze</li>
+            <li>Tripod stand</li>
+            <li>Bunsen burner</li>
+        </ul>
+        
+        <h3>Real Lab Procedure</h3>
+        
+        <ul>
+            <li>Take a 250 ml conical flask and clean it using the steaming out process.</li>
+            <li>To this cleaned conical flask, add 100 ml of distilled water using a measuring cylinder.</li>
+            <li>Bring the water to boil by placing the flask over a Bunsen burner.</li>
+            <li>Add aluminium chloride solution dropwise to the boiling water using a dropper.</li>
+            <li>Continue heating until a white coloured solution of aluminium hydroxide is obtained.</li>
+            <li>Note: Replace the water lost by evaporation during boiling at regular intervals.</li>
+            <li>Keep the contents of the conical flask undisturbed for some time at room temperature.</li>
+            <li>Label the solution as Aluminium Hydroxide Sol.</li>
+        </ul>
+        
+        <h3>Precautions</h3>
+        
+        <ul>
+            <li>The apparatus required for the preparation of the sol should be thoroughly cleaned through the steaming out process.</li>
+            <li>Add aluminium chloride solution dropwise.</li>
+            <li>Heating is continued till the desired sol is obtained.</li>
+            <li>Hydrochloric acid formed as a result of hydrolysis of aluminium chloride is removed by dialysis process otherwise it would destabilise the sol.</li>
+        </ul>
+        
+        <h2>Dialysis of aluminium hydroxide sol</h2>
+        
+        <h3>Materials Required</h3>
+        
+        <ul>
+            <li>Aluminum hydroxide sol</li>
+            <li>Silver nitrate solution</li>
+            <li>400 ml beaker</li>
+            <li>Funnel with long stem</li>
+            <li>Parchment membrane</li>
+            <li>Dropper</li>
+            <li>Test tubes</li>
+            <li>Iron stand with clamp</li>
+        </ul>
+        
+        <h3>Real Lab Procedure</h3>
+        
+        <ul>
+            <li>Take a parchment bag and fold it in the shape of a bag.</li>
+            <li>Tie it to the end of the stem of a funnel with a thread.</li>
+            <li>Pour the aluminium hydroxide sol into the parchment bag through the funnel till two-third of the bag is full.</li>
+            <li>Take a 400 ml beaker and fill it three-fourth with distilled water and place it over an iron stand.</li>
+            <li>Dip the parchment bag into the distilled water and fix the funnel in position using a clamp.</li>
+            <li>Allow it to stand for about half an hour.</li>
+            <li>Withdraw about 1 ml of water from the beaker using a dropper and transfer it into a test tube.</li>
+            <li>Add a few drops of silver nitrtate solution to it.</li>
+            <li>A white precipitate of silver chloride is produced immediately indicating the presence of chloride ions in water. It means that chloride ions diffuse through the parchment membrane. As Cl<sup>-</sup> diffuse out of the sol, it gets free from the ions gradually.</li>
+            <li>In order to check whether Cl<sup>- </sup>is completely removed or not replace water in the beaker with fresh distilled water and again place the parchment bag containing sol in it.</li>
+            <li>After about 10 minutes, test for the presence of Cl<sup>-</sup> ions.</li>
+            <li>If no white precipitate is formed, Cl<sup>- </sup>ions are absent and dialysis is complete otherwise dialysis should be continued.</li>
+        </ul>
+        
+        <h3>Precautions</h3>
+        
+        <ul>
+            <li>Fill only two-third of the parchment bag with sol.</li>
+            <li>There should be no leakage of sol from the bag into the beaker.</li>
+            <li>Use distilled water for dialysis.</li>
+        </ul>
+        
+        <h2>2. Preparation of ferric hydroxide sol</h2>
+        
+        <h3>Materials Required</h3>
+        
+        <ul>
+            <li>2% solution of ferric chloride</li>
+            <li>Distilled water</li>
+            <li>250 ml conical flask</li>
+            <li>250 ml beaker</li>
+            <li>Glass tube</li>
+            <li>Funnel</li>
+            <li>Dropper</li>
+            <li>RB flask</li>
+            <li>Iron stand with clamp</li>
+            <li>Wire gauze</li>
+            <li>Tripod stand</li>
+            <li>Bunsen burner</li>
+        </ul>
+        
+        <h3>Real Lab Procedure</h3>
+        
+        <ul>
+            <li>Take a 250 ml conical flask and clean it using the steaming out process.</li>
+            <li>To this cleaned conical flask, add 100 ml of distilled water using a measuring cylinder.</li>
+            <li>Bring the water to boil by placing the flask over a Bunsen burner.</li>
+            <li>Add ferric chloride solution dropwise to the boiling water using a dropper.</li>
+            <li>Continue heating until a deep red or brown solution of ferric hydroxide is obtained.</li>
+            <li>Note: Replace the water lost by evaporation during boiling at regular intervals.</li>
+            <li>Keep the contents of the conical flask undisturbed for some time at room temperature.</li>
+            <li>Label the solution as Ferric Hydroxide Sol.</li>
+        </ul>
+        
+        <h3>Precautions</h3>
+        
+        <ul>
+            <li>Since ferric hydroxide sol is affected by impurities, the apparatus required for the preparation of sol should be thoroughly cleaned by the steaming out process.</li>
+            <li>Add ferric chloride solution dropwise.</li>
+            <li>Heating is continued till the desired sol is obtained.</li>
+            <li>Hydrochloric acid formed as a result of hydrolysis of ferric chloride is removed by dialysis process otherwise it would destabilise the sol.</li>
+        </ul>
+        
+        <h2>Dialysis of ferric hydroxide sol</h2>
+        
+        <h3>Materials Required</h3>
+        
+        <ul>
+            <li>Ferric hydroxide sol</li>
+            <li>Silver nitrate solution</li>
+            <li>400 ml beaker</li>
+            <li>Funnel with long stem</li>
+            <li>Parchment membrane</li>
+            <li>Dropper</li>
+            <li>Test tubes</li>
+            <li>Iron stand with clamp</li>
+        </ul>
+        
+        <h3>Real Lab Procedure</h3>
+        
+        <ul>
+            <li>Take a parchment bag and fold it in the shape of a bag.</li>
+            <li>Tie it to the end of the stem of a funnel with a thread.</li>
+            <li>Pour the given Ferric hydroxide sol into the parchment bag through the funnel till two-third of the bag is full.</li>
+            <li>Take a 400 ml beaker and fill it three-fourth with distilled water and place it over an iron stand.</li>
+            <li>Dip the parchment bag into distilled water and fix the funnel in position using a clamp.</li>
+            <li>Allow it to stand for about half an hour.</li>
+            <li>Withdraw about 1 ml of water from the beaker using a dropper and transfer it into a test tube.</li>
+            <li>Add a few drops of silver nitrtate solution to it.</li>
+            <li>A white precipitate of silver chloride is produced immediately indicating the presence of chloride ions in water. It means that chloride ions diffuse through the parchment membrane. As Cl<sup>-</sup> diffuse out of the sol, it gets free from the ions gradually.</li>
+            <li>In order to check whether Cl<sup>- </sup>is completely removed or not replace water in the beaker by fresh distilled water and again place the parchment bag containing sol in it.</li>
+            <li>After about 10 minutes, test for the presence of Cl<sup>-</sup> ions.</li>
+            <li>If no white precipitate is formed, Cl<sup>-</sup> ions are absent and dialysis is complete otherwise dialysis should be continued.</li>
+        </ul>
+        
+        <h3>Precautions</h3>
+        
+        <ul>
+            <li>Fill only two-third of the parchment bag with sol.</li>
+            <li>There should be no leakage of sol from the bag into the beaker.</li>
+            <li>Use distilled water for dialysis.</li>
+        </ul>
+        
+        <h2>3. Preparation of arsenious sulphide sol</h2>
+        
+        <h3>Materials Required</h3>
+        
+        <ul>
+            <li>Solid arsenious oxide</li>
+            <li>H<sub>2</sub>S gas</li>
+            <li>Distilled water</li>
+            <li>250 ml conical flasks</li>
+            <li>250 ml beakers</li>
+            <li>RB flask</li>
+            <li>Glass tube</li>
+            <li>Funnel</li>
+            <li>Glass rod</li>
+            <li>Filter paper</li>
+            <li>Iron stand with clamp</li>
+            <li>Tripod stand</li>
+            <li>Wire gauze</li>
+            <li>Bunsen burner</li>
+        </ul>
+        
+        <h3>Real Lab Procedure</h3>
+        
+        <ul>
+            <li>Clean a 250 ml conical flask by the steaming out process.</li>
+            <li>To this cleaned flask, add 0.2 g of arsenious oxide and 100 ml of distilled water.</li>
+            <li>Boil the solution for about 10 minutes (while stirring using a glass rod) on a Bunsen burner.</li>
+            <li>Filter the hot solution into another beaker through a flutted filter paper.</li>
+            <li>Pass a slow current of H<sub>2</sub>S gas into to arsenious oxide solution.</li>
+            <li>The solution develops a yellow colour due to the formation of arsenious sulphide.</li>
+            <li>Continue passing H<sub>2</sub>S till the intensity of colour does not change further.</li>
+            <li>Expel excess of H<sub>2</sub>S gas from the sol by boiling the sol till the escaping gas does not turn lead acetate paper black.</li>
+            <li>Filter the solution through a flutted filter paper and collect the yellow filtrate in a dry conical flask.</li>
+            <li>Label it as Arsenious Sulphide Sol.</li>
+        </ul>
+        
+        <h3>Precautions</h3>
+        
+        <ul>
+            <li>Use cleaned apparatus since As<sub>2</sub>S<sub>3</sub> sol is affected by even traces of impurities.</li>
+            <li>Handle arsenious oxide with care since it is highly poisonous. Wash your hand immediately every time you handle this chemical. Do not eat or drink while doing this experiment.</li>
+        </ul>
+        
+        <h2>Simulator Procedure (as performed through the <a href="http://amrita.olabs.co.in/" target="_blank">Online Labs</a>)</h2>
+        
+        <p>You can select the sol from ‘Select the sol’ drop down list.</p>
+        
+        <p><strong>Lyophilic Sols</strong></p>
+        
+        <p>You can select the sample from ‘Select the sample’ drop down list.</p>
+        
+        <p><u>Starch</u></p>
+        
+        <ul>
+            <li>Drag the beaker to the burner to place it over the wire gauze and boil 100 ml distilled water.</li>
+            <li>Click on the ‘knob’ of the burner to turn it on.</li>
+            <li>Drag the watch glass to the beaker to transfer 1 g starch paste into boiling water.</li>
+            <li>Drag the glass rod to the beaker to stir the contents.</li>
+            <li>Continue boiling for 10 minutes.</li>
+            <li>Drag the beaker to the funnel to filter the prepared starch sol.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>To go to the dialysis process sol, click on the ‘Dialysis of starch sol’ button.</li>
+            <li>Drag the conical flask to the funnel to pour starch sol into the parchment bag dipped in distilled water.</li>
+            <li>Allow it to stand for 30 minutes.</li>
+            <li>Drag the dropper to the beaker to take water in it.</li>
+            <li>Drag the dropper to add iodine solution to the 1<sup>st</sup> test tube.</li>
+            <li>You cannot see any characteristic change in the test tube.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>Drag the dropper to the beaker to take water in it.</li>
+            <li>Drag the dropper to add silver nitrate solution to the 2<sup>nd</sup> test tube.</li>
+            <li>You can see the formation of white precipitate in the test tube.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>To replace water in the beaker, click on the ‘Replace the water’ button.</li>
+            <li>Allow it to stand for 10 minutes.</li>
+            <li>Drag the dropper to the beaker to take water in it.</li>
+            <li>Drag the dropper to add silver nitrate solution to the 2<sup>nd</sup> test tube.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>To redo the experiment, click on the ‘Reset’ button.</li>
+        </ul>
+        
+        <p><strong>Note: </strong>Click on the <strong>‘HELP’</strong> button to see the instructions.</p>
+        
+        <p><u>Gum</u></p>
+        
+        <ul>
+            <li>Drag the beaker to the burner to place it over the wire gauze and warm 100 ml distilled water.</li>
+            <li>Click on the ‘knob’ of the burner to turn it on.</li>
+            <li>Drag the watch glass to the beaker to transfer 1 g gum paste into the hot water.</li>
+            <li>Drag the glass rod to the beaker to stir the contents.</li>
+            <li>Continue heating for 10 minutes.</li>
+            <li>Drag the beaker to the funnel to filter the prepared gum sol.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>To redo the experiment, click on the ‘Reset’ button.</li>
+        </ul>
+        
+        <p><strong>Note: </strong>Click on the <strong>‘HELP’</strong> button to see the instructions.</p>
+        
+        <p><u>Egg Albumin</u></p>
+        
+        <ul>
+            <li>Drag the beaker to the beaker containing 5% NaCl solution to transfer egg albumin into it.</li>
+            <li>Drag the glass rod to the beaker to stir the contents.</li>
+            <li>Drag the beaker to the funnel to filter the prepared egg albumin sol.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>To redo the experiment, click on the ‘Reset’ button.</li>
+        </ul>
+        
+        <p><strong>Note:</strong> Click on the <strong>‘HELP’ </strong>button to see the instructions.</p>
+        
+        <p><strong>Lyophobic Sols</strong></p>
+        
+        <p>You can select the sample from ‘Select the sample’ drop down list.</p>
+        
+        <p><u>Aluminium hydroxide</u></p>
+        
+        <ul>
+            <li>Click on the ‘knob’ of the burner to turn it on.</li>
+            <li>Drag the conical flask to the burner to place it over the wire gauze and boil 100 ml distilled water.</li>
+            <li>Drag the dropper to the conical flask to drop aluminium chloride solution into it.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>To go to the dialysis process sol, click on the ‘Dialysis of aluminium hydroxide sol’ button.</li>
+            <li>Drag the conical flask to the funnel to pour aluminium hydroxide sol into the parchment bag dipped in distilled water.</li>
+            <li>Allow it to stand for 30 minutes.</li>
+            <li>Drag the dropper to the beaker to take water in it and drop water into the 1<sup>st</sup> test tube.</li>
+            <li>Drag the dropper to add silver nitrate solution into the test tube.</li>
+            <li>You can see the formation of white precipitate in the test tube.</li>
+            <li>Click on the on the inference icon to see the inference.</li>
+            <li>To replace water in the beaker, click on the ‘Replace distilled water from the beaker’ button.</li>
+            <li>Allow it to stand for 10 minutes.</li>
+            <li>Drag the dropper to the beaker to take water in it and drop water into the 2<sup>nd</sup> test tube.</li>
+            <li>Drag the dropper to add silver nitrate solution to the test tube.</li>
+            <li>You cannot see any characteristic changes in the test tube.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>To redo the experiment, click on the ‘Reset’ button.</li>
+        </ul>
+        
+        <p><strong>Note:</strong> Click on the <strong>‘HELP’ </strong>button to see the instructions.</p>
+        
+        <p><u>Ferric hydroxide</u></p>
+        
+        <ul>
+            <li>Drag the conical flask to the burner to place it over the wire gauze and boil 100 ml distilled water.</li>
+            <li>Click on the ‘knob’ of the burner to turn it on.</li>
+            <li>Drag the dropper to the conical flask to drop ferric chloride solution into it.</li>
+            <li>Wait for some time to complete the reaction.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>To go to the dialysis process sol, click on the ‘Dialysis of ferric hydroxide sol’ button.</li>
+            <li>Drag the conical flask to the funnel to pour ferric hydroxide sol into the parchment bag dipped in distilled water.</li>
+            <li>Allow it to stand for 30 minutes.</li>
+            <li>Drag the dropper to the beaker to take water in it and drop water into the 1<sup>st</sup> test tube.</li>
+            <li>Drag the dropper to add silver nitrate solution to the test tube.</li>
+            <li>You can see the formation of white precipitate in the test tube.</li>
+            <li>Click on the on the inference icon to see the inference.</li>
+            <li>To replace water in the beaker, click on the ‘Replace the water’ button.</li>
+            <li>Allow it to stand for 10 minutes.</li>
+            <li>Drag the dropper to the beaker to take water in it and drop water into the 2<sup>nd</sup> test tube.</li>
+            <li>Drag the dropper to add silver nitrate solution to the test tube.</li>
+            <li>You cannot see any characteristic changes in the test tube.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>To redo the experiment, click on the ‘Reset’ button.</li>
+        </ul>
+        
+        <p><strong>Note:</strong> Click on the <strong>‘HELP’</strong> button to see the instructions.</p>
+        
+        <p><u>Arsenious sulphide</u></p>
+        
+        <ul>
+            <li>Drag the watch glass to the conical flask to add 0.2 g arseniuos oxide into 100 ml distilled water.</li>
+            <li>Drag the conical flask to the burner to place it over the wire gauze.</li>
+            <li>Click on the ‘knob’ of the burner to turn it on.</li>
+            <li>Drag the conical flask to the funnel to filter the solution.</li>
+            <li>Click on the ‘knob’ of the Kipp’s apparatus to pass hydrogen sulphide gas through the solution.</li>
+            <li>Drag the beaker to the burner to place it over the wire gauze.</li>
+            <li>Click on the ‘knob’ of the burner o turn it on.</li>
+            <li>Drag the beaker to the funnel to filter the solution.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>To pass H<sub>2</sub>S gas through the solution, click on the ‘Pass H<sub>2</sub>S gas through arsenous acid’ button.</li>
+            <li>Click on the ‘knob’ of the Kipp’s apparatus to pass hydrogen sulphide gas through the solution.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>Drag the beaker to the burner to place it over the wire gauze.</li>
+            <li>Click on the ‘knob’ of the burner to turn it on and heat the sol for 5 minutes.</li>
+            <li>To filter the sol, click on the ‘Filter the solution’ button.</li>
+            <li>Drag the beaker to the funnel to filter the arseniuos sulphide sol.</li>
+            <li>Click on the inference icon to see the inference.</li>
+            <li>To redo the experiment, click on the ‘Reset’ button.</li>
+        </ul>
+        
+        <p><strong>Note: </strong>Click on the <strong>‘HELP’</strong> button to see the instructions.</p>
+        
+        <p>&nbsp;</p>
+        
+        <p>&nbsp;</p>
+        
+        <p>&nbsp;</p>
+        </div>
+    </div>
+    <div class="content" id="animation" style="display: none;">
+        <h2>Simulation</h2>
+        <!-- <p>This is the simulation section of the experiment.</p> -->
+        <body class="p-0 container-fluid vlabs-page d-flex flex-column justify-content-between">
+
+              <div class="vlabs-page-content pb-4 flex-grow-1 markdown-body">
+                <div class="text-center px-5 fix-spacing">
+                  <h2 id="preparation-of-sols">Preparation of Sols</h2>
+              
+                </div>
+                    
+                        <div class="expand-1">
+                        </div>
+                    </header>
+                    <iframe class="responsive-iframe" id="fraDisabled" src="./chemprac/index.html" frameborder="1" onmyload="disableContextMenu();">
+                    </iframe>
+                  </div>
+              </div>
+            </div>
+          </div>
+      
+          <script src="./chemprac/toggleslide.js"></script>
+          
+      
+      
+      </body>
+        <!-- <a href="./chemprac/sim.html"></a> -->
+    </div>
+</div> 
+    <!-- <div class="content" id="simulation" style="display: none;">
+      <h2>Simulation</h2>
+        <p>This is the simulation section of the experiment.</p>
+    </div>
+     -->
+    <div class="content" id="video" style="display: none;">
+
+      <!-- <p>This is the video section of the experiment.</p> -->
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/lT-K-XvIdeI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>    <div class="content" id="simulation" style="display: none;">
+    </div>
+  </div>
+    <div class="content" id="vivavoce" style="display: none;">
+        <h2>Vivavoce</h2>
+        <!-- <p>This is the vivavoce section of the experiment.</p> -->
+        <!-- <link rel="stylesheet" href="caliper.html"> -->
+        <h1>Vernier Caliper Quiz</h1>
+        <form>
+            <h2>Question 1:</h2>
+            <p>A colloidal solution appears as a fluid is called?</p>
+            <input type="radio" name="q1" value="A">Sol<br>
+            <input type="radio" name="q1" value="B">Gel<br>
+            <input type="radio" name="q1" value="C">Foam<br>
+    
+            <h2>Question 2:</h2>
+            <p>	Which one of the following is an example of a sol?</p>
+            <input type="radio" name="q2" value="A">Jellies<br>
+            <input type="radio" name="q2" value="B">Gelatin in water<br>
+            <input type="radio" name="q2" value="C">Jams<br>
+    
+            <h2>Question 3:</h2>
+            <p>	Which one of the following is an example for lyophilic sol?</p>
+            <input type="radio" name="q3" value="A">Ferric hydroxide sol<br>
+            <input type="radio" name="q3" value="B">Starch sol<br>
+            <input type="radio" name="q3" value="C">Aluminium hydroxide sol<br>
+    
+            <h2>Question 4:</h2>
+            <p>Which one of the following statement is true about lyophobic sol?</p>
+            <input type="radio" name="q4" value="A">They can be prepared in high concentration.<br>
+            <input type="radio" name="q4" value="B"> They are irreversible.<br>
+            <input type="radio" name="q4" value="C"> They are reversible<br>
+    
+            <h2>Question 5:</h2>
+            <p>Which one of the following is an example of a negatively charged sol?</p>
+            <input type="radio" name="q5" value="A">Aluminium hydroxide sol<br>
+            <input type="radio" name="q5" value="B">Ferric hydroxide sol<br>
+            <input type="radio" name="q5" value="C">Arsenious sulphide sol<br>
+    
+            <input type="submit" value="Submit">
+        </form>
+
+      </div>
+      <div class="content" id="resources" style="display: none;">
+        <h2>Resources</h2>
+        <!-- <p>This is the resources section of the experiment.</p> -->
+        <div class="divContent"><h1>Books</h1>
+            <ul>
+                <li>&nbsp;&nbsp;Laboratory Manual Chemistry for class XII - Published by NCERT</li>
+              <li>Text book for Class XII Chemistry - Part I, National Council of Educational Research and Training</li>
+            </ul>        
+            <h1>Websites</h1>
+            <ul>
+                <li><a href="http://epathshala.nic.in/wp-content/doc/book/flipbook/Class%20XII/12089-Physics%20Part-1/Chapter-3/index.html" target="_blank">http://epathshala.nic.in/wp-content/doc/book/flipbook/Class%20XII/12089-Physics%20Part-1/Chapter-3/index.html</a></li>
+                <li><a href="https://www.youtube.com/embed/4-GxinG7AVw?rel=0&amp;vq=hd1080" target="_blank">https://www.youtube.com/embed/4-GxinG7AVw?rel=0&amp;vq=hd1080</a></li>
+                <li><a href="https://www.youtube.com/embed/Ls5_PcXZRc8?rel=0&amp;vq=hd1080" target="_blank">https://www.youtube.com/embed/Ls5_PcXZRc8?rel=0&amp;vq=hd1080</a></li>
+            </ul>
+            </div>
+      </div>
+    </div>
+    <script>
+      
+      //simulator script 
+      function simFullScreenOlab(){
+		var $ = function(selector,context){return(context||document).querySelector(selector)};
+        var iframe = $("iframe"),
+            domPrefixes = 'Webkit Moz O ms Khtml'.split(' ');
+
+            var fullscreen = function(elem){
+            var prefix;
+			
+            // Mozilla and webkit intialise fullscreen slightly differently
+            for ( var i = -1, len = domPrefixes.length; ++i < len; ) 
+			{
+              prefix = domPrefixes[i].toLowerCase();
+              if ( elem[prefix + 'EnterFullScreen'] ) {
+                // Webkit uses EnterFullScreen for video
+                return prefix + 'EnterFullScreen';
+                break;
+              } else if( elem[prefix + 'RequestFullScreen'] ) {
+                // Mozilla uses RequestFullScreen for all elements and webkit uses it for non video elements
+                return prefix + 'RequestFullScreen';
+                break;
+              }
+            }
+            return false;
+        }; 
+        // Webkit uses "requestFullScreen" for non video elements
+        var fullscreenother = fullscreen(document.createElement("iframe"));
+        if(!fullscreen) {
+            alert("Fullscreen won't work, please make sure you're using a browser that supports it and you have enabled the feature");
+            return;
+        }
+		iframe[fullscreenother]();
+		(this,this.document);
+	    }
+  // Get the form element
+const form = document.querySelector('form');
+
+// Add an event listener for form submission
+form.addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  // Get the selected radio buttons
+  const q1 = form.elements['q1'].value;
+  const q2 = form.elements['q2'].value;
+  const q3 = form.elements['q3'].value;
+  const q4 = form.elements['q4'].value;
+  const q5 = form.elements['q5'].value;
+
+  // Check the answers
+  const correctAnswers = {q1: 'C', q2: 'C',q3: 'C',q4: 'A',q5: 'C'};
+  let score = 0;
+  let resultMsg = '';
+
+  if (q1 === correctAnswers.q1) {
+    score++;
+    resultMsg += 'Question 1: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 1: &#10060; <br>';
+  }
+
+  if (q2 === correctAnswers.q2) {
+    score++;
+    resultMsg += 'Question 2: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 2: &#10060; <br>';
+  }
+  if (q3 === correctAnswers.q3) {
+    score++;
+    resultMsg += 'Question 3: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 3: &#10060; <br>';
+  }
+  if (q4 === correctAnswers.q4) {
+    score++;
+    resultMsg += 'Question 4: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 4: &#10060; <br>';
+  }
+  if (q5 === correctAnswers.q5) {
+    score++;
+    resultMsg += 'Question 5: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 5: &#10060; <br>';
+  }
+
+
+  // Display the result message in a dialog box
+  resultMsg = `You scored ${score} out of 5. <br><br> ${resultMsg}`;
+  const resultDiv = document.createElement('div');
+  resultDiv.innerHTML = resultMsg;
+  
+  const dialog = document.createElement('dialog');
+  dialog.appendChild(resultDiv);
+  const closeButton = document.createElement('button');
+  closeButton.textContent = 'Close';
+  closeButton.addEventListener('click', function() {
+    dialog.close();
+  });
+  dialog.appendChild(closeButton);
+  document.body.appendChild(dialog);
+  dialog.showModal();
+});
+
+        
+      function showTheory() {
+        document.getElementById("theory").style.display = "block";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "none";
+        // document.getElementById("simulation").style.display = "none";
+        document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(0);
+      }
+
+      function showProcedure() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "block";
+        document.getElementById("animation").style.display = "none";
+        // document.getElementById("simulation").style.display = "none";
+        document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(1);
+      }
+      function showAnimation() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "block";
+        // document.getElementById("simulation").style.display = "none";
+        document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(2);
+      }
+
+
+      // function showSimulation() {
+      //   document.getElementById("theory").style.display = "none";
+      //   document.getElementById("procedure").style.display = "none";
+      //   document.getElementById("animation").style.display = "none";
+      //   document.getElementById("simulation").style.display = "block";
+      //   document.getElementById("video").style.display = "none";
+      //   document.getElementById("vivavoce").style.display = "none";
+      //   document.getElementById("resources").style.display = "none";
+      //   setActiveButton(3);
+      // }
+
+      function showVideo() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "none";
+        // document.getElementById("simulation").style.display = "none";
+        document.getElementById("video").style.display = "block";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(4);
+      }
+      function showVivavoce() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "none";
+        // document.getElementById("simulation").style.display = "none";
+        document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "block";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(5);
+      }
+      function showResources() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "none";
+        // document.getElementById("simulation").style.display = "none";
+        document.getElementById("video").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "block";
+        setActiveButton(6);
+      }
+
+      function setActiveButton(index) {
+        // Remove active class from all buttons
+        var buttons = document.getElementsByClassName("nav-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+
+        // Add active class to the button with the given index
+        buttons[index].classList.add("active");
+      }
+    </script>
+  </body>
+</html>

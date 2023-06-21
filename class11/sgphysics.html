@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Experiment</title>
+    <style>
+      .navbar{
+            background-color: #012603;
+            margin-left: 35%;
+        }
+      /* Style the buttons */
+      .nav-button {
+        font-size: 16px;
+        padding: 10px 15px;
+        margin: 5px;
+        border: none;
+        border-radius: 4px;
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      /* Style the active button */
+      .active {
+        font-size: 20px;
+        padding: 10px;
+      }
+
+      .content{
+        background-color: rgb(158, 158, 172);
+        padding-bottom: 100%;
+      }
+      #container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+h1 {
+  text-align: center;
+}
+
+#main-scale,
+#vernier-scale {
+  position: relative;
+  height: 50px;
+}
+
+.scale-line,
+.vernier-marking {
+  position: absolute;
+  height: 100%;
+  border-left: 1px solid #ccc;
+}
+
+.scale-marking,
+.vernier-marking {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+}
+
+.scale-marking {
+  height: 10px;
+  border-top: 1px solid #ccc;
+}
+
+#vernier-scale {
+  margin-top: -20px;
+}
+
+#measurement {
+  position: relative;
+  height: 70px;
+  margin-top: 20px;
+}
+
+#measurement-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  border-top: 2px solid #000;
+}
+
+#measurement-value {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: bold;
+}
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  margin: 20px auto;
+  width: 50%;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+form p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+form input[type="radio"] {
+  margin-right: 10px;
+}
+
+form input[type="submit"] {
+  display: block;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.result-msg {
+  margin: 20px auto;
+  width: 50%;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.result-msg p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.result-msg span {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.result-msg .correct {
+  color: green;
+}
+
+.result-msg .incorrect {
+  color: red;
+}
+
+    </style>
+
+  </head>
+  <body>
+    <div >
+    <h1><u>SG</u></h1>
+    <nav class="navbar">
+      <button class="nav-buttonn active" onclick="showTheory()">
+        <img src="../img/theory.png" alt="Theory" width="20" height="20">
+        Theory
+      </button>
+      <button class="nav-buttonn" onclick="showProcedure()">
+        <img src="../img/procedure.png" alt="Procedure" width="20" height="20">
+        Procedure
+      </button>
+      <button class="nav-buttonn" onclick="showAnimation()">
+        <img src="../img/procedure.png" alt="Animation" width="20" height="20">
+        Animation
+      </button>
+      <button class="nav-buttonn" onclick="showSimulation()">
+        <img src="../img/simulation.png" alt="Simulation" width="20" height="20">
+        Simulation
+      </button>
+      <!-- <button class="nav-buttonn" onclick="showVideoo()">
+        <img src="../img/video.png" alt="Video" width="20" height="20">
+        Video
+      </button> -->
+      <button class="nav-buttonn" onclick="showVivavoce()">
+        <img src="../img/vivavoce.png" alt="Vivavoce" width="20" height="20">
+        Vivavoce
+      </button>
+      <button class="nav-buttonn" onclick="showResources()">
+        <img src="../img/resources.png" alt="Resources" width="20" height="20">
+        Resource
+    </nav></div>
+    <div class="content" id="theory" >
+    <h1>Our Objective&nbsp;</h1>
+      <!-- <h3>Our Objective</h3> -->
+    <div class="content" id="procedure" style="display: none;">
+   <div><h2>Procedure</h2>
+    <p>This is the procedure section of the experiment.</p></div>
+    </div>
+    <div class="content" id="animation" style="display: none;">
+        <h2>Animation</h2>
+        <p>This is the animation section of the experiment.</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/MOivxqXYCZk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    <div class="content" id="simulation" style="display: none;">
+        <h2>Video</h2>
+        <p>This is the simulation section of the experiment.</p>
+        <!-- <iframe src="https://amrita.olabs.edu.in/olab/html5/?sub=PHY&cat=CLA&exp=VernierCalipers&tempId=olab_ot&linktoken=c57b21f9a6cf727df3b4a715f0239635&elink_lan=en-IN&elink_title=Vernier%20Calipers" width="820px" height="500px" align="middle" class="iframeStyle" frameborder="0" allowfullscreen="true"> </iframe> -->
+        <!-- <link  href="./vcsimulator/simulator.html" > -->
+       
+      </div>
+    <div class="content" id="video" style="display: none;">
+      <h2>Video</h2>
+      <p>This is the video section of the experiment.</p>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/2_KrtHaqw-w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+
+    <div class="content" id="vivavoce" style="display: none;">
+        <h2>Vivavoce</h2>
+        <p>This is the vivavoce section of the experiment.</p>
+        <!-- <link rel="stylesheet" href="caliper.html"> -->
+        <h1>Screw Gauge Quiz</h1>
+        <form>
+            <h2>Question 1:</h2>
+            <p>What is a Screw Gauge used for?</p>
+            <input type="radio" name="q1" value="A">Measuring lengths with high precision<br>
+            <input type="radio" name="q1" value="B">Measuring thickness with high precision<br>
+            <input type="radio" name="q1" value="C">Measuring mass with high precision<br>
+    
+            <h2>Question 2:</h2>
+            <p>What is the maximum range that can be measured using a Screw Gauge?</p>
+            <input type="radio" name="q2" value="A">25mm<br>
+            <input type="radio" name="q2" value="B">50mm<br>
+            <input type="radio" name="q2" value="C">75mm<br>
+    
+            <h2>Question 3:</h2>
+            <p>What is the resolution of a Screw Gauge?</p>
+            <input type="radio" name="q3" value="A">0.001mm<br>
+            <input type="radio" name="q3" value="B">0.01mm<br>
+            <input type="radio" name="q3" value="C">0.1mm<br>
+    
+            <h2>Question 4:</h2>
+            <p>What is the least count of a Screw Gauge?</p>
+            <input type="radio" name="q4" value="A">0.01mm<br>
+            <input type="radio" name="q4" value="B">0.001mm<br>
+            <input type="radio" name="q4" value="C">0.1mm<br>
+    
+            <h2>Question 5:</h2>
+            <p>What is the name of the device used to measure the thickness of a sheet using a Screw Gauge?</p>
+            <input type="radio" name="q5" value="A">Thickness gauge<br>
+            <input type="radio" name="q5" value="B">Feeler gauge<br>
+            <input type="radio" name="q5" value="C">Thread gauge<br>
+    
+            <input type="submit" value="Submit">
+        </form>
+    
+
+      </div>
+      <div class="content" id="resources" style="display: none;">
+        <h2>Resources</h2>
+        <p>This is the resources section of the experiment.</p>
+        <div class="divContent"><h1>Books</h1>
+            <ul>
+                <li>&nbsp;&nbsp;Laboratory Manual Physics for class XII - Published by NCERT</li>
+            </ul>        
+            <h1>Websites</h1>
+            <ul>
+                <li><a href="http://epathshala.nic.in/wp-content/doc/book/flipbook/Class%20XII/12089-Physics%20Part-1/Chapter-3/index.html" target="_blank">http://epathshala.nic.in/wp-content/doc/book/flipbook/Class%20XII/12089-Physics%20Part-1/Chapter-3/index.html</a></li>
+                <li><a href="https://www.youtube.com/embed/4-GxinG7AVw?rel=0&amp;vq=hd1080" target="_blank">https://www.youtube.com/embed/4-GxinG7AVw?rel=0&amp;vq=hd1080</a></li>
+                <li><a href="https://www.youtube.com/embed/Ls5_PcXZRc8?rel=0&amp;vq=hd1080" target="_blank">https://www.youtube.com/embed/Ls5_PcXZRc8?rel=0&amp;vq=hd1080</a></li>
+            </ul>
+            </div>
+      </div>
+    <script>
+      //simulator script 
+ 
+  // Get the form element
+const form = document.querySelector('form');
+
+// Add an event listener for form submission
+form.addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  // Get the selected radio buttons
+  const q1 = form.elements['q1'].value;
+  const q2 = form.elements['q2'].value;
+  const q3 = form.elements['q3'].value;
+  const q4 = form.elements['q4'].value;
+  const q5 = form.elements['q5'].value;
+
+  // Check the answers
+  const correctAnswers = {q1: 'B', q2: 'C',q3: 'A',q4: 'B',q5: 'A'};
+  let score = 0;
+  let resultMsg = '';
+
+  if (q1 === correctAnswers.q1) {
+    score++;
+    resultMsg += 'Question 1: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 1: &#10060; <br>';
+  }
+
+  if (q2 === correctAnswers.q2) {
+    score++;
+    resultMsg += 'Question 2: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 2: &#10060; <br>';
+  }
+  if (q3 === correctAnswers.q3) {
+    score++;
+    resultMsg += 'Question 3: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 3: &#10060; <br>';
+  }
+  if (q4 === correctAnswers.q4) {
+    score++;
+    resultMsg += 'Question 4: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 4: &#10060; <br>';
+  }
+  if (q5 === correctAnswers.q5) {
+    score++;
+    resultMsg += 'Question 5: &#10004; <br>';
+  } else {
+    resultMsg += 'Question 5: &#10060; <br>';
+  }
+
+
+  // Display the result message in a dialog box
+  resultMsg = `You scored ${score} out of 5. <br><br> ${resultMsg}`;
+  const resultDiv = document.createElement('div');
+  resultDiv.innerHTML = resultMsg;
+  
+  const dialog = document.createElement('dialog');
+  dialog.appendChild(resultDiv);
+  const closeButton = document.createElement('button');
+  closeButton.textContent = 'Close';
+  closeButton.addEventListener('click', function() {
+    dialog.close();
+  });
+  dialog.appendChild(closeButton);
+  document.body.appendChild(dialog);
+  dialog.showModal();
+});
+
+        
+      function showTheory() {
+        document.getElementById("theory").style.display = "block";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "none";
+        document.getElementById("simulation").style.display = "none";
+        // document.getElementById("videoo").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(0);
+      }
+
+      function showProcedure() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "block";
+        document.getElementById("animation").style.display = "none";
+        document.getElementById("simulation").style.display = "none";
+        // document.getElementById("videoo").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(1);
+      }
+      function showAnimation() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "block";
+        document.getElementById("simulation").style.display = "none";
+        // document.getElementById("videoo").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(2);
+      }
+
+
+      function showSimulation() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "none";
+        document.getElementById("simulation").style.display = "block";
+        // document.getElementById("videoo").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(3);
+      }
+
+      // function showVideoo() {
+      //   document.getElementById("theory").style.display = "none";
+      //   document.getElementById("procedure").style.display = "none";
+      //   document.getElementById("animation").style.display = "none";
+      //   document.getElementById("simulation").style.display = "none";
+      //   // document.getElementById("videoo").style.display = "block";
+      //   document.getElementById("vivavoce").style.display = "none";
+      //   document.getElementById("resources").style.display = "none";
+      //   setActiveButton(4);
+      // }
+      function showVivavoce() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "none";
+        document.getElementById("simulation").style.display = "none";
+        // document.getElementById("videoo").style.display = "none";
+        document.getElementById("vivavoce").style.display = "block";
+        document.getElementById("resources").style.display = "none";
+        setActiveButton(4);
+      }
+      function showResources() {
+        document.getElementById("theory").style.display = "none";
+        document.getElementById("procedure").style.display = "none";
+        document.getElementById("animation").style.display = "none";
+        document.getElementById("simulation").style.display = "none";
+        // document.getElementById("videoo").style.display = "none";
+        document.getElementById("vivavoce").style.display = "none";
+        document.getElementById("resources").style.display = "block";
+        setActiveButton(5);
+      }
+
+      function setActiveButton(index) {
+        // Remove active class from all buttons
+        var buttons = document.getElementsByClassName("nav-buttonn");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+
+        // Add active class to the button with the given index
+        buttons[index].classList.add("active");
+      }
+    </script>
+  </body>
+</html>
